@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../index.html#5058f1af8388633f609cadb75a75dc9d">.</a>
 * <a href="{{ site.github.repository_url }}/blob/master/example.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-02 18:05:20+09:00
+    - Last commit date: 2020-05-03 00:47:51+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/4/ALDS1_4_B">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/4/ALDS1_4_B</a>
@@ -43,27 +43,32 @@ layout: default
 {% raw %}
 ```cpp
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/4/ALDS1_4_B"
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#define REP(i, n) for (int i = 0; (i) < (int)(n); ++ (i))
-#define ALL(x) std::begin(x), std::end(x)
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+#define all(x) (x).begin(),(x).end()
 using namespace std;
+using ll = long long;
+using P = pair<int,int>;
+template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
+template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 int main() {
+  std::cin.tie(nullptr);
+  std::ios_base::sync_with_stdio(false);
+  std::cout << std::fixed << std::setprecision(15);
     int n; cin >> n;
     vector<int> s(n);
-    REP (i, n) {
+    rep(i, n) {
         cin >> s[i];
     }
     int q; cin >> q;
     int cnt = 0;
     while (q --) {
         int t_i; cin >> t_i;
-        cnt += binary_search(ALL(s), t_i);
+        cnt += binary_search(all(s), t_i);
     }
     cout << cnt << endl;
-    return 0;
+  return 0;
 }
 
 ```
@@ -74,27 +79,32 @@ int main() {
 ```cpp
 #line 1 "example.test.cpp"
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/4/ALDS1_4_B"
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#define REP(i, n) for (int i = 0; (i) < (int)(n); ++ (i))
-#define ALL(x) std::begin(x), std::end(x)
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+#define all(x) (x).begin(),(x).end()
 using namespace std;
+using ll = long long;
+using P = pair<int,int>;
+template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
+template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 int main() {
+  std::cin.tie(nullptr);
+  std::ios_base::sync_with_stdio(false);
+  std::cout << std::fixed << std::setprecision(15);
     int n; cin >> n;
     vector<int> s(n);
-    REP (i, n) {
+    rep(i, n) {
         cin >> s[i];
     }
     int q; cin >> q;
     int cnt = 0;
     while (q --) {
         int t_i; cin >> t_i;
-        cnt += binary_search(ALL(s), t_i);
+        cnt += binary_search(all(s), t_i);
     }
     cout << cnt << endl;
-    return 0;
+  return 0;
 }
 
 ```

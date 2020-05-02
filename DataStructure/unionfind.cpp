@@ -6,7 +6,7 @@ struct UnionFind {
   UnionFind(ll n):par(n),siz(n,1) {
     for (ll i = 0; i < n; ++i) par[i] = i;
   }
-  ll size() { return par.size() };
+  ll size() { return par.size(); };
   ll root(ll x) {
     assert(x < size());
     if (par[x] == x) return x;

@@ -25,20 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: tests/dijkstra_yo.test.cpp
+# :heavy_check_mark: tests/dijkstra_yo.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/dijkstra_yo.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 03:15:46+09:00
+    - Last commit date: 2020-05-03 03:16:48+09:00
 
 
+* see: <a href="https://judge.yosupo.jp/problem/shortest_path">https://judge.yosupo.jp/problem/shortest_path</a>
 
 
 ## Depends on
 
-* :x: <a href="../../library/Graph/dijkstra.cpp.html">Graph/dijkstra.cpp</a>
+* :heavy_check_mark: <a href="../../library/Graph/dijkstra.cpp.html">Graph/dijkstra.cpp</a>
 
 
 ## Code
@@ -46,6 +47,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#define PROBLEM "https://judge.yosupo.jp/problem/shortest_path"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -89,6 +91,7 @@ int main() {
 {% raw %}
 ```cpp
 #line 1 "tests/dijkstra_yo.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/shortest_path"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -139,7 +142,7 @@ vector<int> get_path(int t) { //tへの経路復元
 }
 
 
-#line 11 "tests/dijkstra_yo.test.cpp"
+#line 12 "tests/dijkstra_yo.test.cpp"
 
 int main() {
   std::cin.tie(nullptr);

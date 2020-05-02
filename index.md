@@ -45,12 +45,12 @@ layout: default
 
 ### Graph
 
-* :x: <a href="library/Graph/dijkstra.cpp.html">Graph/dijkstra.cpp</a>
+* :heavy_check_mark: <a href="library/Graph/dijkstra.cpp.html">Graph/dijkstra.cpp</a>
 
 
 ## Verify Files
 
-* :x: <a href="verify/tests/dijkstra_yo.test.cpp.html">tests/dijkstra_yo.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/dijkstra_yo.test.cpp.html">tests/dijkstra_yo.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/example.test.cpp.html">tests/example.test.cpp</a>
 * :x: <a href="verify/tests/unionfind_tree_yo.test.cpp.html">tests/unionfind_tree_yo.test.cpp</a>
 

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: tests/unionfind_tree_yo.test.cpp
+# :x: tests/unionfind_tree_yo.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/unionfind_tree_yo.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 01:47:25+09:00
+    - Last commit date: 2020-05-03 03:15:46+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/unionfind">https://judge.yosupo.jp/problem/unionfind</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
+* :x: <a href="../../library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
 
 
 ## Code
@@ -99,20 +99,31 @@ struct UnionFind {
   UnionFind(ll n):par(n),siz(n,1) {
     for (ll i = 0; i < n; ++i) par[i] = i;
   }
+  ll size() { return par.size() };
   ll root(ll x) {
+    assert(x < size());
     if (par[x] == x) return x;
     else return par[x] = root(par[x]);
   }
   void merge(ll x, ll y) {
+    assert(x < size());
+    assert(y < size());
     ll rx = root(x);
     ll ry = root(y);
     if (rx == ry) return;
-    if (siz[rx] < siz[y]) swap(rx, ry);
+    if (siz[rx] < siz[y]) std::swap(rx, ry);
     par[rx] = ry;
     siz[ry] += siz[rx];
   }
-  bool same(ll x, ll y) { return root(x) == root(y);}
-  ll size(ll x) { return siz[root(x)]; }
+  bool same(ll x, ll y) { 
+    assert(x < size());
+    assert(y < size());
+    return root(x) == root(y);
+  }
+  ll size(ll x) {
+    assert(x < size());
+    return siz[root(x)];
+  }
 };
 
 

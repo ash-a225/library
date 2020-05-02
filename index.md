@@ -38,12 +38,20 @@ layout: default
 
 ### DataStructure
 
-* :heavy_check_mark: <a href="library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
+* :x: <a href="library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
+
+
+<div id="4cdbd2bafa8193091ba09509cedf94fd"></div>
+
+### Graph
+
+* :x: <a href="library/Graph/dijkstra.cpp.html">Graph/dijkstra.cpp</a>
 
 
 ## Verify Files
 
+* :x: <a href="verify/tests/dijkstra_yo.test.cpp.html">tests/dijkstra_yo.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/example.test.cpp.html">tests/example.test.cpp</a>
-* :heavy_check_mark: <a href="verify/tests/unionfind_tree_yo.test.cpp.html">tests/unionfind_tree_yo.test.cpp</a>
+* :x: <a href="verify/tests/unionfind_tree_yo.test.cpp.html">tests/unionfind_tree_yo.test.cpp</a>
 
 

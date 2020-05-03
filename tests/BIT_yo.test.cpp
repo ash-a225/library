@@ -16,17 +16,26 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int n, q;
   cin >> n >> q;
-  BIT<int> bit(n);
+  BIT<ll> bit(n);
   rep(i,n) {
     int a;
     cin >> a;
     bit.add(i,a);
   }
   rep(i,q) {
-    int c, x, y;
-    cin >> c >> x >> y;
-    if (c == 0) bit.add(x,y);
-    else cout << bit.sum(x,y) << "\n";
+    int c;
+    cin >> c;
+    if (c == 0) {
+      int p;
+      ll x;
+      cin >> p >> x;
+      bit.add(p,x);
+    }
+    else {
+      int l, r;
+      cin >> l >> r;
+      cout << bit.sum(l,r) << "\n";
+    }
   }
   return 0;
 }

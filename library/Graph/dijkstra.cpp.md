@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/tests/dijkstra_yo.test.cpp.html">tests/dijkstra_yo.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yj_dijkstra.test.cpp.html">tests/yj_dijkstra.test.cpp</a>
 
 
 ## Code

@@ -39,6 +39,7 @@ layout: default
 ### DataStructure
 
 * :heavy_check_mark: <a href="library/DataStructure/binary_indexed_tree.cpp.html">DataStructure/binary_indexed_tree.cpp</a>
+* :heavy_check_mark: <a href="library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
 
 
@@ -51,10 +52,12 @@ layout: default
 
 ## Verify Files
 
+* :heavy_check_mark: <a href="verify/tests/AOJ_DSL_2_A.test.cpp.html">tests/AOJ_DSL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DSL_2_B.test.cpp.html">tests/AOJ_DSL_2_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/tests/BIT_yo.test.cpp.html">tests/BIT_yo.test.cpp</a>
-* :heavy_check_mark: <a href="verify/tests/dijkstra_yo.test.cpp.html">tests/dijkstra_yo.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/example.test.cpp.html">tests/example.test.cpp</a>
-* :heavy_check_mark: <a href="verify/tests/unionfind_tree_yo.test.cpp.html">tests/unionfind_tree_yo.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yj_bit.test.cpp.html">tests/yj_bit.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yj_dijkstra.test.cpp.html">tests/yj_dijkstra.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yj_static_rmq.test.cpp.html">tests/yj_static_rmq.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yj_unionfind.test.cpp.html">tests/yj_unionfind.test.cpp</a>
 
 

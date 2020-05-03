@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/tests/unionfind_tree_yo.test.cpp.html">tests/unionfind_tree_yo.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yj_unionfind.test.cpp.html">tests/yj_unionfind.test.cpp</a>
 
 
 ## Code

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: tests/unionfind_tree_yo.test.cpp
+# :heavy_check_mark: tests/yj_unionfind.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
-* <a href="{{ site.github.repository_url }}/blob/master/tests/unionfind_tree_yo.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 03:23:39+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/tests/yj_unionfind.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-03 18:07:53+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/unionfind">https://judge.yosupo.jp/problem/unionfind</a>
@@ -81,7 +81,7 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "tests/unionfind_tree_yo.test.cpp"
+#line 1 "tests/yj_unionfind.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
@@ -127,7 +127,7 @@ struct UnionFind {
 };
 
 
-#line 10 "tests/unionfind_tree_yo.test.cpp"
+#line 10 "tests/yj_unionfind.test.cpp"
 
 int main() {
   std::cin.tie(nullptr);

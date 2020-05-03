@@ -1,5 +1,6 @@
 {
 "tests/AOJ_DSL_2_B.test.cpp": "2020-05-03 12:13:07 +0900",
+"tests/BIT_yo.test.cpp": "2020-05-03 12:18:24 +0900",
 "tests/dijkstra_yo.test.cpp": "2020-05-03 03:16:48 +0900",
 "tests/example.test.cpp": "2020-05-03 01:48:15 +0900",
 "tests/unionfind_tree_yo.test.cpp": "2020-05-03 03:23:39 +0900"

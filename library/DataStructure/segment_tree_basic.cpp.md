@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree_basic.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-04 00:02:11+09:00
+    - Last commit date: 2020-05-04 00:59:00+09:00
 
 
 
@@ -39,6 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/tests/AOJ_DSL_2_A.test.cpp.html">tests/AOJ_DSL_2_A.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yj_point_set_range_ccomposite.test.cpp.html">tests/yj_point_set_range_ccomposite.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/tests/yj_static_rmq.test.cpp.html">tests/yj_static_rmq.test.cpp</a>
 
 
@@ -92,8 +93,8 @@ struct SegmentTree {
       if (r <= a || b <= l) return DD;
       else if (a <= l && r <= b) return dat[k];
       else {
-        int vl = query_sub(a, b, k*2+1, l, (l+r)/2);
-        int vr = query_sub(a, b, k*2+2, (l+r)/2, r);
+        T vl = query_sub(a, b, k*2+1, l, (l+r)/2);
+        T vr = query_sub(a, b, k*2+2, (l+r)/2, r);
         return f(vl, vr);
       }
     }
@@ -152,8 +153,8 @@ struct SegmentTree {
       if (r <= a || b <= l) return DD;
       else if (a <= l && r <= b) return dat[k];
       else {
-        int vl = query_sub(a, b, k*2+1, l, (l+r)/2);
-        int vr = query_sub(a, b, k*2+2, (l+r)/2, r);
+        T vl = query_sub(a, b, k*2+1, l, (l+r)/2);
+        T vr = query_sub(a, b, k*2+2, (l+r)/2, r);
         return f(vl, vr);
       }
     }

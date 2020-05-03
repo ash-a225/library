@@ -55,8 +55,10 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/AOJ_DSL_2_A.test.cpp.html">tests/AOJ_DSL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DSL_2_B.test.cpp.html">tests/AOJ_DSL_2_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/example.test.cpp.html">tests/example.test.cpp</a>
-* :heavy_check_mark: <a href="verify/tests/yj_bit.test.cpp.html">tests/yj_bit.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_dijkstra.test.cpp.html">tests/yj_dijkstra.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yj_point_add_range_sum.test.cpp.html">tests/yj_point_add_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yj_point_set_range_ccomposite.test.cpp.html">tests/yj_point_set_range_ccomposite.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yj_static_range_sum.test.cpp.html">tests/yj_static_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_static_rmq.test.cpp.html">tests/yj_static_rmq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_unionfind.test.cpp.html">tests/yj_unionfind.test.cpp</a>
 

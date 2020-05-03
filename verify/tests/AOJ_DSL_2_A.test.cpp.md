@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_DSL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-04 00:10:58+09:00
+    - Last commit date: 2020-05-04 00:59:00+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A</a>
@@ -145,8 +145,8 @@ struct SegmentTree {
       if (r <= a || b <= l) return DD;
       else if (a <= l && r <= b) return dat[k];
       else {
-        int vl = query_sub(a, b, k*2+1, l, (l+r)/2);
-        int vr = query_sub(a, b, k*2+2, (l+r)/2, r);
+        T vl = query_sub(a, b, k*2+1, l, (l+r)/2);
+        T vr = query_sub(a, b, k*2+2, (l+r)/2, r);
         return f(vl, vr);
       }
     }

@@ -11,18 +11,19 @@ struct SegmentTree {
   private:
     int n;
     vector<T> dat;
-    const T dd; //mininum etc.
-    const F f;
+    T dd; //mininum etc.
+    F f;
   public:
-    SegmentTree(int n_, const F f, const T dd):f(f),dd(dd) { init(n_);}
+    SegmentTree(int n_, const F func, T dd):f(func),dd(dd) { init(n_);}
     void init(int n_) {
       n = 1; while(n < n_) n *= 2;
       dat.clear();
       dat.resize(2*n-1, dd);
     }
     void build(int n_, vector<T> v) {
-      for(int i=0; i<n_; ++i) dat[i+n-1] = v[i];
-      for(int i=n-2; i>=0; --i) dat[i] = f(dat[2*i+1], dat[2*i+2]);
+      assert(n_ <= n);
+      for(int i=0;i<n_;++i) dat[i+n-1] = v[i];
+      for(int i=n-2;i>=0;--i) dat[i] = f(dat[2*i+1], dat[2*i+2]);
     }
     void set_val(int i, T x){
       assert(i < n);
@@ -42,8 +43,8 @@ struct SegmentTree {
       if (r <= a || b <= l) return dd;
       else if (a <= l && r <= b) return dat[k];
       else {
-        int vl = query_sub(a, b, k * 2 + 1, l, (l + r) / 2);
-        int vr = query_sub(a, b, k * 2 + 2, (l + r) / 2, r);
+        int vl = query_sub(a, b, k*2+1, l, (l+r)/2);
+        int vr = query_sub(a, b, k*2+2, (l+r)/2, r);
         return f(vl, vr);
       }
     }

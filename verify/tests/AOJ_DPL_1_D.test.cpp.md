@@ -25,16 +25,16 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: tests/AOJ_DSL_2_A.test.cpp
+# :heavy_check_mark: tests/AOJ_DPL_1_D.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
-* <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_DSL_2_A.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_DPL_1_D.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-05-04 03:03:38+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A</a>
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D</a>
 
 
 ## Depends on
@@ -47,7 +47,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -63,23 +63,30 @@ int main() {
   std::cin.tie(nullptr);
   std::ios_base::sync_with_stdio(false);
   std::cout << std::fixed << std::setprecision(15);
-  int n, q;
-  cin >> n >> q;
-  auto f = [](ll x, ll y){ return min(x,y);};
-  const ll INF = (1LL<<31)-1;
-  SegmentTree<ll> rmq(n, f, INF);
-  rep(_,q) {
-    int com, x;
-    cin >> com >> x;
-    if (com == 0) {
-      ll y; cin >> y;
-      rmq.set_val(x, y);
-    }
-    else {
-      int y; cin >> y;
-      cout << rmq.query(x,y+1) << "\n";
+  int n;
+  cin >> n;
+  vector<ll> a(n), b(n);
+  rep(i,n) {
+    cin >> a[i];
+    b[i] = a[i];
+  }
+  sort(all(b));
+  b.erase(unique(all(b)), b.end()); //zaatu
+  rep(i,n) {
+    a[i] = lower_bound(all(b), a[i]) - b.begin();
+    assert(a[i] < n);
+  }
+  auto f = [](ll x, ll y){ return max(x,y);};
+  SegmentTree<ll> dp(n, f, 0);
+  int ans = 0;
+  rep(i,n) {
+    int maxlen = dp.query(0,a[i]);
+    if (dp.query(a[i],a[i]+1) < maxlen+1) {
+      dp.set_val(a[i], maxlen+1);
+      chmax(ans, maxlen+1);
     }
   }
+  cout << ans << endl;
   return 0;
 }
 ```
@@ -88,8 +95,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "tests/AOJ_DSL_2_A.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A"
+#line 1 "tests/AOJ_DPL_1_D.test.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -153,29 +160,36 @@ struct SegmentTree { // 0-indexed
 };
 
 
-#line 12 "tests/AOJ_DSL_2_A.test.cpp"
+#line 12 "tests/AOJ_DPL_1_D.test.cpp"
 
 int main() {
   std::cin.tie(nullptr);
   std::ios_base::sync_with_stdio(false);
   std::cout << std::fixed << std::setprecision(15);
-  int n, q;
-  cin >> n >> q;
-  auto f = [](ll x, ll y){ return min(x,y);};
-  const ll INF = (1LL<<31)-1;
-  SegmentTree<ll> rmq(n, f, INF);
-  rep(_,q) {
-    int com, x;
-    cin >> com >> x;
-    if (com == 0) {
-      ll y; cin >> y;
-      rmq.set_val(x, y);
-    }
-    else {
-      int y; cin >> y;
-      cout << rmq.query(x,y+1) << "\n";
+  int n;
+  cin >> n;
+  vector<ll> a(n), b(n);
+  rep(i,n) {
+    cin >> a[i];
+    b[i] = a[i];
+  }
+  sort(all(b));
+  b.erase(unique(all(b)), b.end()); //zaatu
+  rep(i,n) {
+    a[i] = lower_bound(all(b), a[i]) - b.begin();
+    assert(a[i] < n);
+  }
+  auto f = [](ll x, ll y){ return max(x,y);};
+  SegmentTree<ll> dp(n, f, 0);
+  int ans = 0;
+  rep(i,n) {
+    int maxlen = dp.query(0,a[i]);
+    if (dp.query(a[i],a[i]+1) < maxlen+1) {
+      dp.set_val(a[i], maxlen+1);
+      chmax(ans, maxlen+1);
     }
   }
+  cout << ans << endl;
   return 0;
 }
 

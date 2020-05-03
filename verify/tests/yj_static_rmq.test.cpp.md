@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_static_rmq.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-04 00:59:00+09:00
+    - Last commit date: 2020-05-04 03:03:38+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/staticrmq">https://judge.yosupo.jp/problem/staticrmq</a>
@@ -105,11 +105,11 @@ template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 //http://tsutaj.hatenablog.com/entry/2017/03/29/204841
 
 template<typename T> 
-struct SegmentTree {
+struct SegmentTree { // 0-indexed
   private:
     using F = function<T(T,T)>;
     const F f;
-    const T DD; //mininum etc.
+    const T DD; // e
     int n;
     vector<T> dat;
   public:
@@ -133,7 +133,7 @@ struct SegmentTree {
         dat[i] = f(dat[i*2+1], dat[i*2+2]);
       }   
     } 
-    T query(int a, int b) { //[a,b) 改善のよちあり
+    T query(int a, int b) { //[a,b)
       assert(a < n);
       assert(b <= n);
       return query_sub(a, b, 0, 0, n);

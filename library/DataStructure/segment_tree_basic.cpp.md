@@ -31,13 +31,14 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree_basic.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-04 00:59:00+09:00
+    - Last commit date: 2020-05-04 03:03:38+09:00
 
 
 
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../verify/tests/AOJ_DPL_1_D.test.cpp.html">tests/AOJ_DPL_1_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/tests/AOJ_DSL_2_A.test.cpp.html">tests/AOJ_DSL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/tests/yj_static_rmq.test.cpp.html">tests/yj_static_rmq.test.cpp</a>
@@ -56,11 +57,11 @@ layout: default
 //http://tsutaj.hatenablog.com/entry/2017/03/29/204841
 
 template<typename T> 
-struct SegmentTree {
+struct SegmentTree { // 0-indexed
   private:
     using F = function<T(T,T)>;
     const F f;
-    const T DD; //mininum etc.
+    const T DD; // e
     int n;
     vector<T> dat;
   public:
@@ -84,7 +85,7 @@ struct SegmentTree {
         dat[i] = f(dat[i*2+1], dat[i*2+2]);
       }   
     } 
-    T query(int a, int b) { //[a,b) 改善のよちあり
+    T query(int a, int b) { //[a,b)
       assert(a < n);
       assert(b <= n);
       return query_sub(a, b, 0, 0, n);
@@ -116,11 +117,11 @@ struct SegmentTree {
 //http://tsutaj.hatenablog.com/entry/2017/03/29/204841
 
 template<typename T> 
-struct SegmentTree {
+struct SegmentTree { // 0-indexed
   private:
     using F = function<T(T,T)>;
     const F f;
-    const T DD; //mininum etc.
+    const T DD; // e
     int n;
     vector<T> dat;
   public:
@@ -144,7 +145,7 @@ struct SegmentTree {
         dat[i] = f(dat[i*2+1], dat[i*2+2]);
       }   
     } 
-    T query(int a, int b) { //[a,b) 改善のよちあり
+    T query(int a, int b) { //[a,b)
       assert(a < n);
       assert(b <= n);
       return query_sub(a, b, 0, 0, n);

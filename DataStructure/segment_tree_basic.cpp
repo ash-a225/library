@@ -7,14 +7,15 @@
 
 template<typename T> 
 struct SegmentTree {
-  using F = function<T(T,T)>;
   private:
+    using F = function<T(T,T)>;
+    const F f;
+    const T dd; //mininum etc.
     int n;
     vector<T> dat;
-    T dd; //mininum etc.
-    F f;
+    
   public:
-    SegmentTree(int n_, const F func, T dd):f(func),dd(dd) { init(n_);}
+    SegmentTree(int n_, const F func, T dd):f(func),dd(dd){ init(n_);}
     void init(int n_) {
       n = 1; while(n < n_) n *= 2;
       dat.clear();

@@ -6,11 +6,11 @@
 //http://tsutaj.hatenablog.com/entry/2017/03/29/204841
 
 template<typename T> 
-struct SegmentTree {
+struct SegmentTree { // 0-indexed
   private:
     using F = function<T(T,T)>;
     const F f;
-    const T DD; //mininum etc.
+    const T DD; // e
     int n;
     vector<T> dat;
   public:
@@ -34,7 +34,7 @@ struct SegmentTree {
         dat[i] = f(dat[i*2+1], dat[i*2+2]);
       }   
     } 
-    T query(int a, int b) { //[a,b) 改善のよちあり
+    T query(int a, int b) { //[a,b)
       assert(a < n);
       assert(b <= n);
       return query_sub(a, b, 0, 0, n);

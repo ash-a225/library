@@ -38,6 +38,7 @@ layout: default
 
 ### DataStructure
 
+* :question: <a href="library/DataStructure/binary_indexed_tree.cpp.html">DataStructure/binary_indexed_tree.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
 
 
@@ -50,6 +51,8 @@ layout: default
 
 ## Verify Files
 
+* :heavy_check_mark: <a href="verify/tests/AOJ_DSL_2_B.test.cpp.html">tests/AOJ_DSL_2_B.test.cpp</a>
+* :x: <a href="verify/tests/BIT_yo.test.cpp.html">tests/BIT_yo.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/dijkstra_yo.test.cpp.html">tests/dijkstra_yo.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/example.test.cpp.html">tests/example.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/unionfind_tree_yo.test.cpp.html">tests/unionfind_tree_yo.test.cpp</a>

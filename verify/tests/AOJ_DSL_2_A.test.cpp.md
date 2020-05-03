@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_DSL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 23:28:02+09:00
+    - Last commit date: 2020-05-03 23:53:40+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A">https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
+* :x: <a href="../../library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
 
 
 ## Code
@@ -112,16 +112,16 @@ struct SegmentTree {
   private:
     using F = function<T(T,T)>;
     const F f;
-    const T dd; //mininum etc.
+    const T DD; //mininum etc.
     int n;
     vector<T> dat;
     
   public:
-    SegmentTree(int n_, const F func, T dd):f(func),dd(dd){ init(n_);}
+    SegmentTree(int n_, const F func, T dd):f(func),DD(dd){ init(n_);}
     void init(int n_) {
       n = 1; while(n < n_) n *= 2;
       dat.clear();
-      dat.resize(2*n-1, dd);
+      dat.resize(2*n-1, DD);
     }
     void build(int n_, vector<T> v) {
       assert(n_ <= n);
@@ -143,7 +143,7 @@ struct SegmentTree {
       return query_sub(a, b, 0, 0, n);
     }
     T query_sub(int a, int b, int k, int l, int r) { 
-      if (r <= a || b <= l) return dd;
+      if (r <= a || b <= l) return DD;
       else if (a <= l && r <= b) return dat[k];
       else {
         int vl = query_sub(a, b, k*2+1, l, (l+r)/2);

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: DataStructure/segment_tree_basic.cpp
+# :question: DataStructure/segment_tree_basic.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree_basic.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 23:53:40+09:00
+    - Last commit date: 2020-05-04 00:02:11+09:00
 
 
 
@@ -39,7 +39,7 @@ layout: default
 ## Verified with
 
 * :x: <a href="../../verify/tests/AOJ_DSL_2_A.test.cpp.html">tests/AOJ_DSL_2_A.test.cpp</a>
-* :x: <a href="../../verify/tests/yj_static_rmq.test.cpp.html">tests/yj_static_rmq.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yj_static_rmq.test.cpp.html">tests/yj_static_rmq.test.cpp</a>
 
 
 ## Code
@@ -62,7 +62,6 @@ struct SegmentTree {
     const T DD; //mininum etc.
     int n;
     vector<T> dat;
-    
   public:
     SegmentTree(int n_, const F func, T dd):f(func),DD(dd){ init(n_);}
     void init(int n_) {
@@ -123,7 +122,6 @@ struct SegmentTree {
     const T DD; //mininum etc.
     int n;
     vector<T> dat;
-    
   public:
     SegmentTree(int n_, const F func, T dd):f(func),DD(dd){ init(n_);}
     void init(int n_) {

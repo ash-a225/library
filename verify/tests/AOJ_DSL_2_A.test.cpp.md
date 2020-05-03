@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_DSL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 23:53:40+09:00
+    - Last commit date: 2020-05-04 00:02:11+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A">https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :x: <a href="../../library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
+* :question: <a href="../../library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
 
 
 ## Code
@@ -115,7 +115,6 @@ struct SegmentTree {
     const T DD; //mininum etc.
     int n;
     vector<T> dat;
-    
   public:
     SegmentTree(int n_, const F func, T dd):f(func),DD(dd){ init(n_);}
     void init(int n_) {

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: tests/yj_static_rmq.test.cpp
+# :heavy_check_mark: tests/yj_static_rmq.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_static_rmq.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 23:53:40+09:00
+    - Last commit date: 2020-05-04 00:02:11+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/staticrmq">https://judge.yosupo.jp/problem/staticrmq</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :x: <a href="../../library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
+* :question: <a href="../../library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
 
 
 ## Code
@@ -69,7 +69,7 @@ int main() {
   rep(i,n) cin >> a[i];
 
   auto f = [](ll x, ll y){ return min(x,y);};
-  const ll INF = 1LL<<60; //60とかにするとバグる????
+  const ll INF = 1LL<<30; //60とかにするとバグる????
   SegmentTree<ll> rmq(n, f, INF);
   rmq.build(n, a);
   rep(_,q) {
@@ -112,7 +112,6 @@ struct SegmentTree {
     const T DD; //mininum etc.
     int n;
     vector<T> dat;
-    
   public:
     SegmentTree(int n_, const F func, T dd):f(func),DD(dd){ init(n_);}
     void init(int n_) {
@@ -163,7 +162,7 @@ int main() {
   rep(i,n) cin >> a[i];
 
   auto f = [](ll x, ll y){ return min(x,y);};
-  const ll INF = 1LL<<60; //60とかにするとバグる????
+  const ll INF = 1LL<<30; //60とかにするとバグる????
   SegmentTree<ll> rmq(n, f, INF);
   rmq.build(n, a);
   rep(_,q) {

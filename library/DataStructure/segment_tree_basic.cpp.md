@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: DataStructure/segment_tree_basic.cpp
+# :question: DataStructure/segment_tree_basic.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree_basic.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 18:08:18+09:00
+    - Last commit date: 2020-05-03 19:43:46+09:00
 
 
 
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/tests/AOJ_DSL_2_A.test.cpp.html">tests/AOJ_DSL_2_A.test.cpp</a>
+* :x: <a href="../../verify/tests/AOJ_DSL_2_A.test.cpp.html">tests/AOJ_DSL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/tests/yj_static_rmq.test.cpp.html">tests/yj_static_rmq.test.cpp</a>
 
 
@@ -60,18 +60,19 @@ struct SegmentTree {
   private:
     int n;
     vector<T> dat;
-    const T dd; //mininum etc.
-    const F f;
+    T dd; //mininum etc.
+    F f;
   public:
-    SegmentTree(int n_, const F f, const T dd):f(f),dd(dd) { init(n_);}
+    SegmentTree(int n_, const F func, T dd):f(func),dd(dd) { init(n_);}
     void init(int n_) {
       n = 1; while(n < n_) n *= 2;
       dat.clear();
       dat.resize(2*n-1, dd);
     }
     void build(int n_, vector<T> v) {
-      for(int i=0; i<n_; ++i) dat[i+n-1] = v[i];
-      for(int i=n-2; i>=0; --i) dat[i] = f(dat[2*i+1], dat[2*i+2]);
+      assert(n_ <= n);
+      for(int i=0;i<n_;++i) dat[i+n-1] = v[i];
+      for(int i=n-2;i>=0;--i) dat[i] = f(dat[2*i+1], dat[2*i+2]);
     }
     void set_val(int i, T x){
       assert(i < n);
@@ -91,8 +92,8 @@ struct SegmentTree {
       if (r <= a || b <= l) return dd;
       else if (a <= l && r <= b) return dat[k];
       else {
-        int vl = query_sub(a, b, k * 2 + 1, l, (l + r) / 2);
-        int vr = query_sub(a, b, k * 2 + 2, (l + r) / 2, r);
+        int vl = query_sub(a, b, k*2+1, l, (l+r)/2);
+        int vr = query_sub(a, b, k*2+2, (l+r)/2, r);
         return f(vl, vr);
       }
     }
@@ -119,18 +120,19 @@ struct SegmentTree {
   private:
     int n;
     vector<T> dat;
-    const T dd; //mininum etc.
-    const F f;
+    T dd; //mininum etc.
+    F f;
   public:
-    SegmentTree(int n_, const F f, const T dd):f(f),dd(dd) { init(n_);}
+    SegmentTree(int n_, const F func, T dd):f(func),dd(dd) { init(n_);}
     void init(int n_) {
       n = 1; while(n < n_) n *= 2;
       dat.clear();
       dat.resize(2*n-1, dd);
     }
     void build(int n_, vector<T> v) {
-      for(int i=0; i<n_; ++i) dat[i+n-1] = v[i];
-      for(int i=n-2; i>=0; --i) dat[i] = f(dat[2*i+1], dat[2*i+2]);
+      assert(n_ <= n);
+      for(int i=0;i<n_;++i) dat[i+n-1] = v[i];
+      for(int i=n-2;i>=0;--i) dat[i] = f(dat[2*i+1], dat[2*i+2]);
     }
     void set_val(int i, T x){
       assert(i < n);
@@ -150,8 +152,8 @@ struct SegmentTree {
       if (r <= a || b <= l) return dd;
       else if (a <= l && r <= b) return dat[k];
       else {
-        int vl = query_sub(a, b, k * 2 + 1, l, (l + r) / 2);
-        int vr = query_sub(a, b, k * 2 + 2, (l + r) / 2, r);
+        int vl = query_sub(a, b, k*2+1, l, (l+r)/2);
+        int vr = query_sub(a, b, k*2+2, (l+r)/2, r);
         return f(vl, vr);
       }
     }

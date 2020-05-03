@@ -10,16 +10,16 @@ struct SegmentTree {
   private:
     using F = function<T(T,T)>;
     const F f;
-    const T dd; //mininum etc.
+    const T DD; //mininum etc.
     int n;
     vector<T> dat;
     
   public:
-    SegmentTree(int n_, const F func, T dd):f(func),dd(dd){ init(n_);}
+    SegmentTree(int n_, const F func, T dd):f(func),DD(dd){ init(n_);}
     void init(int n_) {
       n = 1; while(n < n_) n *= 2;
       dat.clear();
-      dat.resize(2*n-1, dd);
+      dat.resize(2*n-1, DD);
     }
     void build(int n_, vector<T> v) {
       assert(n_ <= n);
@@ -41,7 +41,7 @@ struct SegmentTree {
       return query_sub(a, b, 0, 0, n);
     }
     T query_sub(int a, int b, int k, int l, int r) { 
-      if (r <= a || b <= l) return dd;
+      if (r <= a || b <= l) return DD;
       else if (a <= l && r <= b) return dat[k];
       else {
         int vl = query_sub(a, b, k*2+1, l, (l+r)/2);

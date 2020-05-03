@@ -1,14 +1,14 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
+#define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
 using namespace std;
 using ll = long long;
-using P = pair<int,int>;
+using P = pair<int,ll>;
 template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
-#include "DataStructure/segment_tree_basic.cpp"
+#include "DataStructure/binary_indexed_tree.cpp"
 
 int main() {
   std::cin.tie(nullptr);
@@ -16,17 +16,16 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int n, q;
   cin >> n >> q;
-  vector<ll> a(n);
-  rep(i,n) cin >> a[i];
-
-  auto f = [](ll x, ll y){ return min(x,y);};
-  const ll INF = 1LL<<30;
-  SegmentTree<ll> rmq(n, f, INF);
-  rmq.build(n, a);
-  rep(_,q) {
+  BIT<ll> bit(n);
+  rep(i,n) {
+    int a;
+    cin >> a;
+    bit.add(i,a);
+  }
+  rep(i,q) {
     int l, r;
     cin >> l >> r;
-    cout << rmq.query(l,r) << "\n";
+    cout << bit.sum(l,r) << "\n";
   }
   return 0;
 }

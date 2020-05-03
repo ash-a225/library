@@ -43,8 +43,8 @@ struct SegmentTree {
       if (r <= a || b <= l) return DD;
       else if (a <= l && r <= b) return dat[k];
       else {
-        int vl = query_sub(a, b, k*2+1, l, (l+r)/2);
-        int vr = query_sub(a, b, k*2+2, (l+r)/2, r);
+        T vl = query_sub(a, b, k*2+1, l, (l+r)/2);
+        T vr = query_sub(a, b, k*2+2, (l+r)/2, r);
         return f(vl, vr);
       }
     }

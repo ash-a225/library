@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: DataStructure/binary_indexed_tree.cpp
+# :heavy_check_mark: DataStructure/binary_indexed_tree.cpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -39,7 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/tests/AOJ_DSL_2_B.test.cpp.html">tests/AOJ_DSL_2_B.test.cpp</a>
-* :x: <a href="../../verify/tests/BIT_yo.test.cpp.html">tests/BIT_yo.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/BIT_yo.test.cpp.html">tests/BIT_yo.test.cpp</a>
 
 
 ## Code

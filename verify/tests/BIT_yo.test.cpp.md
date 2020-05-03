@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: tests/BIT_yo.test.cpp
+# :heavy_check_mark: tests/BIT_yo.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/BIT_yo.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 12:13:07+09:00
+    - Last commit date: 2020-05-03 12:18:24+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/point_add_range_sum">https://judge.yosupo.jp/problem/point_add_range_sum</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/DataStructure/binary_indexed_tree.cpp.html">DataStructure/binary_indexed_tree.cpp</a>
+* :heavy_check_mark: <a href="../../library/DataStructure/binary_indexed_tree.cpp.html">DataStructure/binary_indexed_tree.cpp</a>
 
 
 ## Code
@@ -65,17 +65,26 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int n, q;
   cin >> n >> q;
-  BIT<int> bit(n);
+  BIT<ll> bit(n);
   rep(i,n) {
     int a;
     cin >> a;
     bit.add(i,a);
   }
   rep(i,q) {
-    int c, x, y;
-    cin >> c >> x >> y;
-    if (c == 0) bit.add(x,y);
-    else cout << bit.sum(x,y) << "\n";
+    int c;
+    cin >> c;
+    if (c == 0) {
+      int p;
+      ll x;
+      cin >> p >> x;
+      bit.add(p,x);
+    }
+    else {
+      int l, r;
+      cin >> l >> r;
+      cout << bit.sum(l,r) << "\n";
+    }
   }
   return 0;
 }
@@ -135,17 +144,26 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int n, q;
   cin >> n >> q;
-  BIT<int> bit(n);
+  BIT<ll> bit(n);
   rep(i,n) {
     int a;
     cin >> a;
     bit.add(i,a);
   }
   rep(i,q) {
-    int c, x, y;
-    cin >> c >> x >> y;
-    if (c == 0) bit.add(x,y);
-    else cout << bit.sum(x,y) << "\n";
+    int c;
+    cin >> c;
+    if (c == 0) {
+      int p;
+      ll x;
+      cin >> p >> x;
+      bit.add(p,x);
+    }
+    else {
+      int l, r;
+      cin >> l >> r;
+      cout << bit.sum(l,r) << "\n";
+    }
   }
   return 0;
 }

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree_basic.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 19:43:46+09:00
+    - Last commit date: 2020-05-03 23:28:02+09:00
 
 
 
@@ -56,14 +56,15 @@ layout: default
 
 template<typename T> 
 struct SegmentTree {
-  using F = function<T(T,T)>;
   private:
+    using F = function<T(T,T)>;
+    const F f;
+    const T dd; //mininum etc.
     int n;
     vector<T> dat;
-    T dd; //mininum etc.
-    F f;
+    
   public:
-    SegmentTree(int n_, const F func, T dd):f(func),dd(dd) { init(n_);}
+    SegmentTree(int n_, const F func, T dd):f(func),dd(dd){ init(n_);}
     void init(int n_) {
       n = 1; while(n < n_) n *= 2;
       dat.clear();
@@ -116,14 +117,15 @@ struct SegmentTree {
 
 template<typename T> 
 struct SegmentTree {
-  using F = function<T(T,T)>;
   private:
+    using F = function<T(T,T)>;
+    const F f;
+    const T dd; //mininum etc.
     int n;
     vector<T> dat;
-    T dd; //mininum etc.
-    F f;
+    
   public:
-    SegmentTree(int n_, const F func, T dd):f(func),dd(dd) { init(n_);}
+    SegmentTree(int n_, const F func, T dd):f(func),dd(dd){ init(n_);}
     void init(int n_) {
       n = 1; while(n < n_) n *= 2;
       dat.clear();

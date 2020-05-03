@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_static_rmq.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 19:43:46+09:00
+    - Last commit date: 2020-05-03 23:28:02+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/staticrmq">https://judge.yosupo.jp/problem/staticrmq</a>
@@ -106,14 +106,15 @@ template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 template<typename T> 
 struct SegmentTree {
-  using F = function<T(T,T)>;
   private:
+    using F = function<T(T,T)>;
+    const F f;
+    const T dd; //mininum etc.
     int n;
     vector<T> dat;
-    T dd; //mininum etc.
-    F f;
+    
   public:
-    SegmentTree(int n_, const F func, T dd):f(func),dd(dd) { init(n_);}
+    SegmentTree(int n_, const F func, T dd):f(func),dd(dd){ init(n_);}
     void init(int n_) {
       n = 1; while(n < n_) n *= 2;
       dat.clear();

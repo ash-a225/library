@@ -39,7 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/tests/AOJ_DSL_2_A.test.cpp.html">tests/AOJ_DSL_2_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/tests/yj_point_set_range_ccomposite.test.cpp.html">tests/yj_point_set_range_ccomposite.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/tests/yj_static_rmq.test.cpp.html">tests/yj_static_rmq.test.cpp</a>
 
 

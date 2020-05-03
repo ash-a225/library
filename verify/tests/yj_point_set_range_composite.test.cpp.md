@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: tests/yj_point_set_range_ccomposite.test.cpp
+# :heavy_check_mark: tests/yj_point_set_range_composite.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
-* <a href="{{ site.github.repository_url }}/blob/master/tests/yj_point_set_range_ccomposite.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-04 00:59:00+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/tests/yj_point_set_range_composite.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-04 01:03:35+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/point_set_range_composite">https://judge.yosupo.jp/problem/point_set_range_composite</a>
@@ -40,6 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
+* :heavy_check_mark: <a href="../../library/Math/modint2.cpp.html">Math/modint2.cpp</a>
 
 
 ## Code
@@ -57,39 +58,7 @@ template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 #include "DataStructure/segment_tree_basic.cpp"
-
-// const int mod = 1000000007;
-const int mod = 998244353;
-struct mint {
-  ll x;
-  mint(ll x=0):x((x%mod+mod)%mod){}
-  mint operator-() const { return mint(-x);}
-  mint& operator+=(const mint a) {
-    if ((x += a.x) >= mod) x -= mod;
-    return *this;
-  }
-  mint& operator-=(const mint a) {
-    if ((x += mod-a.x) >= mod) x -= mod;
-    return *this;
-  }
-  mint& operator*=(const mint a) { (x *= a.x) %= mod; return *this;}
-  mint operator+(const mint a) const { return mint(*this) += a;}
-  mint operator-(const mint a) const { return mint(*this) -= a;}
-  mint operator*(const mint a) const { return mint(*this) *= a;}
-  mint pow(ll t) const {
-    if (!t) return 1;
-    mint a = pow(t>>1);
-    a *= a;
-    if (t&1) a *= *this;
-    return a;
-  }
-  // for prime mod
-  mint inv() const { return pow(mod-2);}
-  mint& operator/=(const mint a) { return *this *= a.inv();}
-  mint operator/(const mint a) const { return mint(*this) /= a;}
-};
-istream& operator>>(istream& is, mint& a) { return is >> a.x;}
-ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
+#include "Math/modint2.cpp"
 
 using P = pair<mint,mint>;
 
@@ -131,7 +100,7 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "tests/yj_point_set_range_ccomposite.test.cpp"
+#line 1 "tests/yj_point_set_range_composite.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
@@ -195,7 +164,9 @@ struct SegmentTree {
 };
 
 
-#line 11 "tests/yj_point_set_range_ccomposite.test.cpp"
+#line 1 "Math/modint2.cpp"
+
+
 
 // const int mod = 1000000007;
 const int mod = 998244353;
@@ -229,6 +200,9 @@ struct mint {
 };
 istream& operator>>(istream& is, mint& a) { return is >> a.x;}
 ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
+
+
+#line 12 "tests/yj_point_set_range_composite.test.cpp"
 
 using P = pair<mint,mint>;
 

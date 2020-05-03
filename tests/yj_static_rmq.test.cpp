@@ -20,7 +20,7 @@ int main() {
   rep(i,n) cin >> a[i];
 
   auto f = [](ll x, ll y){ return min(x,y);};
-  const ll INF = 1LL<<60; //60とかにするとバグる????
+  const ll INF = 1LL<<30; //60とかにするとバグる????
   SegmentTree<ll> rmq(n, f, INF);
   rmq.build(n, a);
   rep(_,q) {

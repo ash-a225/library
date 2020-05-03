@@ -13,7 +13,6 @@ struct SegmentTree {
     const T DD; //mininum etc.
     int n;
     vector<T> dat;
-    
   public:
     SegmentTree(int n_, const F func, T dd):f(func),DD(dd){ init(n_);}
     void init(int n_) {

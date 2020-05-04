@@ -25,21 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: tests/yj_point_set_range_composite.test.cpp
+# :x: tests/yj_range_affine_range_sum.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
-* <a href="{{ site.github.repository_url }}/blob/master/tests/yj_point_set_range_composite.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/tests/yj_range_affine_range_sum.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-05-04 15:50:21+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/point_set_range_composite">https://judge.yosupo.jp/problem/point_set_range_composite</a>
+* see: <a href="https://judge.yosupo.jp/problem/point_add_range_sum">https://judge.yosupo.jp/problem/point_add_range_sum</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
+* :x: <a href="../../library/DataStructure/segment_tree_lazy.cpp.html">DataStructure/segment_tree_lazy.cpp</a>
 * :question: <a href="../../library/Math/modint2.cpp.html">Math/modint2.cpp</a>
 
 
@@ -48,7 +48,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
+#define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -57,10 +57,8 @@ using ll = long long;
 template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
-#include "DataStructure/segment_tree_basic.cpp"
+#include "DataStructure/segment_tree_lazy.cpp"
 #include "Math/modint2.cpp"
-
-using P = pair<mint,mint>;
 
 int main() {
   std::cin.tie(nullptr);
@@ -68,27 +66,30 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int n, q;
   cin >> n >> q;
-  vector<P> v(n);
-  rep(i,n) cin >> v[i].first >> v[i].second;
-  auto f = [](P a, P b){ //1次関数の合成
+  vector<mint> v(n);
+  rep(i,n) cin >> v[i];
+  auto f = [](mint a, mint b) {return a+b;};
+  using P = pair<mint, mint>;
+  auto g = [](mint a, P p) {return p.first*a + p.second;}; //要素への作用
+  auto h = [](P a, P b){ //合成
     return P(a.first*b.first, b.first*a.second + b.second);
   };
-  SegmentTree<P> seg(n, f, P(1,0));
-  seg.build(n, v);
+  SegmentTree<mint,P> lazy(n, f, g, h, mint(0), P(mint(1),mint(0)));
+  lazy.build(n, v);
   rep(_,q) {
-    int com; cin >> com;
+    int com;
+    cin >> com;
     if (com == 0) {
-      int i;
+      int l,r;
+      cin >> l >> r;
       P p;
-      cin >> i >> p.first >> p.second;
-      seg.set_val(i, p);
+      cin >> p.first >> p.second;
+      lazy.update(l, r, p);
     }
     else {
       int l,r;
-      mint x;
-      cin >> l >> r >> x;
-      P p = seg.query(l,r);
-      mint res = p.first*x + p.second;
+      cin >> l >> r;
+      mint res = lazy.query(l,r);
       cout << res << "\n";
     }
   }
@@ -100,8 +101,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "tests/yj_point_set_range_composite.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
+#line 1 "tests/yj_range_affine_range_sum.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -110,53 +111,73 @@ using ll = long long;
 template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
-#line 1 "DataStructure/segment_tree_basic.cpp"
+#line 1 "DataStructure/segment_tree_lazy.cpp"
 
 
 
-//https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
-//https://qiita.com/drken/items/68b8503ad4ffb469624c#3-lis-%E3%81%AE%E8%A7%A3%E6%B3%951-%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2-ver
-//http://tsutaj.hatenablog.com/entry/2017/03/29/204841
-
-template<typename T> 
+template<typename T,typename E> 
 struct SegmentTree {
   private:
     using F = function<T(T,T)>;
+    using G = function<T(T,E)>;
+    using H = function<E(E,E)>;
+    using P = function<E(E,int)>;
     const F f;
+    const G g;
+    const H h;
+    const P p;
     const T DD; // e
+    const E DE;
     int n;
     vector<T> dat;
+    vector<E> laz;
   public:
-    SegmentTree(int n_, const F func, T dd):f(func),DD(dd){ init(n_);}
+    SegmentTree(int n_,F f,G g,H h,T dd,E de,P p=[](E a,int b){return a;}):
+    f(f),g(g),h(h),p(p),DD(dd),DE(de){ init(n_);}
     void init(int n_) {
       n = 1; while(n < n_) n *= 2;
       dat.clear();
       dat.resize(2*n-1, DD);
+      laz.clear();
+      laz.resize(2*n-1, DE);
     }
     void build(int n_, vector<T> v) {
       assert(n_ <= n);
       for(int i=0;i<n_;++i) dat[i+n-1] = v[i];
       for(int i=n-2;i>=0;--i) dat[i] = f(dat[2*i+1], dat[2*i+2]);
     }
-    void set_val(int i, T x){
-      assert(i < n);
-      i += n-1;
-      dat[i] = x;
-      while (i > 0) {    
-        i = (i-1)/2;  //child->parent
-        dat[i] = f(dat[i*2+1], dat[i*2+2]);
-      }   
-    } 
-    T query(int a, int b, int k, int l, int r) { 
-      if (r<=a||b<=l) return DD;
-      else if (a<=l&&r<=b) return dat[k];
-      else {
-        T vl = query(a,b,k*2+1,l,(l+r)/2);
-        T vr = query(a,b,k*2+2,(l+r)/2,r);
-        return f(vl, vr);
+    inline void eval(int len,int k){
+      if(laz[k]==DE) return;
+      if(k*2+1<n*2-1){
+        laz[k*2+1]=h(laz[k*2+1],laz[k]);
+        laz[k*2+2]=h(laz[k*2+2],laz[k]);
       }
+      dat[k]=g(dat[k],p(laz[k],len));
+      laz[k]=DE;
     }
-    T query(int a, int b) { //[a,b)
+    T update(int a,int b,E x,int k,int l,int r){
+      eval(r-l,k);
+      if(r<=a||b<=l) return dat[k];
+      if(a<=l&&r<=b){
+        laz[k]=h(laz[k],x);
+        return g(dat[k],p(laz[k],r-l));
+      }
+      return dat[k]=f(update(a,b,x,k*2+1,l,(l+r)/2),update(a,b,x,k*2+2,(l+r)/2,r));
+    }
+    T update(int a,int b,E x){
+      assert(a < n);
+      assert(b <= n);
+      return update(a,b,x,0,0,n);
+    }
+    T query(int a,int b,int k,int l,int r){
+      eval(r-l,k);
+      if(r<=a||b<=l) return DD;
+      if(a<=l&&r<=b) return dat[k];
+      T vl=query(a,b,k*2+1,l,(l+r)/2);
+      T vr=query(a,b,k*2+2,(l+r)/2,r);
+      return f(vl,vr);
+    }
+    T query(int a,int b){
       assert(a < n);
       assert(b <= n);
       return query(a,b,0,0,n);
@@ -204,9 +225,7 @@ istream& operator>>(istream& is, mint& a) { return is >> a.x;}
 ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
 
 
-#line 12 "tests/yj_point_set_range_composite.test.cpp"
-
-using P = pair<mint,mint>;
+#line 12 "tests/yj_range_affine_range_sum.test.cpp"
 
 int main() {
   std::cin.tie(nullptr);
@@ -214,27 +233,30 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int n, q;
   cin >> n >> q;
-  vector<P> v(n);
-  rep(i,n) cin >> v[i].first >> v[i].second;
-  auto f = [](P a, P b){ //1次関数の合成
+  vector<mint> v(n);
+  rep(i,n) cin >> v[i];
+  auto f = [](mint a, mint b) {return a+b;};
+  using P = pair<mint, mint>;
+  auto g = [](mint a, P p) {return p.first*a + p.second;}; //要素への作用
+  auto h = [](P a, P b){ //合成
     return P(a.first*b.first, b.first*a.second + b.second);
   };
-  SegmentTree<P> seg(n, f, P(1,0));
-  seg.build(n, v);
+  SegmentTree<mint,P> lazy(n, f, g, h, mint(0), P(mint(1),mint(0)));
+  lazy.build(n, v);
   rep(_,q) {
-    int com; cin >> com;
+    int com;
+    cin >> com;
     if (com == 0) {
-      int i;
+      int l,r;
+      cin >> l >> r;
       P p;
-      cin >> i >> p.first >> p.second;
-      seg.set_val(i, p);
+      cin >> p.first >> p.second;
+      lazy.update(l, r, p);
     }
     else {
       int l,r;
-      mint x;
-      cin >> l >> r >> x;
-      P p = seg.query(l,r);
-      mint res = p.first*x + p.second;
+      cin >> l >> r;
+      mint res = lazy.query(l,r);
       cout << res << "\n";
     }
   }

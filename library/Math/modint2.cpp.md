@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Math/modint2.cpp
+# :question: Math/modint2.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/modint2.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-04 01:03:35+09:00
+    - Last commit date: 2020-05-04 15:50:21+09:00
 
 
 
@@ -39,6 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>
+* :x: <a href="../../verify/tests/yj_range_affine_range_sum.test.cpp.html">tests/yj_range_affine_range_sum.test.cpp</a>
 
 
 ## Code
@@ -78,6 +79,8 @@ struct mint {
   mint inv() const { return pow(mod-2);}
   mint& operator/=(const mint a) { return *this *= a.inv();}
   mint operator/(const mint a) const { return mint(*this) /= a;}
+  bool operator==(const mint rhs) const { return x == rhs.x; }
+  bool operator!=(const mint rhs) const { return x != rhs.x; }
 };
 istream& operator>>(istream& is, mint& a) { return is >> a.x;}
 ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
@@ -122,6 +125,8 @@ struct mint {
   mint inv() const { return pow(mod-2);}
   mint& operator/=(const mint a) { return *this *= a.inv();}
   mint operator/(const mint a) const { return mint(*this) /= a;}
+  bool operator==(const mint rhs) const { return x == rhs.x; }
+  bool operator!=(const mint rhs) const { return x != rhs.x; }
 };
 istream& operator>>(istream& is, mint& a) { return is >> a.x;}
 ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}

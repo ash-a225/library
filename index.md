@@ -68,6 +68,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/yj_point_add_range_sum.test.cpp.html">tests/yj_point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_static_range_sum.test.cpp.html">tests/yj_static_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yj_static_range_sum2.test.cpp.html">tests/yj_static_range_sum2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_static_rmq.test.cpp.html">tests/yj_static_rmq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_unionfind.test.cpp.html">tests/yj_unionfind.test.cpp</a>
 

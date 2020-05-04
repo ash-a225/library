@@ -25,24 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: DataStructure/segment_tree_basic.cpp
+# :heavy_check_mark: tests/yj_static_range_sum2.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree_basic.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
+* <a href="{{ site.github.repository_url }}/blob/master/tests/yj_static_range_sum2.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-05-04 14:22:53+09:00
 
 
+* see: <a href="https://judge.yosupo.jp/problem/static_range_sum">https://judge.yosupo.jp/problem/static_range_sum</a>
 
 
-## Verified with
+## Depends on
 
-* :heavy_check_mark: <a href="../../verify/tests/AOJ_DPL_1_D.test.cpp.html">tests/AOJ_DPL_1_D.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/tests/AOJ_DSL_2_A.test.cpp.html">tests/AOJ_DSL_2_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/tests/yj_static_range_sum2.test.cpp.html">tests/yj_static_range_sum2.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/tests/yj_static_rmq.test.cpp.html">tests/yj_static_rmq.test.cpp</a>
+* :heavy_check_mark: <a href="../../library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
 
 
 ## Code
@@ -50,65 +47,53 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef SEG_BASIC_H
-#define SEG_BASIC_H
+#define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+#define all(x) (x).begin(),(x).end()
+using namespace std;
+using ll = long long;
+using P = pair<int,ll>;
+template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
+template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
-//https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
-//https://qiita.com/drken/items/68b8503ad4ffb469624c#3-lis-%E3%81%AE%E8%A7%A3%E6%B3%951-%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2-ver
-//http://tsutaj.hatenablog.com/entry/2017/03/29/204841
+#include "DataStructure/segment_tree_basic.cpp"
 
-template<typename T> 
-struct SegmentTree {
-  private:
-    using F = function<T(T,T)>;
-    const F f;
-    const T DD; // e
-    int n;
-    vector<T> dat;
-  public:
-    SegmentTree(int n_, const F func, T dd):f(func),DD(dd){ init(n_);}
-    void init(int n_) {
-      n = 1; while(n < n_) n *= 2;
-      dat.clear();
-      dat.resize(2*n-1, DD);
-    }
-    void build(int n_, vector<T> v) {
-      assert(n_ <= n);
-      for(int i=0;i<n_;++i) dat[i+n-1] = v[i];
-      for(int i=n-2;i>=0;--i) dat[i] = f(dat[2*i+1], dat[2*i+2]);
-    }
-    void set_val(int i, T x){
-      assert(i < n);
-      i += n-1;
-      dat[i] = x;
-      while (i > 0) {    
-        i = (i-1)/2;  //child->parent
-        dat[i] = f(dat[i*2+1], dat[i*2+2]);
-      }   
-    } 
-    T query(int a, int b, int k, int l, int r) { 
-      if (r<=a||b<=l) return DD;
-      else if (a<=l&&r<=b) return dat[k];
-      else {
-        T vl = query(a,b,k*2+1,l,(l+r)/2);
-        T vr = query(a,b,k*2+2,(l+r)/2,r);
-        return f(vl, vr);
-      }
-    }
-    T query(int a, int b) { //[a,b)
-      assert(a < n);
-      assert(b <= n);
-      return query(a,b,0,0,n);
-    }
-};
-
-#endif
+int main() {
+  std::cin.tie(nullptr);
+  std::ios_base::sync_with_stdio(false);
+  std::cout << std::fixed << std::setprecision(15);
+  int n, q;
+  cin >> n >> q;
+  vector<ll> a(n);
+  rep(i,n) cin >> a[i];
+  auto f = [](ll a, ll b) {return a+b;};
+  SegmentTree<ll> seg(n, f, 0);
+  seg.build(n, a);
+  rep(i,q) {
+    int l, r;
+    cin >> l >> r;
+    cout << seg.query(l,r) << "\n";
+  }
+  return 0;
+}
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
+#line 1 "tests/yj_static_range_sum2.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+#define all(x) (x).begin(),(x).end()
+using namespace std;
+using ll = long long;
+using P = pair<int,ll>;
+template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
+template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
+
 #line 1 "DataStructure/segment_tree_basic.cpp"
 
 
@@ -163,6 +148,26 @@ struct SegmentTree {
 };
 
 
+#line 12 "tests/yj_static_range_sum2.test.cpp"
+
+int main() {
+  std::cin.tie(nullptr);
+  std::ios_base::sync_with_stdio(false);
+  std::cout << std::fixed << std::setprecision(15);
+  int n, q;
+  cin >> n >> q;
+  vector<ll> a(n);
+  rep(i,n) cin >> a[i];
+  auto f = [](ll a, ll b) {return a+b;};
+  SegmentTree<ll> seg(n, f, 0);
+  seg.build(n, a);
+  rep(i,q) {
+    int l, r;
+    cin >> l >> r;
+    cout << seg.query(l,r) << "\n";
+  }
+  return 0;
+}
 
 ```
 {% endraw %}

@@ -30,6 +30,8 @@ struct mint {
   mint inv() const { return pow(mod-2);}
   mint& operator/=(const mint a) { return *this *= a.inv();}
   mint operator/(const mint a) const { return mint(*this) /= a;}
+  bool operator==(const mint rhs) const { return x == rhs.x; }
+  bool operator!=(const mint rhs) const { return x != rhs.x; }
 };
 istream& operator>>(istream& is, mint& a) { return is >> a.x;}
 ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}

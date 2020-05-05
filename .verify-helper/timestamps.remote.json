@@ -4,6 +4,7 @@
 "tests/AOJ_DSL_2_B.test.cpp": "2020-05-03 12:13:07 +0900",
 "tests/AOJ_DSL_2_G.test.cpp": "2020-05-06 01:38:53 +0900",
 "tests/AOJ_GRL_1_B.test.cpp": "2020-05-05 17:58:09 +0900",
+"tests/AOJ_GRL_2_A.test.cpp": "2020-05-06 03:13:03 +0900",
 "tests/example.test.cpp": "2020-05-03 01:48:15 +0900",
 "tests/yj_point_add_range_sum.test.cpp": "2020-05-04 00:59:00 +0900",
 "tests/yj_point_set_range_composite.test.cpp": "2020-05-06 01:38:53 +0900",

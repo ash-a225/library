@@ -48,6 +48,9 @@ struct SegmentTree {
       assert(b <= n);
       return query(a,b,0,0,n);
     }
+    T operator[](const int &k){
+      return query(k, k+1);
+    }
 };
 
 #endif

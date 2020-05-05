@@ -1,3 +1,4 @@
+#define IGNORE
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)

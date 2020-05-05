@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_shortest_path.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-05 17:58:30+09:00
+    - Last commit date: 2020-05-06 03:39:58+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/shortest_path">https://judge.yosupo.jp/problem/shortest_path</a>
@@ -65,20 +65,20 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int n, m, s, t;
   cin >> n >> m >> s >> t;
-  vector<vector<P> > G(n);
+  Dijkstra<ll> G(n);
   rep(i,m) {
     int a,b;
     ll c;
     cin >> a >> b >> c;
-    G[a].emplace_back(P(b,c));
+    G.add_edge(a, b, c);
   }
-  vector<ll> dist = dijkstra(n, s, G);
-  vector<int> path = get_path(t);
-  if (dist[t] >= 1LL<<60) {
+  G.build(s);
+  vector<int> path = G.get_path(t);
+  if (G[t] >= 1LL<<60) {
     cout << -1 << endl;
     return 0;
   }
-  cout << dist[t] << " " << path.size()-1 << endl;
+  cout << G[t] << " " << path.size()-1 << endl;
   for (int i = 0; i < (int)path.size()-1; ++i) {
     cout << path[i] << " " << path[i+1] << endl;
   }
@@ -105,41 +105,58 @@ template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 
 
-vector<int> preV;
-
 template <typename T>
-vector<T> dijkstra(int n, int s, const vector<vector<pair<int,T> > > &G) {
-  priority_queue<pair<T,int>, vector<pair<T,int> >, greater<pair<T,int> > > que;
-  const T INF = numeric_limits<T>::max();
-  vector<T> dist(n, INF);
-  preV = vector<int>(n, -1);
-  dist[s] = 0;
-  que.push(pair<T,int>(0,s));
-  while(!que.empty()) {
-    pair<T,int> p = que.top(); que.pop();
-    int v = p.second;
-    if (dist[v] < p.first) continue;
-    for (auto e : G[v]) {
-      int to = e.first;
-      T cost = e.second;
-      if (dist[to] > dist[v] + cost) {
-        dist[to] = p.first + cost;
-        preV[to] = v;
-        que.push(pair<T,int>(dist[to], to));
+struct Dijkstra {
+  private:
+    struct edge{
+      int to;
+      T cost;
+      edge(int to,T cost):to(to),cost(cost){}
+      bool operator<(const edge &e)const{return cost>e.cost;}
+    };
+    int n;
+    vector<vector<edge> > G;
+    vector<T> dist;
+    vector<int> preV;
+  public:
+    Dijkstra(int n_):n(n_),G(n_){};
+    void add_edge(int u, int v, T c) {
+      assert(u < n);
+      assert(v < n);
+      G[u].emplace_back(v,c);
+    }
+    void build(int s) {
+      dist.assign(n,numeric_limits<T>::max());
+      preV.assign(n,-1);
+      dist[s] = 0;
+      priority_queue<edge> que;
+      que.push(edge(s,0LL));
+      while(!que.empty()) {
+        auto p = que.top(); que.pop();
+        int v = p.to;
+        if (dist[v] < p.cost) continue;
+        for (auto e:G[v]) {
+          if (dist[e.to] > dist[v]+e.cost) {
+            dist[e.to] = p.cost+e.cost;
+            preV[e.to] = v;
+            que.push(edge(e.to,dist[e.to]));
+          }
+        }
       }
     }
-  }
-  return dist;
-}
-
-vector<int> get_path(int t) { //tへの経路復元
-  vector<int> path;
-  for(; t != -1; t = preV[t]){
-    path.emplace_back(t);
-  }
-  reverse(path.begin(), path.end());
-  return path;
-}
+    vector<int> get_path(int to) { //経路復元
+      vector<int> path;
+      for(; to != -1; to = preV[to]){
+        path.emplace_back(to);
+      }
+      reverse(path.begin(), path.end());
+      return path;
+    }
+    T operator[](int k){
+      assert(k < n);
+      return dist[k];
+    }
+};
 
 
 #line 12 "tests/yj_shortest_path.test.cpp"
@@ -150,20 +167,20 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int n, m, s, t;
   cin >> n >> m >> s >> t;
-  vector<vector<P> > G(n);
+  Dijkstra<ll> G(n);
   rep(i,m) {
     int a,b;
     ll c;
     cin >> a >> b >> c;
-    G[a].emplace_back(P(b,c));
+    G.add_edge(a, b, c);
   }
-  vector<ll> dist = dijkstra(n, s, G);
-  vector<int> path = get_path(t);
-  if (dist[t] >= 1LL<<60) {
+  G.build(s);
+  vector<int> path = G.get_path(t);
+  if (G[t] >= 1LL<<60) {
     cout << -1 << endl;
     return 0;
   }
-  cout << dist[t] << " " << path.size()-1 << endl;
+  cout << G[t] << " " << path.size()-1 << endl;
   for (int i = 0; i < (int)path.size()-1; ++i) {
     cout << path[i] << " " << path[i+1] << endl;
   }

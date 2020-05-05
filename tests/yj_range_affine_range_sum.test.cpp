@@ -1,4 +1,3 @@
-#define IGNORE
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
@@ -21,12 +20,11 @@ int main() {
   rep(i,n) cin >> v[i];
   auto f = [](mint a, mint b) {return a+b;};
   using P = pair<mint, mint>;
-  auto g = [](mint a, P p) {return p.first*a + p.second;}; //要素への作用
-  auto h = [](P a, P b){ //合成
-    return P(a.first*b.first, b.first*a.second + b.second);
-  };
-  SegmentTree<mint,P> lazy(n, f, g, h, mint(0), P(mint(1),mint(0)));
-  lazy.build(n, v);
+  auto g = [](mint a, P b) {return b.first*a + b.second;}; //要素への作用
+  auto h = [](P a, P b){ return P(a.first*b.first, b.first*a.second + b.second);}; //合成
+  auto p = [](P a, int b){ return P(a.first, a.second*b);}; //要素への操作がbに比例する
+  SegmentTree<mint,P> lazy(n, f, g, h, mint(0), P(mint(1),mint(0)), p);
+  lazy.build(n,v);
   rep(_,q) {
     int com;
     cin >> com;

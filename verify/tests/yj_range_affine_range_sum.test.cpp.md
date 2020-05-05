@@ -31,9 +31,10 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_range_affine_range_sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-05 18:04:16+09:00
+    - Last commit date: 2020-05-06 01:17:49+09:00
 
 
+* see: <a href="https://judge.yosupo.jp/problem/point_add_range_sum">https://judge.yosupo.jp/problem/point_add_range_sum</a>
 
 
 ## Depends on
@@ -47,7 +48,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define IGNORE
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
@@ -70,12 +70,11 @@ int main() {
   rep(i,n) cin >> v[i];
   auto f = [](mint a, mint b) {return a+b;};
   using P = pair<mint, mint>;
-  auto g = [](mint a, P p) {return p.first*a + p.second;}; //要素への作用
-  auto h = [](P a, P b){ //合成
-    return P(a.first*b.first, b.first*a.second + b.second);
-  };
-  SegmentTree<mint,P> lazy(n, f, g, h, mint(0), P(mint(1),mint(0)));
-  lazy.build(n, v);
+  auto g = [](mint a, P b) {return b.first*a + b.second;}; //要素への作用
+  auto h = [](P a, P b){ return P(a.first*b.first, b.first*a.second + b.second);}; //合成
+  auto p = [](P a, int b){ return P(a.first, a.second*b);}; //要素への操作がbに比例する
+  SegmentTree<mint,P> lazy(n, f, g, h, mint(0), P(mint(1),mint(0)), p);
+  lazy.build(n,v);
   rep(_,q) {
     int com;
     cin >> com;
@@ -102,7 +101,6 @@ int main() {
 {% raw %}
 ```cpp
 #line 1 "tests/yj_range_affine_range_sum.test.cpp"
-#define IGNORE
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
@@ -156,19 +154,22 @@ struct SegmentTree {
       dat[k]=g(dat[k],p(laz[k],len));
       laz[k]=DE;
     }
-    T update(int a,int b,E x,int k,int l,int r){
+    void update(int a,int b,E x,int k,int l,int r){
       eval(r-l,k);
-      if(r<=a||b<=l) return dat[k];
+      if(r<=a||b<=l) return;
       if(a<=l&&r<=b){
         laz[k]=h(laz[k],x);
-        return g(dat[k],p(laz[k],r-l));
+        eval(r-l,k);
+        return;
       }
-      return dat[k]=f(update(a,b,x,k*2+1,l,(l+r)/2),update(a,b,x,k*2+2,(l+r)/2,r));
+      update(a,b,x,k*2+1,l,(l+r)/2);
+      update(a,b,x,k*2+2,(l+r)/2,r);
+      dat[k]=f(dat[k*2+1],dat[k*2+2]);
     }
-    T update(int a,int b,E x){
+    void update(int a,int b,E x){
       assert(a < n);
       assert(b <= n);
-      return update(a,b,x,0,0,n);
+      update(a,b,x,0,0,n);
     }
     T query(int a,int b,int k,int l,int r){
       eval(r-l,k);
@@ -226,7 +227,7 @@ istream& operator>>(istream& is, mint& a) { return is >> a.x;}
 ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
 
 
-#line 13 "tests/yj_range_affine_range_sum.test.cpp"
+#line 12 "tests/yj_range_affine_range_sum.test.cpp"
 
 int main() {
   std::cin.tie(nullptr);
@@ -238,12 +239,11 @@ int main() {
   rep(i,n) cin >> v[i];
   auto f = [](mint a, mint b) {return a+b;};
   using P = pair<mint, mint>;
-  auto g = [](mint a, P p) {return p.first*a + p.second;}; //要素への作用
-  auto h = [](P a, P b){ //合成
-    return P(a.first*b.first, b.first*a.second + b.second);
-  };
-  SegmentTree<mint,P> lazy(n, f, g, h, mint(0), P(mint(1),mint(0)));
-  lazy.build(n, v);
+  auto g = [](mint a, P b) {return b.first*a + b.second;}; //要素への作用
+  auto h = [](P a, P b){ return P(a.first*b.first, b.first*a.second + b.second);}; //合成
+  auto p = [](P a, int b){ return P(a.first, a.second*b);}; //要素への操作がbに比例する
+  SegmentTree<mint,P> lazy(n, f, g, h, mint(0), P(mint(1),mint(0)), p);
+  lazy.build(n,v);
   rep(_,q) {
     int com;
     cin >> com;

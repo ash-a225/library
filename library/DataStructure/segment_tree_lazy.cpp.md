@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree_lazy.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-04 15:50:21+09:00
+    - Last commit date: 2020-05-06 01:17:49+09:00
 
 
 
@@ -90,19 +90,22 @@ struct SegmentTree {
       dat[k]=g(dat[k],p(laz[k],len));
       laz[k]=DE;
     }
-    T update(int a,int b,E x,int k,int l,int r){
+    void update(int a,int b,E x,int k,int l,int r){
       eval(r-l,k);
-      if(r<=a||b<=l) return dat[k];
+      if(r<=a||b<=l) return;
       if(a<=l&&r<=b){
         laz[k]=h(laz[k],x);
-        return g(dat[k],p(laz[k],r-l));
+        eval(r-l,k);
+        return;
       }
-      return dat[k]=f(update(a,b,x,k*2+1,l,(l+r)/2),update(a,b,x,k*2+2,(l+r)/2,r));
+      update(a,b,x,k*2+1,l,(l+r)/2);
+      update(a,b,x,k*2+2,(l+r)/2,r);
+      dat[k]=f(dat[k*2+1],dat[k*2+2]);
     }
-    T update(int a,int b,E x){
+    void update(int a,int b,E x){
       assert(a < n);
       assert(b <= n);
-      return update(a,b,x,0,0,n);
+      update(a,b,x,0,0,n);
     }
     T query(int a,int b,int k,int l,int r){
       eval(r-l,k);
@@ -170,19 +173,22 @@ struct SegmentTree {
       dat[k]=g(dat[k],p(laz[k],len));
       laz[k]=DE;
     }
-    T update(int a,int b,E x,int k,int l,int r){
+    void update(int a,int b,E x,int k,int l,int r){
       eval(r-l,k);
-      if(r<=a||b<=l) return dat[k];
+      if(r<=a||b<=l) return;
       if(a<=l&&r<=b){
         laz[k]=h(laz[k],x);
-        return g(dat[k],p(laz[k],r-l));
+        eval(r-l,k);
+        return;
       }
-      return dat[k]=f(update(a,b,x,k*2+1,l,(l+r)/2),update(a,b,x,k*2+2,(l+r)/2,r));
+      update(a,b,x,k*2+1,l,(l+r)/2);
+      update(a,b,x,k*2+2,(l+r)/2,r);
+      dat[k]=f(dat[k*2+1],dat[k*2+2]);
     }
-    T update(int a,int b,E x){
+    void update(int a,int b,E x){
       assert(a < n);
       assert(b <= n);
-      return update(a,b,x,0,0,n);
+      update(a,b,x,0,0,n);
     }
     T query(int a,int b,int k,int l,int r){
       eval(r-l,k);

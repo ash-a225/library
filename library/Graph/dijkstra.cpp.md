@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/tests/yj_dijkstra.test.cpp.html">tests/yj_dijkstra.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yj_shortest_path.test.cpp.html">tests/yj_shortest_path.test.cpp</a>
 
 
 ## Code

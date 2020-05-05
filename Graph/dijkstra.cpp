@@ -1,40 +1,57 @@
 #ifndef DIJKSTRA_H
 #define DIJKSTRA_H
 
-vector<int> preV;
-
 template <typename T>
-vector<T> dijkstra(int n, int s, const vector<vector<pair<int,T> > > &G) {
-  priority_queue<pair<T,int>, vector<pair<T,int> >, greater<pair<T,int> > > que;
-  const T INF = numeric_limits<T>::max();
-  vector<T> dist(n, INF);
-  preV = vector<int>(n, -1);
-  dist[s] = 0;
-  que.push(pair<T,int>(0,s));
-  while(!que.empty()) {
-    pair<T,int> p = que.top(); que.pop();
-    int v = p.second;
-    if (dist[v] < p.first) continue;
-    for (auto e : G[v]) {
-      int to = e.first;
-      T cost = e.second;
-      if (dist[to] > dist[v] + cost) {
-        dist[to] = p.first + cost;
-        preV[to] = v;
-        que.push(pair<T,int>(dist[to], to));
+struct Dijkstra {
+  private:
+    struct edge{
+      int to;
+      T cost;
+      edge(int to,T cost):to(to),cost(cost){}
+      bool operator<(const edge &e)const{return cost>e.cost;}
+    };
+    int n;
+    vector<vector<edge> > G;
+    vector<T> dist;
+    vector<int> preV;
+  public:
+    Dijkstra(int n_):n(n_),G(n_){};
+    void add_edge(int u, int v, T c) {
+      assert(u < n);
+      assert(v < n);
+      G[u].emplace_back(v,c);
+    }
+    void build(int s) {
+      dist.assign(n,numeric_limits<T>::max());
+      preV.assign(n,-1);
+      dist[s] = 0;
+      priority_queue<edge> que;
+      que.push(edge(s,0LL));
+      while(!que.empty()) {
+        auto p = que.top(); que.pop();
+        int v = p.to;
+        if (dist[v] < p.cost) continue;
+        for (auto e:G[v]) {
+          if (dist[e.to] > dist[v]+e.cost) {
+            dist[e.to] = p.cost+e.cost;
+            preV[e.to] = v;
+            que.push(edge(e.to,dist[e.to]));
+          }
+        }
       }
     }
-  }
-  return dist;
-}
-
-vector<int> get_path(int t) { //tへの経路復元
-  vector<int> path;
-  for(; t != -1; t = preV[t]){
-    path.emplace_back(t);
-  }
-  reverse(path.begin(), path.end());
-  return path;
-}
+    vector<int> get_path(int to) { //経路復元
+      vector<int> path;
+      for(; to != -1; to = preV[to]){
+        path.emplace_back(to);
+      }
+      reverse(path.begin(), path.end());
+      return path;
+    }
+    T operator[](int k){
+      assert(k < n);
+      return dist[k];
+    }
+};
 
 #endif

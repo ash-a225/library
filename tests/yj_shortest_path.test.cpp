@@ -16,20 +16,20 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int n, m, s, t;
   cin >> n >> m >> s >> t;
-  vector<vector<P> > G(n);
+  Dijkstra<ll> G(n);
   rep(i,m) {
     int a,b;
     ll c;
     cin >> a >> b >> c;
-    G[a].emplace_back(P(b,c));
+    G.add_edge(a, b, c);
   }
-  vector<ll> dist = dijkstra(n, s, G);
-  vector<int> path = get_path(t);
-  if (dist[t] >= 1LL<<60) {
+  G.build(s);
+  vector<int> path = G.get_path(t);
+  if (G[t] >= 1LL<<60) {
     cout << -1 << endl;
     return 0;
   }
-  cout << dist[t] << " " << path.size()-1 << endl;
+  cout << G[t] << " " << path.size()-1 << endl;
   for (int i = 0; i < (int)path.size()-1; ++i) {
     cout << path[i] << " " << path[i+1] << endl;
   }

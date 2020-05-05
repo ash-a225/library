@@ -31,10 +31,9 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_range_affine_range_sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-04 15:50:21+09:00
+    - Last commit date: 2020-05-05 18:04:16+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/point_add_range_sum">https://judge.yosupo.jp/problem/point_add_range_sum</a>
 
 
 ## Depends on
@@ -48,6 +47,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#define IGNORE
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
@@ -102,6 +102,7 @@ int main() {
 {% raw %}
 ```cpp
 #line 1 "tests/yj_range_affine_range_sum.test.cpp"
+#define IGNORE
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
@@ -225,7 +226,7 @@ istream& operator>>(istream& is, mint& a) { return is >> a.x;}
 ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
 
 
-#line 12 "tests/yj_range_affine_range_sum.test.cpp"
+#line 13 "tests/yj_range_affine_range_sum.test.cpp"
 
 int main() {
   std::cin.tie(nullptr);

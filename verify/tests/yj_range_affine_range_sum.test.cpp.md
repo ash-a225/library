@@ -25,22 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: tests/yj_range_affine_range_sum.test.cpp
+# :heavy_check_mark: tests/yj_range_affine_range_sum.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_range_affine_range_sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-06 01:17:49+09:00
+    - Last commit date: 2020-05-06 01:38:53+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/point_add_range_sum">https://judge.yosupo.jp/problem/point_add_range_sum</a>
+* see: <a href="https://judge.yosupo.jp/problem/range_affine_range_sum">https://judge.yosupo.jp/problem/range_affine_range_sum</a>
 
 
 ## Depends on
 
-* :question: <a href="../../library/DataStructure/segment_tree_lazy.cpp.html">DataStructure/segment_tree_lazy.cpp</a>
-* :question: <a href="../../library/Math/modint2.cpp.html">Math/modint2.cpp</a>
+* :heavy_check_mark: <a href="../../library/DataStructure/segment_tree_lazy.cpp.html">DataStructure/segment_tree_lazy.cpp</a>
+* :heavy_check_mark: <a href="../../library/Math/modint2.cpp.html">Math/modint2.cpp</a>
 
 
 ## Code
@@ -48,7 +48,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
+#define PROBLEM "https://judge.yosupo.jp/problem/range_affine_range_sum"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -101,7 +101,7 @@ int main() {
 {% raw %}
 ```cpp
 #line 1 "tests/yj_range_affine_range_sum.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
+#define PROBLEM "https://judge.yosupo.jp/problem/range_affine_range_sum"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -114,7 +114,7 @@ template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 
 
-template<typename T,typename E> 
+template<typename T,typename E>
 struct SegmentTree {
   private:
     using F = function<T(T,T)>;
@@ -154,22 +154,20 @@ struct SegmentTree {
       dat[k]=g(dat[k],p(laz[k],len));
       laz[k]=DE;
     }
-    void update(int a,int b,E x,int k,int l,int r){
+    T update(int a,int b,E x,int k,int l,int r){
       eval(r-l,k);
-      if(r<=a||b<=l) return;
+      if(r<=a||b<=l) return dat[k];
       if(a<=l&&r<=b){
         laz[k]=h(laz[k],x);
         eval(r-l,k);
-        return;
+        return dat[k];
       }
-      update(a,b,x,k*2+1,l,(l+r)/2);
-      update(a,b,x,k*2+2,(l+r)/2,r);
-      dat[k]=f(dat[k*2+1],dat[k*2+2]);
+      return dat[k]=f(update(a,b,x,k*2+1,l,(l+r)/2),update(a,b,x,k*2+2,(l+r)/2,r));
     }
-    void update(int a,int b,E x){
+    T update(int a,int b,E x){
       assert(a < n);
       assert(b <= n);
-      update(a,b,x,0,0,n);
+      return update(a,b,x,0,0,n);
     }
     T query(int a,int b,int k,int l,int r){
       eval(r-l,k);
@@ -183,6 +181,9 @@ struct SegmentTree {
       assert(a < n);
       assert(b <= n);
       return query(a,b,0,0,n);
+    }
+    T operator[](const int &k){
+      return query(k, k+1);
     }
 };
 

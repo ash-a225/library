@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: DataStructure/segment_tree_lazy.cpp
+# :heavy_check_mark: DataStructure/segment_tree_lazy.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree_lazy.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-06 01:17:49+09:00
+    - Last commit date: 2020-05-06 01:38:53+09:00
 
 
 
@@ -39,7 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/tests/AOJ_DSL_2_G.test.cpp.html">tests/AOJ_DSL_2_G.test.cpp</a>
-* :x: <a href="../../verify/tests/yj_range_affine_range_sum.test.cpp.html">tests/yj_range_affine_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yj_range_affine_range_sum.test.cpp.html">tests/yj_range_affine_range_sum.test.cpp</a>
 
 
 ## Code
@@ -50,7 +50,7 @@ layout: default
 #ifndef SEG_BASIC_H
 #define SEG_BASIC_H
 
-template<typename T,typename E> 
+template<typename T,typename E>
 struct SegmentTree {
   private:
     using F = function<T(T,T)>;
@@ -90,22 +90,20 @@ struct SegmentTree {
       dat[k]=g(dat[k],p(laz[k],len));
       laz[k]=DE;
     }
-    void update(int a,int b,E x,int k,int l,int r){
+    T update(int a,int b,E x,int k,int l,int r){
       eval(r-l,k);
-      if(r<=a||b<=l) return;
+      if(r<=a||b<=l) return dat[k];
       if(a<=l&&r<=b){
         laz[k]=h(laz[k],x);
         eval(r-l,k);
-        return;
+        return dat[k];
       }
-      update(a,b,x,k*2+1,l,(l+r)/2);
-      update(a,b,x,k*2+2,(l+r)/2,r);
-      dat[k]=f(dat[k*2+1],dat[k*2+2]);
+      return dat[k]=f(update(a,b,x,k*2+1,l,(l+r)/2),update(a,b,x,k*2+2,(l+r)/2,r));
     }
-    void update(int a,int b,E x){
+    T update(int a,int b,E x){
       assert(a < n);
       assert(b <= n);
-      update(a,b,x,0,0,n);
+      return update(a,b,x,0,0,n);
     }
     T query(int a,int b,int k,int l,int r){
       eval(r-l,k);
@@ -119,6 +117,9 @@ struct SegmentTree {
       assert(a < n);
       assert(b <= n);
       return query(a,b,0,0,n);
+    }
+    T operator[](const int &k){
+      return query(k, k+1);
     }
 };
 
@@ -133,7 +134,7 @@ struct SegmentTree {
 
 
 
-template<typename T,typename E> 
+template<typename T,typename E>
 struct SegmentTree {
   private:
     using F = function<T(T,T)>;
@@ -173,22 +174,20 @@ struct SegmentTree {
       dat[k]=g(dat[k],p(laz[k],len));
       laz[k]=DE;
     }
-    void update(int a,int b,E x,int k,int l,int r){
+    T update(int a,int b,E x,int k,int l,int r){
       eval(r-l,k);
-      if(r<=a||b<=l) return;
+      if(r<=a||b<=l) return dat[k];
       if(a<=l&&r<=b){
         laz[k]=h(laz[k],x);
         eval(r-l,k);
-        return;
+        return dat[k];
       }
-      update(a,b,x,k*2+1,l,(l+r)/2);
-      update(a,b,x,k*2+2,(l+r)/2,r);
-      dat[k]=f(dat[k*2+1],dat[k*2+2]);
+      return dat[k]=f(update(a,b,x,k*2+1,l,(l+r)/2),update(a,b,x,k*2+2,(l+r)/2,r));
     }
-    void update(int a,int b,E x){
+    T update(int a,int b,E x){
       assert(a < n);
       assert(b <= n);
-      update(a,b,x,0,0,n);
+      return update(a,b,x,0,0,n);
     }
     T query(int a,int b,int k,int l,int r){
       eval(r-l,k);
@@ -202,6 +201,9 @@ struct SegmentTree {
       assert(a < n);
       assert(b <= n);
       return query(a,b,0,0,n);
+    }
+    T operator[](const int &k){
+      return query(k, k+1);
     }
 };
 

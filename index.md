@@ -40,7 +40,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/DataStructure/binary_indexed_tree.cpp.html">DataStructure/binary_indexed_tree.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
-* :question: <a href="library/DataStructure/segment_tree_lazy.cpp.html">DataStructure/segment_tree_lazy.cpp</a>
+* :heavy_check_mark: <a href="library/DataStructure/segment_tree_lazy.cpp.html">DataStructure/segment_tree_lazy.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
 
 
@@ -57,7 +57,7 @@ layout: default
 ### Math
 
 * :warning: <a href="library/Math/modint1.cpp.html">Math/modint1.cpp</a>
-* :question: <a href="library/Math/modint2.cpp.html">Math/modint2.cpp</a>
+* :heavy_check_mark: <a href="library/Math/modint2.cpp.html">Math/modint2.cpp</a>
 
 
 ## Verify Files
@@ -70,7 +70,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/example.test.cpp.html">tests/example.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_add_range_sum.test.cpp.html">tests/yj_point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>
-* :x: <a href="verify/tests/yj_range_affine_range_sum.test.cpp.html">tests/yj_range_affine_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yj_range_affine_range_sum.test.cpp.html">tests/yj_range_affine_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_shortest_path.test.cpp.html">tests/yj_shortest_path.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_static_range_sum.test.cpp.html">tests/yj_static_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_static_range_sum2.test.cpp.html">tests/yj_static_range_sum2.test.cpp</a>

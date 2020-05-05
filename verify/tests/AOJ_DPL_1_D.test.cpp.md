@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_DPL_1_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-04 14:22:53+09:00
+    - Last commit date: 2020-05-06 01:38:53+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D</a>
@@ -156,6 +156,9 @@ struct SegmentTree {
       assert(a < n);
       assert(b <= n);
       return query(a,b,0,0,n);
+    }
+    T operator[](const int &k){
+      return query(k, k+1);
     }
 };
 

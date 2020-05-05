@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: Math/modint2.cpp
+# :heavy_check_mark: Math/modint2.cpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -39,7 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>
-* :x: <a href="../../verify/tests/yj_range_affine_range_sum.test.cpp.html">tests/yj_range_affine_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yj_range_affine_range_sum.test.cpp.html">tests/yj_range_affine_range_sum.test.cpp</a>
 
 
 ## Code

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree_basic.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-04 14:22:53+09:00
+    - Last commit date: 2020-05-06 01:38:53+09:00
 
 
 
@@ -100,6 +100,9 @@ struct SegmentTree {
       assert(b <= n);
       return query(a,b,0,0,n);
     }
+    T operator[](const int &k){
+      return query(k, k+1);
+    }
 };
 
 #endif
@@ -159,6 +162,9 @@ struct SegmentTree {
       assert(a < n);
       assert(b <= n);
       return query(a,b,0,0,n);
+    }
+    T operator[](const int &k){
+      return query(k, k+1);
     }
 };
 

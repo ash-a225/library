@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: Graph/kruskal.cpp
+# :heavy_check_mark: Graph/kruskal.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/kruskal.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-08 02:08:04+09:00
+    - Last commit date: 2020-05-08 02:22:58+09:00
 
 
 
 
 ## Verified with
 
-* :x: <a href="../../verify/tests/AOJ_GRL_2_A.test.cpp.html">tests/AOJ_GRL_2_A.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/AOJ_GRL_2_A.test.cpp.html">tests/AOJ_GRL_2_A.test.cpp</a>
 
 
 ## Code
@@ -52,7 +52,7 @@ layout: default
 struct Edge { 
   int u, v, id;
   ll cost; 
-  Edge(){}
+  Edge():id(0){}
 	Edge(int u,int v,ll cost,int id):u(u),v(v),id(id),cost(cost){}
   bool operator<(const Edge &e) const{ return cost<e.cost;};
 };
@@ -61,12 +61,11 @@ struct Kruskal {
   private:
     ll sum;
     vector<Edge> edges;
-    int n;
     UnionFind uf;
     vector<bool> used;
   public:
-    Kruskal(int n_, const vector<Edge> &edges_):
-    edges(edges_),n(n_),uf(n_){ init();}
+    Kruskal(int n, const vector<Edge> &edges_):
+    edges(edges_),uf(n){ init();}
     void init() {
       sum = 0;
       used.assign((int)edges.size(),false);
@@ -102,7 +101,7 @@ struct Kruskal {
 struct Edge { 
   int u, v, id;
   ll cost; 
-  Edge(){}
+  Edge():id(0){}
 	Edge(int u,int v,ll cost,int id):u(u),v(v),id(id),cost(cost){}
   bool operator<(const Edge &e) const{ return cost<e.cost;};
 };
@@ -111,12 +110,11 @@ struct Kruskal {
   private:
     ll sum;
     vector<Edge> edges;
-    int n;
     UnionFind uf;
     vector<bool> used;
   public:
-    Kruskal(int n_, const vector<Edge> &edges_):
-    edges(edges_),n(n_),uf(n_){ init();}
+    Kruskal(int n, const vector<Edge> &edges_):
+    edges(edges_),uf(n){ init();}
     void init() {
       sum = 0;
       used.assign((int)edges.size(),false);

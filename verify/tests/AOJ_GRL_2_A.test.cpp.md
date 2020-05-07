@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: tests/AOJ_GRL_2_A.test.cpp
+# :heavy_check_mark: tests/AOJ_GRL_2_A.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_GRL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-08 02:08:04+09:00
+    - Last commit date: 2020-05-08 02:22:58+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
-* :x: <a href="../../library/Graph/kruskal.cpp.html">Graph/kruskal.cpp</a>
+* :heavy_check_mark: <a href="../../library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
+* :heavy_check_mark: <a href="../../library/Graph/kruskal.cpp.html">Graph/kruskal.cpp</a>
 
 
 ## Code
@@ -135,7 +135,7 @@ struct UnionFind {
 struct Edge { 
   int u, v, id;
   ll cost; 
-  Edge(){}
+  Edge():id(0){}
 	Edge(int u,int v,ll cost,int id):u(u),v(v),id(id),cost(cost){}
   bool operator<(const Edge &e) const{ return cost<e.cost;};
 };
@@ -144,12 +144,11 @@ struct Kruskal {
   private:
     ll sum;
     vector<Edge> edges;
-    int n;
     UnionFind uf;
     vector<bool> used;
   public:
-    Kruskal(int n_, const vector<Edge> &edges_):
-    edges(edges_),n(n_),uf(n_){ init();}
+    Kruskal(int n, const vector<Edge> &edges_):
+    edges(edges_),uf(n){ init();}
     void init() {
       sum = 0;
       used.assign((int)edges.size(),false);

@@ -50,7 +50,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/Graph/bellman_ford.cpp.html">Graph/bellman_ford.cpp</a>
 * :heavy_check_mark: <a href="library/Graph/dijkstra.cpp.html">Graph/dijkstra.cpp</a>
-* :x: <a href="library/Graph/doubling_lca.cpp.html">Graph/doubling_lca.cpp</a>
+* :heavy_check_mark: <a href="library/Graph/doubling_lca.cpp.html">Graph/doubling_lca.cpp</a>
 * :warning: <a href="library/Graph/doubling_lca_weight.cpp.html">Graph/doubling_lca_weight.cpp</a>
 * :x: <a href="library/Graph/kruskal.cpp.html">Graph/kruskal.cpp</a>
 
@@ -71,7 +71,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/AOJ_DSL_2_G.test.cpp.html">tests/AOJ_DSL_2_G.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_1_B.test.cpp.html">tests/AOJ_GRL_1_B.test.cpp</a>
 * :x: <a href="verify/tests/AOJ_GRL_2_A.test.cpp.html">tests/AOJ_GRL_2_A.test.cpp</a>
-* :x: <a href="verify/tests/AOJ_GRL_5_C.test.cpp.html">tests/AOJ_GRL_5_C.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/AOJ_GRL_5_C.test.cpp.html">tests/AOJ_GRL_5_C.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/example.test.cpp.html">tests/example.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_add_range_sum.test.cpp.html">tests/yj_point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>

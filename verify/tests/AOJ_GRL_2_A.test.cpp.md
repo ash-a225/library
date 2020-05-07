@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_GRL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-08 01:58:46+09:00
+    - Last commit date: 2020-05-08 02:01:41+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
@@ -65,14 +65,14 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int n, m;
   cin >> n >> m;
-  vector<edge> G(m);
+  vector<Edge> G(m);
   rep(i,m) {
-    edge e;
+    Edge e;
     cin >> e.u >> e.v >> e.cost;
     G[i] = e;
   }
-  Kruskal kr(n, G);
-  cout << kr.get_sum() << endl;
+  Kruskal krs(n, G);
+  cout << krs.get_sum() << endl;
   return 0;
 }
 ```
@@ -179,14 +179,14 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int n, m;
   cin >> n >> m;
-  vector<edge> G(m);
+  vector<Edge> G(m);
   rep(i,m) {
-    edge e;
+    Edge e;
     cin >> e.u >> e.v >> e.cost;
     G[i] = e;
   }
-  Kruskal kr(n, G);
-  cout << kr.get_sum() << endl;
+  Kruskal krs(n, G);
+  cout << krs.get_sum() << endl;
   return 0;
 }
 

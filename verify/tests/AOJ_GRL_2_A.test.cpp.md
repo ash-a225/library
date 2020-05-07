@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_GRL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-08 02:01:41+09:00
+    - Last commit date: 2020-05-08 02:08:04+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
@@ -72,6 +72,7 @@ int main() {
     G[i] = e;
   }
   Kruskal krs(n, G);
+  krs.build();
   cout << krs.get_sum() << endl;
   return 0;
 }
@@ -165,7 +166,7 @@ struct Kruskal {
     }
     ll get_sum(){ return sum;}
     bool is_used(int id){ 
-      assert(id < n);
+      assert(id < (int)edges.size());
       return used[id];
     }
 };
@@ -186,6 +187,7 @@ int main() {
     G[i] = e;
   }
   Kruskal krs(n, G);
+  krs.build();
   cout << krs.get_sum() << endl;
   return 0;
 }

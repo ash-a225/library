@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/kruskal.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-08 01:58:46+09:00
+    - Last commit date: 2020-05-08 02:08:04+09:00
 
 
 
@@ -83,7 +83,7 @@ struct Kruskal {
     }
     ll get_sum(){ return sum;}
     bool is_used(int id){ 
-      assert(id < n);
+      assert(id < (int)edges.size());
       return used[id];
     }
 };
@@ -133,7 +133,7 @@ struct Kruskal {
     }
     ll get_sum(){ return sum;}
     bool is_used(int id){ 
-      assert(id < n);
+      assert(id < (int)edges.size());
       return used[id];
     }
 };

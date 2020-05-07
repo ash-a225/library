@@ -35,7 +35,7 @@ struct Kruskal {
     }
     ll get_sum(){ return sum;}
     bool is_used(int id){ 
-      assert(id < n);
+      assert(id < (int)edges.size());
       return used[id];
     }
 };

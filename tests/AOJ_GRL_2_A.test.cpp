@@ -22,6 +22,7 @@ int main() {
     G[i] = e;
   }
   Kruskal krs(n, G);
+  krs.build();
   cout << krs.get_sum() << endl;
   return 0;
 }

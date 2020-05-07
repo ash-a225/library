@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: tests/AOJ_GRL_2_A.test.cpp
+# :x: tests/AOJ_GRL_2_A.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_GRL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-06 03:13:03+09:00
+    - Last commit date: 2020-05-08 01:58:46+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
-* :heavy_check_mark: <a href="../../library/Graph/kruskal.cpp.html">Graph/kruskal.cpp</a>
+* :question: <a href="../../library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
+* :x: <a href="../../library/Graph/kruskal.cpp.html">Graph/kruskal.cpp</a>
 
 
 ## Code
@@ -131,33 +131,43 @@ struct UnionFind {
 
 
 
-struct edge { 
-  int u, v;
+struct Edge { 
+  int u, v, id;
   ll cost; 
-  edge(){}
-	edge(int u, int v, ll cost):u(u), v(v), cost(cost){}
-  bool operator<(const edge &e) const{ return cost<e.cost;};
+  Edge(){}
+	Edge(int u,int v,ll cost,int id):u(u),v(v),id(id),cost(cost){}
+  bool operator<(const Edge &e) const{ return cost<e.cost;};
 };
 
 struct Kruskal {
   private:
     ll sum;
-    vector<edge> G;
+    vector<Edge> edges;
     int n;
     UnionFind uf;
+    vector<bool> used;
   public:
-    Kruskal(int n_, const vector<edge> &G_):G(G_),n(n_),uf(n_){ init();}
+    Kruskal(int n_, const vector<Edge> &edges_):
+    edges(edges_),n(n_),uf(n_){ init();}
     void init() {
-      sort(G.begin(),G.end());
       sum = 0;
-      for (auto e : G) {
+      used.assign((int)edges.size(),false);
+    }
+    void build() {
+      sort(edges.begin(),edges.end());
+      for (auto e : edges) {
         if (!uf.same(e.u, e.v)) { //閉路にならない
           uf.merge(e.u, e.v);
           sum += e.cost;
+          used[e.id] = true;
         }
       }
     }
     ll get_sum(){ return sum;}
+    bool is_used(int id){ 
+      assert(id < n);
+      return used[id];
+    }
 };
 
 

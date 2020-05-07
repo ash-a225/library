@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: tests/AOJ_GRL_5_C.test.cpp
+# :x: tests/AOJ_GRL_5_C.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_GRL_5_C.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-06 18:24:00+09:00
+    - Last commit date: 2020-05-08 01:58:46+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/Graph/doubling_lca.cpp.html">Graph/doubling_lca.cpp</a>
+* :x: <a href="../../library/Graph/doubling_lca.cpp.html">Graph/doubling_lca.cpp</a>
 
 
 ## Code
@@ -111,37 +111,24 @@ template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 //https://algo-logic.info/lca/
 //http://satanic0258.hatenablog.com/entry/2017/02/23/222647
 
+//par[i][v]   vの2^i個上の頂点
+
 struct LowestCommonAncestor {
   private:
     vector<vector<int> > par;
     vector<int> dist; //from root
     const vector<vector<int> > &G;
     const int root;
-  public:
-    LowestCommonAncestor(const vector<vector<int> > &G,int root=0):
-    G(G),root(root){init();};
-    void init() {
-      int n = G.size(), k = 1;
-      while ((1<<k) < n) k++;
-      par.assign(k, vector<int>(n,-1));
-      dist.assign(n,-1);
-      // build
-      dfs(root, -1, 0);
-      for (int i=0; i<k-1; ++i) {
-        for (int v=0; v<n; ++v) {
-          if (par[i][v] < 0) par[i+1][v] = -1;
-          else par[i+1][v] = par[i][par[i][v]];
-        }
-      }
-    }
-    void dfs(int v, int p, int d) {
+    void dfs_(int v, int p, int d) {
       par[0][v] = p;
       dist[v] = d;
       for (auto to : G[v]) {
-        if (to != p) dfs(to, v, d+1);
+        if (to != p) dfs_(to, v, d+1);
       }
     }
-    int query(int u, int v) {
+    int query(int u,int v) {
+      assert(u < (int)dist.size());
+      assert(v < (int)dist.size());
       if (dist[u] > dist[v]) swap(u,v);
       int k = par.size();
       for (int i=0; i<k; ++i) { //LCAまでの距離を揃える
@@ -149,17 +136,30 @@ struct LowestCommonAncestor {
       }
       if (u==v) return u;
       for (int i = k-1; i>=0; --i) {
-        if (par[i][u] != par[i][v]) {
-          u = par[i][u];
-          v = par[i][v];
-        }
+        if (par[i][u] == par[i][v]) continue;
+        u = par[i][u];
+        v = par[i][v];
       }
       return par[0][u];
     }
-    int get_dist(int u, int v) { return dist[u]+dist[v]-2*dist[query(u,v)];}
-    bool is_on_path(int u, int v, int a) { 
-      return get_dist(u,a)+get_dist(a,v) == get_dist(u,v); 
-    }
+  public:
+    LowestCommonAncestor(const vector<vector<int> > &G,int root=0):
+    G(G),root(root){
+      int n=G.size(), k=1;
+      while ((1<<k) < n) k++;
+      par.assign(k, vector<int>(n,-1));
+      dist.assign(n,-1);
+      dfs_(root,-1,0);
+      for (int i=0; i<k-1; ++i) {
+        for (int v=0; v<n; ++v) {
+          if (par[i][v] < 0) par[i+1][v] = -1;
+          else par[i+1][v] = par[i][par[i][v]];
+        }
+      }
+    };
+    int operator()(int u,int v) { return query(u,v);}
+    int get_dist(int u, int v){ return dist[u]+dist[v]-2*dist[query(u,v)];}
+    bool is_on_path(int u, int v, int a){ return get_dist(u,a)+get_dist(a,v)==get_dist(u,v);}
 };
 
 

@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
+* :question: <a href="../../library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
 
 
 ## Code

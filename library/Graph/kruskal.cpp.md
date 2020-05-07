@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Graph/kruskal.cpp
+# :x: Graph/kruskal.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/kruskal.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-06 03:13:03+09:00
+    - Last commit date: 2020-05-08 01:58:46+09:00
 
 
 
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/tests/AOJ_GRL_2_A.test.cpp.html">tests/AOJ_GRL_2_A.test.cpp</a>
+* :x: <a href="../../verify/tests/AOJ_GRL_2_A.test.cpp.html">tests/AOJ_GRL_2_A.test.cpp</a>
 
 
 ## Code
@@ -49,33 +49,43 @@ layout: default
 #ifndef KRUSKAL_H
 #define KRUSKAL_H
 
-struct edge { 
-  int u, v;
+struct Edge { 
+  int u, v, id;
   ll cost; 
-  edge(){}
-	edge(int u, int v, ll cost):u(u), v(v), cost(cost){}
-  bool operator<(const edge &e) const{ return cost<e.cost;};
+  Edge(){}
+	Edge(int u,int v,ll cost,int id):u(u),v(v),id(id),cost(cost){}
+  bool operator<(const Edge &e) const{ return cost<e.cost;};
 };
 
 struct Kruskal {
   private:
     ll sum;
-    vector<edge> G;
+    vector<Edge> edges;
     int n;
     UnionFind uf;
+    vector<bool> used;
   public:
-    Kruskal(int n_, const vector<edge> &G_):G(G_),n(n_),uf(n_){ init();}
+    Kruskal(int n_, const vector<Edge> &edges_):
+    edges(edges_),n(n_),uf(n_){ init();}
     void init() {
-      sort(G.begin(),G.end());
       sum = 0;
-      for (auto e : G) {
+      used.assign((int)edges.size(),false);
+    }
+    void build() {
+      sort(edges.begin(),edges.end());
+      for (auto e : edges) {
         if (!uf.same(e.u, e.v)) { //閉路にならない
           uf.merge(e.u, e.v);
           sum += e.cost;
+          used[e.id] = true;
         }
       }
     }
     ll get_sum(){ return sum;}
+    bool is_used(int id){ 
+      assert(id < n);
+      return used[id];
+    }
 };
 
 #endif
@@ -89,33 +99,43 @@ struct Kruskal {
 
 
 
-struct edge { 
-  int u, v;
+struct Edge { 
+  int u, v, id;
   ll cost; 
-  edge(){}
-	edge(int u, int v, ll cost):u(u), v(v), cost(cost){}
-  bool operator<(const edge &e) const{ return cost<e.cost;};
+  Edge(){}
+	Edge(int u,int v,ll cost,int id):u(u),v(v),id(id),cost(cost){}
+  bool operator<(const Edge &e) const{ return cost<e.cost;};
 };
 
 struct Kruskal {
   private:
     ll sum;
-    vector<edge> G;
+    vector<Edge> edges;
     int n;
     UnionFind uf;
+    vector<bool> used;
   public:
-    Kruskal(int n_, const vector<edge> &G_):G(G_),n(n_),uf(n_){ init();}
+    Kruskal(int n_, const vector<Edge> &edges_):
+    edges(edges_),n(n_),uf(n_){ init();}
     void init() {
-      sort(G.begin(),G.end());
       sum = 0;
-      for (auto e : G) {
+      used.assign((int)edges.size(),false);
+    }
+    void build() {
+      sort(edges.begin(),edges.end());
+      for (auto e : edges) {
         if (!uf.same(e.u, e.v)) { //閉路にならない
           uf.merge(e.u, e.v);
           sum += e.cost;
+          used[e.id] = true;
         }
       }
     }
     ll get_sum(){ return sum;}
+    bool is_used(int id){ 
+      assert(id < n);
+      return used[id];
+    }
 };
 
 

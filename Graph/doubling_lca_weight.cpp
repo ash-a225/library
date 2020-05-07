@@ -23,7 +23,7 @@ struct LowestCommonAncestor {
       for (auto to : G[v]) {
         if (to.first == p) continue; 
         dfs_(to.first, v, d+1);
-        max_cost[0][to.first] = to.second;
+        max_w[0][to.first] = to.second;
       }
     }
     int query(int u,int v) {
@@ -43,7 +43,7 @@ struct LowestCommonAncestor {
       return par[0][u];
     }
   public:
-    LowestCommonAncestor(const vector<vector<int> > &G,int root=0):
+    LowestCommonAncestor(const vector<vector<pair<int,T> > &G,int root=0):
     G(G),root(root){
       int n=G.size(), k=1;
       while ((1<<k) < n) k++;

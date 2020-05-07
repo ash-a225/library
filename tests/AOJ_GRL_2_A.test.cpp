@@ -15,13 +15,13 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int n, m;
   cin >> n >> m;
-  vector<edge> G(m);
+  vector<Edge> G(m);
   rep(i,m) {
-    edge e;
+    Edge e;
     cin >> e.u >> e.v >> e.cost;
     G[i] = e;
   }
-  Kruskal kr(n, G);
-  cout << kr.get_sum() << endl;
+  Kruskal krs(n, G);
+  cout << krs.get_sum() << endl;
   return 0;
 }

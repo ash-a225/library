@@ -27,13 +27,13 @@ int main() {
       G[c].emplace_back(i);
     }
   }
-  LowestCommonAncestor LCA(G, 0); //0を根
+  LowestCommonAncestor LCA(G,0); //0を根
   int q;
   cin >> q;
   rep(i,q) {
     int u,v;
     cin >> u >> v;
-    cout << LCA.query(u,v) << "\n";
+    cout << LCA(u,v) << "\n";
   }
   return 0;
 }

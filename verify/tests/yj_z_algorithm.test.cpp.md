@@ -25,20 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: tests/yj_z_algorithm.test.cpp
+# :heavy_check_mark: tests/yj_z_algorithm.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_z_algorithm.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-10 15:54:52+09:00
+    - Last commit date: 2020-05-10 16:00:35+09:00
 
 
+* see: <a href="https://judge.yosupo.jp/problem/zalgorithm">https://judge.yosupo.jp/problem/zalgorithm</a>
 
 
 ## Depends on
 
-* :x: <a href="../../library/String/z_algorithm.cpp.html">String/z_algorithm.cpp</a>
+* :heavy_check_mark: <a href="../../library/String/z_algorithm.cpp.html">String/z_algorithm.cpp</a>
 
 
 ## Code
@@ -46,6 +47,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#define PROBLEM "https://judge.yosupo.jp/problem/zalgorithm"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -78,6 +80,7 @@ int main() {
 {% raw %}
 ```cpp
 #line 1 "tests/yj_z_algorithm.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/zalgorithm"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -113,7 +116,7 @@ struct z_array {
 };
 
 
-#line 11 "tests/yj_z_algorithm.test.cpp"
+#line 12 "tests/yj_z_algorithm.test.cpp"
 
 int main() {
   std::cin.tie(nullptr);

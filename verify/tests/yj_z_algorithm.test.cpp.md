@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_z_algorithm.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-10 16:00:35+09:00
+    - Last commit date: 2020-05-10 18:41:23+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/zalgorithm">https://judge.yosupo.jp/problem/zalgorithm</a>
@@ -111,7 +111,10 @@ struct z_array {
     }
     prefix[0] = s.size();
   }
-  int operator[](const int k) const{ return prefix[k];}
+  int operator[](const int i) const{ 
+    assert(i < (int)prefix.size());
+    return prefix[i];
+  }
   int size(){ return prefix.size();}
 };
 

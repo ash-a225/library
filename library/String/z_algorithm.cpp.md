@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/z_algorithm.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-10 15:54:52+09:00
+    - Last commit date: 2020-05-10 18:41:23+09:00
 
 
 
@@ -66,7 +66,10 @@ struct z_array {
     }
     prefix[0] = s.size();
   }
-  int operator[](const int k) const{ return prefix[k];}
+  int operator[](const int i) const{ 
+    assert(i < (int)prefix.size());
+    return prefix[i];
+  }
   int size(){ return prefix.size();}
 };
 
@@ -98,7 +101,10 @@ struct z_array {
     }
     prefix[0] = s.size();
   }
-  int operator[](const int k) const{ return prefix[k];}
+  int operator[](const int i) const{ 
+    assert(i < (int)prefix.size());
+    return prefix[i];
+  }
   int size(){ return prefix.size();}
 };
 

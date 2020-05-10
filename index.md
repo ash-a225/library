@@ -67,6 +67,7 @@ layout: default
 
 ### String
 
+* :warning: <a href="library/String/smallest_index_of_char.cpp.html">String/smallest_index_of_char.cpp</a>
 * :heavy_check_mark: <a href="library/String/z_algorithm.cpp.html">String/z_algorithm.cpp</a>
 
 

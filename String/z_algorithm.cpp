@@ -18,7 +18,10 @@ struct z_array {
     }
     prefix[0] = s.size();
   }
-  int operator[](const int k) const{ return prefix[k];}
+  int operator[](const int i) const{ 
+    assert(i < (int)prefix.size());
+    return prefix[i];
+  }
   int size(){ return prefix.size();}
 };
 

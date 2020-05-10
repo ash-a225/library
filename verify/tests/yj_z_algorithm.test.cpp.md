@@ -25,16 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: tests/example.test.cpp
+# :x: tests/yj_z_algorithm.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
-* <a href="{{ site.github.repository_url }}/blob/master/tests/example.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 01:48:15+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/tests/yj_z_algorithm.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-10 15:54:52+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/4/ALDS1_4_B">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/4/ALDS1_4_B</a>
+
+
+## Depends on
+
+* :x: <a href="../../library/String/z_algorithm.cpp.html">String/z_algorithm.cpp</a>
 
 
 ## Code
@@ -42,7 +46,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/4/ALDS1_4_B"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -52,33 +55,29 @@ using P = pair<int,int>;
 template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
+#include "String/z_algorithm.cpp"
+
 int main() {
   std::cin.tie(nullptr);
   std::ios_base::sync_with_stdio(false);
   std::cout << std::fixed << std::setprecision(15);
-    int n; cin >> n;
-    vector<int> s(n);
-    rep(i, n) {
-        cin >> s[i];
-    }
-    int q; cin >> q;
-    int cnt = 0;
-    while (q --) {
-        int t_i; cin >> t_i;
-        cnt += binary_search(all(s), t_i);
-    }
-    cout << cnt << endl;
+  string str;
+  cin >> str;
+  z_array a; //LCP
+  a.build(str);
+  rep(i,(int)str.size()) {
+    cout << a[i] << " ";
+  }
+  cout << endl;
   return 0;
 }
-
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "tests/example.test.cpp"
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/4/ALDS1_4_B"
+#line 1 "tests/yj_z_algorithm.test.cpp"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -88,22 +87,46 @@ using P = pair<int,int>;
 template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
+#line 1 "String/z_algorithm.cpp"
+
+
+
+struct z_array {
+  vector<int> prefix;
+  void build(const string &s) {
+    prefix.assign(s.size(),0);
+    for(int i=1, j=0; i < (int)s.size(); ++i) {
+      if(i+prefix[i-j] < j+prefix[j]) {
+        prefix[i] = prefix[i-j];
+      }
+      else {
+        int k = std::max(0,j+prefix[j]-i);
+        while(i+k < (int)s.size() && s[k] == s[i+k]) ++k;
+        prefix[i] = k;
+        j = i;
+      }
+    }
+    prefix[0] = s.size();
+  }
+  int operator[](const int k) const{ return prefix[k];}
+  int size(){ return prefix.size();}
+};
+
+
+#line 11 "tests/yj_z_algorithm.test.cpp"
+
 int main() {
   std::cin.tie(nullptr);
   std::ios_base::sync_with_stdio(false);
   std::cout << std::fixed << std::setprecision(15);
-    int n; cin >> n;
-    vector<int> s(n);
-    rep(i, n) {
-        cin >> s[i];
-    }
-    int q; cin >> q;
-    int cnt = 0;
-    while (q --) {
-        int t_i; cin >> t_i;
-        cnt += binary_search(all(s), t_i);
-    }
-    cout << cnt << endl;
+  string str;
+  cin >> str;
+  z_array a; //LCP
+  a.build(str);
+  rep(i,(int)str.size()) {
+    cout << a[i] << " ";
+  }
+  cout << endl;
   return 0;
 }
 

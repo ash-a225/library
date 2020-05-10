@@ -63,6 +63,13 @@ layout: default
 * :heavy_check_mark: <a href="library/Math/modint2.cpp.html">Math/modint2.cpp</a>
 
 
+<div id="27118326006d3829667a400ad23d5d98"></div>
+
+### String
+
+* :x: <a href="library/String/z_algorithm.cpp.html">String/z_algorithm.cpp</a>
+
+
 ## Verify Files
 
 * :heavy_check_mark: <a href="verify/tests/AOJ_DPL_1_D.test.cpp.html">tests/AOJ_DPL_1_D.test.cpp</a>
@@ -72,7 +79,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_1_B.test.cpp.html">tests/AOJ_GRL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_2_A.test.cpp.html">tests/AOJ_GRL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_5_C.test.cpp.html">tests/AOJ_GRL_5_C.test.cpp</a>
-* :heavy_check_mark: <a href="verify/tests/example.test.cpp.html">tests/example.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_add_range_sum.test.cpp.html">tests/yj_point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_range_affine_range_sum.test.cpp.html">tests/yj_range_affine_range_sum.test.cpp</a>
@@ -81,5 +87,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/yj_static_range_sum2.test.cpp.html">tests/yj_static_range_sum2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_static_rmq.test.cpp.html">tests/yj_static_rmq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_unionfind.test.cpp.html">tests/yj_unionfind.test.cpp</a>
+* :x: <a href="verify/tests/yj_z_algorithm.test.cpp.html">tests/yj_z_algorithm.test.cpp</a>
 
 

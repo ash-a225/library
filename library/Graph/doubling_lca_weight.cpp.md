@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/doubling_lca_weight.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-08 02:31:42+09:00
+    - Last commit date: 2020-05-12 02:07:17+09:00
 
 
 
@@ -86,7 +86,7 @@ struct LowestCommonAncestor {
       return par[0][u];
     }
   public:
-    LowestCommonAncestor(const vector<vector<pair<int,T> > &G,int root=0):
+    LowestCommonAncestor(const vector<vector<pair<int,T> > > &G,int root=0):
     G(G),root(root){
       int n=G.size(), k=1;
       while ((1<<k) < n) k++;
@@ -179,7 +179,7 @@ struct LowestCommonAncestor {
       return par[0][u];
     }
   public:
-    LowestCommonAncestor(const vector<vector<pair<int,T> > &G,int root=0):
+    LowestCommonAncestor(const vector<vector<pair<int,T> > > &G,int root=0):
     G(G),root(root){
       int n=G.size(), k=1;
       while ((1<<k) < n) k++;

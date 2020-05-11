@@ -43,7 +43,7 @@ struct LowestCommonAncestor {
       return par[0][u];
     }
   public:
-    LowestCommonAncestor(const vector<vector<pair<int,T> > &G,int root=0):
+    LowestCommonAncestor(const vector<vector<pair<int,T> > > &G,int root=0):
     G(G),root(root){
       int n=G.size(), k=1;
       while ((1<<k) < n) k++;

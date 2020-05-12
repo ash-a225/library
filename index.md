@@ -41,6 +41,7 @@ layout: default
 * :heavy_check_mark: <a href="library/DataStructure/binary_indexed_tree.cpp.html">DataStructure/binary_indexed_tree.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree_lazy.cpp.html">DataStructure/segment_tree_lazy.cpp</a>
+* :x: <a href="library/DataStructure/sparce_table.cpp.html">DataStructure/sparce_table.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
 
 
@@ -50,6 +51,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/Graph/bellman_ford.cpp.html">Graph/bellman_ford.cpp</a>
 * :heavy_check_mark: <a href="library/Graph/dijkstra.cpp.html">Graph/dijkstra.cpp</a>
+* :warning: <a href="library/Graph/doubling.cpp.html">Graph/doubling.cpp</a>
 * :heavy_check_mark: <a href="library/Graph/doubling_lca.cpp.html">Graph/doubling_lca.cpp</a>
 * :warning: <a href="library/Graph/doubling_lca_weight.cpp.html">Graph/doubling_lca_weight.cpp</a>
 * :heavy_check_mark: <a href="library/Graph/kruskal.cpp.html">Graph/kruskal.cpp</a>
@@ -87,6 +89,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/yj_static_range_sum.test.cpp.html">tests/yj_static_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_static_range_sum2.test.cpp.html">tests/yj_static_range_sum2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_static_rmq.test.cpp.html">tests/yj_static_rmq.test.cpp</a>
+* :x: <a href="verify/tests/yj_static_rmq2.test.cpp.html">tests/yj_static_rmq2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_unionfind.test.cpp.html">tests/yj_unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_z_algorithm.test.cpp.html">tests/yj_z_algorithm.test.cpp</a>
 

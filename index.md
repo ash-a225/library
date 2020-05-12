@@ -41,7 +41,7 @@ layout: default
 * :heavy_check_mark: <a href="library/DataStructure/binary_indexed_tree.cpp.html">DataStructure/binary_indexed_tree.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree_lazy.cpp.html">DataStructure/segment_tree_lazy.cpp</a>
-* :x: <a href="library/DataStructure/sparce_table.cpp.html">DataStructure/sparce_table.cpp</a>
+* :heavy_check_mark: <a href="library/DataStructure/sparce_table.cpp.html">DataStructure/sparce_table.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
 
 
@@ -89,7 +89,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/yj_static_range_sum.test.cpp.html">tests/yj_static_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_static_range_sum2.test.cpp.html">tests/yj_static_range_sum2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_static_rmq.test.cpp.html">tests/yj_static_rmq.test.cpp</a>
-* :x: <a href="verify/tests/yj_static_rmq2.test.cpp.html">tests/yj_static_rmq2.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yj_static_rmq2.test.cpp.html">tests/yj_static_rmq2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_unionfind.test.cpp.html">tests/yj_unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_z_algorithm.test.cpp.html">tests/yj_z_algorithm.test.cpp</a>
 

@@ -4,7 +4,7 @@
 //sのi番目以降でcが最初に登場するインデックスを返す
 //名前は適当
 
-struct SmallestIndexOfChar {
+struct SmallestIndex {
   vector<vector<int> > index;
   void build(const string &s) {
     index.assign(s.size(),vector<int>('z'-'a'+1,-1));

@@ -9,6 +9,7 @@ struct SparseTable {
     vector<vector<T> > st;
     vector<int> lookup;
   public:
+    SparseTable(){}
     SparseTable(const vector<T> &v) {
       int b = 0;
       while((1<<b) <= (int)v.size()) ++b;

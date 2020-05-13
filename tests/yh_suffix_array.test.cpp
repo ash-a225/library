@@ -16,7 +16,7 @@ void debug_out(const T &x, const Args &... args) { cout << x << " "; debug_out(a
   #define debug(...) 
 #endif
 
-#include "String/sufix_array.cpp"
+#include "String/suffix_array.cpp"
 
 int main() {
   std::cin.tie(nullptr);

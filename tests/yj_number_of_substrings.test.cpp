@@ -24,10 +24,10 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   string str;
   cin >> str;
-  int n = str.length();
+  ll n = str.length();
   suffix_array SA(str);
   // SA.output();
-  int ans = 1; //SA[0]の1文字
+  ll ans = 1; //SA[0]の1文字
   for (int i = 1; i < n; ++i) {
     //(i番目の接尾辞の長さ)-(i-1番目の接尾辞とi番目の設備辞のLCP)
     ans += (n-SA[i]) - SA.getLCP(SA[i-1], SA[i]); 

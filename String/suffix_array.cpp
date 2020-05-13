@@ -68,15 +68,14 @@ struct suffix_array {
       assert(b < (int)rsa.size());
       return st.query(min(rsa[a], rsa[b]), max(rsa[a], rsa[b]));
     }
-    inline int& operator [] (int i) {
-      assert(i < (int)sa.size());
-      return sa[i];
+    inline int& operator [] (int i) { //sa[0]は空文字のsuffix
+      assert(i < (int)sa.size()-1);
+      return sa[i+1];
     }
-    void output() { //a_0 a_1 ... a_{N-2} a_{N-1}
-      for (int i = 1; i < (int)sa.size(); ++i) {
-        cout << sa[i] << " ";
+    void output() { //接尾辞i : str.substr(i)
+      for (int i = 0; i < (int)sa.size()-1; ++i) {
+        cout << sa[i+1] << " " << str.substr(sa[i+1]) << "\n";
       }
-      cout << "\n";
     }
 };
 

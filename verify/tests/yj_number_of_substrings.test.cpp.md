@@ -25,22 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: tests/yh_suffix_array.test.cpp
+# :x: tests/yj_number_of_substrings.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
-* <a href="{{ site.github.repository_url }}/blob/master/tests/yh_suffix_array.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-13 13:23:32+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/tests/yj_number_of_substrings.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-13 16:00:22+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/suffixarray">https://judge.yosupo.jp/problem/suffixarray</a>
+* see: <a href="https://judge.yosupo.jp/problem/number_of_substrings">https://judge.yosupo.jp/problem/number_of_substrings</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/sparce_table.cpp.html">DataStructure/sparce_table.cpp</a>
-* :heavy_check_mark: <a href="../../library/String/suffix_array.cpp.html">String/suffix_array.cpp</a>
+* :question: <a href="../../library/DataStructure/sparce_table.cpp.html">DataStructure/sparce_table.cpp</a>
+* :question: <a href="../../library/String/suffix_array.cpp.html">String/suffix_array.cpp</a>
 
 
 ## Code
@@ -48,7 +48,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/suffixarray"
+#define PROBLEM "https://judge.yosupo.jp/problem/number_of_substrings"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -74,18 +74,33 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   string str;
   cin >> str;
+  int n = str.length();
   suffix_array SA(str);
-  SA.output();
+  // SA.output();
+  int ans = 1; //SA[0]の1文字
+  for (int i = 1; i < n; ++i) {
+    //(i番目の接尾辞の長さ)-(i-1番目の接尾辞とi番目の設備辞のLCP)
+    ans += (n-SA[i]) - SA.getLCP(SA[i-1], SA[i]); 
+  }
+  cout << ans << endl;
   return 0;
 }
+
+
+/*
+ "abcbcba" を見て "ab", "abc", "abcb", "abcbc", "abcbcb", "abcbcba" を数え上げる.
+  このとき部分文字列の数は ("abcbcba" の長さ) - ("a" と "abcbcba" の最長共通接頭辞) 
+  のようにして計算することができる. 言い換えると "ab" から始まる部分文字列を数え上げている.
+  https://kopricky.github.io/code/ClassicProblem/distinct_substrings.html
+*/
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "tests/yh_suffix_array.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/suffixarray"
+#line 1 "tests/yj_number_of_substrings.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/number_of_substrings"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -211,20 +226,19 @@ struct suffix_array {
       assert(b < (int)rsa.size());
       return st.query(min(rsa[a], rsa[b]), max(rsa[a], rsa[b]));
     }
-    inline int& operator [] (int i) {
-      assert(i < (int)sa.size());
-      return sa[i];
+    inline int& operator [] (int i) { //sa[0]は空文字のsuffix
+      assert(i < (int)sa.size()-1);
+      return sa[i+1];
     }
-    void output() { //a_0 a_1 ... a_{N-2} a_{N-1}
-      for (int i = 1; i < (int)sa.size(); ++i) {
-        cout << sa[i] << " ";
+    void output() { //接尾辞i : str.substr(i)
+      for (int i = 0; i < (int)sa.size()-1; ++i) {
+        cout << sa[i+1] << " " << str.substr(sa[i+1]) << "\n";
       }
-      cout << "\n";
     }
 };
 
 
-#line 20 "tests/yh_suffix_array.test.cpp"
+#line 20 "tests/yj_number_of_substrings.test.cpp"
 
 int main() {
   std::cin.tie(nullptr);
@@ -232,10 +246,25 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   string str;
   cin >> str;
+  int n = str.length();
   suffix_array SA(str);
-  SA.output();
+  // SA.output();
+  int ans = 1; //SA[0]の1文字
+  for (int i = 1; i < n; ++i) {
+    //(i番目の接尾辞の長さ)-(i-1番目の接尾辞とi番目の設備辞のLCP)
+    ans += (n-SA[i]) - SA.getLCP(SA[i-1], SA[i]); 
+  }
+  cout << ans << endl;
   return 0;
 }
+
+
+/*
+ "abcbcba" を見て "ab", "abc", "abcb", "abcbc", "abcbcb", "abcbcba" を数え上げる.
+  このとき部分文字列の数は ("abcbcba" の長さ) - ("a" と "abcbcba" の最長共通接頭辞) 
+  のようにして計算することができる. 言い換えると "ab" から始まる部分文字列を数え上げている.
+  https://kopricky.github.io/code/ClassicProblem/distinct_substrings.html
+*/
 
 ```
 {% endraw %}

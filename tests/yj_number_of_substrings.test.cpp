@@ -16,7 +16,7 @@ void debug_out(const T &x, const Args &... args) { cout << x << " "; debug_out(a
   #define debug(...) 
 #endif
 
-#include "String/suffix_array.cpp"
+#include "String/suffix_array_lcp.cpp"
 
 int main() {
   std::cin.tie(nullptr);
@@ -27,20 +27,10 @@ int main() {
   ll n = str.length();
   suffix_array SA(str);
   // SA.output();
-  ll ans = 1; //SA[0]の1文字
+  ll ans = n*(n+1)/2; //???????
   for (int i = 1; i < n; ++i) {
-    //(i番目の接尾辞の長さ)-(i-1番目の接尾辞とi番目の設備辞のLCP)
-    ll temp = (n-SA[i]) - SA.getLCP(SA[i-1], SA[i]);
-    ans += temp; 
+    ans -= SA.getLCP(SA[i-1], SA[i]);
   }
   cout << ans << endl;
   return 0;
 }
-
-
-/*
- "abcbcba" を見て "ab", "abc", "abcb", "abcbc", "abcbcb", "abcbcba" を数え上げる.
-  このとき部分文字列の数は ("abcbcba" の長さ) - ("a" と "abcbcba" の最長共通接頭辞) 
-  のようにして計算することができる. 言い換えると "ab" から始まる部分文字列を数え上げている.
-  https://kopricky.github.io/code/ClassicProblem/distinct_substrings.html
-*/

@@ -27,7 +27,8 @@ int main() {
   int n = str.length();
   suffix_array SA(str);
   rep(i,n) {
-    cout << SA[i] << "\n";
+    cout << SA[i] << " ";
   }
+  cout << endl;
   return 0;
 }

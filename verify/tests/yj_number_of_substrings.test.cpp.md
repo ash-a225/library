@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_number_of_substrings.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-13 16:00:22+09:00
+    - Last commit date: 2020-05-13 16:08:00+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/number_of_substrings">https://judge.yosupo.jp/problem/number_of_substrings</a>
@@ -74,10 +74,10 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   string str;
   cin >> str;
-  int n = str.length();
+  ll n = str.length();
   suffix_array SA(str);
   // SA.output();
-  int ans = 1; //SA[0]の1文字
+  ll ans = 1; //SA[0]の1文字
   for (int i = 1; i < n; ++i) {
     //(i番目の接尾辞の長さ)-(i-1番目の接尾辞とi番目の設備辞のLCP)
     ans += (n-SA[i]) - SA.getLCP(SA[i-1], SA[i]); 
@@ -246,10 +246,10 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   string str;
   cin >> str;
-  int n = str.length();
+  ll n = str.length();
   suffix_array SA(str);
   // SA.output();
-  int ans = 1; //SA[0]の1文字
+  ll ans = 1; //SA[0]の1文字
   for (int i = 1; i < n; ++i) {
     //(i番目の接尾辞の長さ)-(i-1番目の接尾辞とi番目の設備辞のLCP)
     ans += (n-SA[i]) - SA.getLCP(SA[i-1], SA[i]); 

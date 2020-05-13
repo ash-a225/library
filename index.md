@@ -70,6 +70,7 @@ layout: default
 ### String
 
 * :warning: <a href="library/String/smallest_index_of_char.cpp.html">String/smallest_index_of_char.cpp</a>
+* :heavy_check_mark: <a href="library/String/sufix_array.cpp.html">String/sufix_array.cpp</a>
 * :heavy_check_mark: <a href="library/String/z_algorithm.cpp.html">String/z_algorithm.cpp</a>
 
 
@@ -82,6 +83,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_1_B.test.cpp.html">tests/AOJ_GRL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_2_A.test.cpp.html">tests/AOJ_GRL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_5_C.test.cpp.html">tests/AOJ_GRL_5_C.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yh_suffix_array.test.cpp.html">tests/yh_suffix_array.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_add_range_sum.test.cpp.html">tests/yj_point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_range_affine_range_sum.test.cpp.html">tests/yj_range_affine_range_sum.test.cpp</a>

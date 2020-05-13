@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_static_rmq2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-12 20:11:16+09:00
+    - Last commit date: 2020-05-13 13:09:01+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/staticrmq">https://judge.yosupo.jp/problem/staticrmq</a>
@@ -104,6 +104,7 @@ struct SparseTable {
     vector<vector<T> > st;
     vector<int> lookup;
   public:
+    SparseTable(){}
     SparseTable(const vector<T> &v) {
       int b = 0;
       while((1<<b) <= (int)v.size()) ++b;

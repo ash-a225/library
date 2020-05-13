@@ -31,13 +31,19 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/sparce_table.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-12 20:08:03+09:00
+    - Last commit date: 2020-05-13 13:09:01+09:00
 
 
+
+
+## Required by
+
+* :heavy_check_mark: <a href="../String/sufix_array.cpp.html">String/sufix_array.cpp</a>
 
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../verify/tests/yh_suffix_array.test.cpp.html">tests/yh_suffix_array.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/tests/yj_static_rmq2.test.cpp.html">tests/yj_static_rmq2.test.cpp</a>
 
 
@@ -57,6 +63,7 @@ struct SparseTable {
     vector<vector<T> > st;
     vector<int> lookup;
   public:
+    SparseTable(){}
     SparseTable(const vector<T> &v) {
       int b = 0;
       while((1<<b) <= (int)v.size()) ++b;
@@ -99,6 +106,7 @@ struct SparseTable {
     vector<vector<T> > st;
     vector<int> lookup;
   public:
+    SparseTable(){}
     SparseTable(const vector<T> &v) {
       int b = 0;
       while((1<<b) <= (int)v.size()) ++b;

@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/DataStructure/sparce_table.cpp.html">DataStructure/sparce_table.cpp</a>
+* :heavy_check_mark: <a href="../../library/DataStructure/sparce_table.cpp.html">DataStructure/sparce_table.cpp</a>
 
 
 ## Code

@@ -41,7 +41,7 @@ layout: default
 * :heavy_check_mark: <a href="library/DataStructure/binary_indexed_tree.cpp.html">DataStructure/binary_indexed_tree.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree_lazy.cpp.html">DataStructure/segment_tree_lazy.cpp</a>
-* :question: <a href="library/DataStructure/sparce_table.cpp.html">DataStructure/sparce_table.cpp</a>
+* :heavy_check_mark: <a href="library/DataStructure/sparce_table.cpp.html">DataStructure/sparce_table.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
 
 
@@ -70,7 +70,8 @@ layout: default
 ### String
 
 * :warning: <a href="library/String/smallest_index_of_char.cpp.html">String/smallest_index_of_char.cpp</a>
-* :question: <a href="library/String/suffix_array.cpp.html">String/suffix_array.cpp</a>
+* :heavy_check_mark: <a href="library/String/suffix_array.cpp.html">String/suffix_array.cpp</a>
+* :heavy_check_mark: <a href="library/String/suffix_array_lcp.cpp.html">String/suffix_array_lcp.cpp</a>
 * :heavy_check_mark: <a href="library/String/z_algorithm.cpp.html">String/z_algorithm.cpp</a>
 
 
@@ -83,7 +84,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_1_B.test.cpp.html">tests/AOJ_GRL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_2_A.test.cpp.html">tests/AOJ_GRL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_5_C.test.cpp.html">tests/AOJ_GRL_5_C.test.cpp</a>
-* :x: <a href="verify/tests/yj_number_of_substrings.test.cpp.html">tests/yj_number_of_substrings.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yj_number_of_substrings.test.cpp.html">tests/yj_number_of_substrings.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_add_range_sum.test.cpp.html">tests/yj_point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_range_affine_range_sum.test.cpp.html">tests/yj_range_affine_range_sum.test.cpp</a>

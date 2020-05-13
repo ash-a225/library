@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: tests/yj_number_of_substrings.test.cpp
+# :heavy_check_mark: tests/yj_number_of_substrings.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_number_of_substrings.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-13 16:18:46+09:00
+    - Last commit date: 2020-05-13 17:20:35+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/number_of_substrings">https://judge.yosupo.jp/problem/number_of_substrings</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/DataStructure/sparce_table.cpp.html">DataStructure/sparce_table.cpp</a>
-* :question: <a href="../../library/String/suffix_array.cpp.html">String/suffix_array.cpp</a>
+* :heavy_check_mark: <a href="../../library/DataStructure/sparce_table.cpp.html">DataStructure/sparce_table.cpp</a>
+* :heavy_check_mark: <a href="../../library/String/suffix_array_lcp.cpp.html">String/suffix_array_lcp.cpp</a>
 
 
 ## Code
@@ -66,7 +66,7 @@ void debug_out(const T &x, const Args &... args) { cout << x << " "; debug_out(a
   #define debug(...) 
 #endif
 
-#include "String/suffix_array.cpp"
+#include "String/suffix_array_lcp.cpp"
 
 int main() {
   std::cin.tie(nullptr);
@@ -77,23 +77,13 @@ int main() {
   ll n = str.length();
   suffix_array SA(str);
   // SA.output();
-  ll ans = 1; //SA[0]の1文字
+  ll ans = n*(n+1)/2; //???????
   for (int i = 1; i < n; ++i) {
-    //(i番目の接尾辞の長さ)-(i-1番目の接尾辞とi番目の設備辞のLCP)
-    ll temp = (n-SA[i]) - SA.getLCP(SA[i-1], SA[i]);
-    ans += temp; 
+    ans -= SA.getLCP(SA[i-1], SA[i]);
   }
   cout << ans << endl;
   return 0;
 }
-
-
-/*
- "abcbcba" を見て "ab", "abc", "abcb", "abcbc", "abcbcb", "abcbcba" を数え上げる.
-  このとき部分文字列の数は ("abcbcba" の長さ) - ("a" と "abcbcba" の最長共通接頭辞) 
-  のようにして計算することができる. 言い換えると "ab" から始まる部分文字列を数え上げている.
-  https://kopricky.github.io/code/ClassicProblem/distinct_substrings.html
-*/
 ```
 {% endraw %}
 
@@ -119,12 +109,13 @@ void debug_out(const T &x, const Args &... args) { cout << x << " "; debug_out(a
   #define debug(...) 
 #endif
 
-#line 1 "String/suffix_array.cpp"
+#line 1 "String/suffix_array_lcp.cpp"
 
 
 
 //https://drken1215.hatenablog.com/entry/2019/09/16/014600
 // Suffix Array ( Manber&Myers: O(n (logn)^2) )
+//sparce tableを用いてLCPも求める
 
 #line 1 "DataStructure/sparce_table.cpp"
 
@@ -163,13 +154,13 @@ struct SparseTable {
 };
 
 
-#line 8 "String/suffix_array.cpp"
+#line 9 "String/suffix_array_lcp.cpp"
 
 struct suffix_array {
   private:
     string str;
-    vector<int> sa;         // sa[i] : the starting index of the i-th smallest suffix (i = 0, 1, ..., n)
-    vector<int> lcp;        // lcp[i]: the lcp of sa[i] and sa[i+1] (i = 0, 1, ..., n-1)
+    vector<int> sa;   // sa[i] : the starting index of the i-th smallest suffix (i = 0, 1, ..., n)
+    vector<int> lcp;  // lcp[i]: the lcp of sa[i] and sa[i+1] (i = 0, 1, ..., n-1)
     vector<int> rank_sa, tmp_rank_sa;
     vector<int> rsa;
     SparseTable<int> st;
@@ -186,7 +177,7 @@ struct suffix_array {
         }
       }
     };  
-    void build() {
+    void buildSA() {
       int n = (int)str.size();
       sa.resize(n+1), lcp.resize(n+1), rank_sa.resize(n+1), tmp_rank_sa.resize(n+1);
       for (int i = 0; i < n; ++i) sa[i] = i, rank_sa[i] = (int)str[i];
@@ -202,11 +193,7 @@ struct suffix_array {
         for (int i = 0; i <= n; ++i) rank_sa[i] = tmp_rank_sa[i];
       }
     }
-  public:
-    suffix_array(const string& str_) : str(str_) { build(); calcLCP(); }
-    void init(const string& str_) { str = str_; build(); calcLCP(); }
-
-    void calcLCP() {
+    void buildLCP() {
       int n = (int)str.size();
       rsa.resize(n+1);
       for (int i = 0; i <= n; ++i) rsa[sa[i]] = i;
@@ -222,7 +209,11 @@ struct suffix_array {
       }
       st = SparseTable<int>(lcp);
     }
-    int getLCP(int a, int b) {          // lcp of str.sutstr(a) and str.substr(b)
+  public:
+    suffix_array(const string& str_):str(str_) {buildSA(); buildLCP(); }
+    void init(const string& str_){str = str_; buildSA(); buildLCP(); }
+
+    int getLCP(int a, int b) {  // lcp of str.sutstr(a) and str.substr(b)
       assert(a < (int)rsa.size());
       assert(b < (int)rsa.size());
       return st.query(min(rsa[a], rsa[b]), max(rsa[a], rsa[b]));
@@ -250,23 +241,13 @@ int main() {
   ll n = str.length();
   suffix_array SA(str);
   // SA.output();
-  ll ans = 1; //SA[0]の1文字
+  ll ans = n*(n+1)/2; //???????
   for (int i = 1; i < n; ++i) {
-    //(i番目の接尾辞の長さ)-(i-1番目の接尾辞とi番目の設備辞のLCP)
-    ll temp = (n-SA[i]) - SA.getLCP(SA[i-1], SA[i]);
-    ans += temp; 
+    ans -= SA.getLCP(SA[i-1], SA[i]);
   }
   cout << ans << endl;
   return 0;
 }
-
-
-/*
- "abcbcba" を見て "ab", "abc", "abcb", "abcbc", "abcbcb", "abcbcba" を数え上げる.
-  このとき部分文字列の数は ("abcbcba" の長さ) - ("a" と "abcbcba" の最長共通接頭辞) 
-  のようにして計算することができる. 言い換えると "ab" から始まる部分文字列を数え上げている.
-  https://kopricky.github.io/code/ClassicProblem/distinct_substrings.html
-*/
 
 ```
 {% endraw %}

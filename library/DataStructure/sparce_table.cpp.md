@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: DataStructure/sparce_table.cpp
+# :heavy_check_mark: DataStructure/sparce_table.cpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,14 +38,13 @@ layout: default
 
 ## Required by
 
-* :question: <a href="../String/suffix_array.cpp.html">String/suffix_array.cpp</a>
+* :heavy_check_mark: <a href="../String/suffix_array_lcp.cpp.html">String/suffix_array_lcp.cpp</a>
 
 
 ## Verified with
 
-* :x: <a href="../../verify/tests/yj_number_of_substrings.test.cpp.html">tests/yj_number_of_substrings.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yj_number_of_substrings.test.cpp.html">tests/yj_number_of_substrings.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/tests/yj_static_rmq2.test.cpp.html">tests/yj_static_rmq2.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/tests/yj_suffix_array.test.cpp.html">tests/yj_suffix_array.test.cpp</a>
 
 
 ## Code

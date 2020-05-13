@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_suffix_array.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-13 16:00:22+09:00
+    - Last commit date: 2020-05-13 17:20:35+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/suffixarray">https://judge.yosupo.jp/problem/suffixarray</a>
@@ -39,8 +39,7 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/DataStructure/sparce_table.cpp.html">DataStructure/sparce_table.cpp</a>
-* :question: <a href="../../library/String/suffix_array.cpp.html">String/suffix_array.cpp</a>
+* :heavy_check_mark: <a href="../../library/String/suffix_array.cpp.html">String/suffix_array.cpp</a>
 
 
 ## Code
@@ -77,8 +76,9 @@ int main() {
   int n = str.length();
   suffix_array SA(str);
   rep(i,n) {
-    cout << SA[i] << "\n";
+    cout << SA[i] << " ";
   }
+  cout << endl;
   return 0;
 }
 ```
@@ -113,53 +113,11 @@ void debug_out(const T &x, const Args &... args) { cout << x << " "; debug_out(a
 //https://drken1215.hatenablog.com/entry/2019/09/16/014600
 // Suffix Array ( Manber&Myers: O(n (logn)^2) )
 
-#line 1 "DataStructure/sparce_table.cpp"
-
-
-
-//https://ei1333.github.io/luzhiled/snippets/structure/sparse-table.html
-
-template<typename T>
-struct SparseTable {
-  private:
-    vector<vector<T> > st;
-    vector<int> lookup;
-  public:
-    SparseTable(){}
-    SparseTable(const vector<T> &v) {
-      int b = 0;
-      while((1<<b) <= (int)v.size()) ++b;
-      st.assign(b, vector<T>(1<<b));
-      for(int i = 0; i < (int)v.size(); i++) {
-        st[0][i] = v[i];
-      }
-      for(int i = 1; i < b; i++) {
-        for(int j = 0; j+(1<<i) <= (1<<b); j++) {
-          st[i][j] = min(st[i-1][j], st[i-1][j + (1<<(i-1))]);
-        }
-      }
-      lookup.resize(v.size()+1);
-      for(int i = 2; i < (int)lookup.size(); i++) {
-        lookup[i] = lookup[i>>1] + 1;
-      }
-    }
-    inline T query(int l, int r) { //[l,r)
-      int b = lookup[r-l];
-      return min(st[b][l], st[b][r-(1<<b)]);
-    }
-};
-
-
-#line 8 "String/suffix_array.cpp"
-
 struct suffix_array {
   private:
     string str;
-    vector<int> sa;         // sa[i] : the starting index of the i-th smallest suffix (i = 0, 1, ..., n)
-    vector<int> lcp;        // lcp[i]: the lcp of sa[i] and sa[i+1] (i = 0, 1, ..., n-1)
+    vector<int> sa;   // sa[i] : the starting index of the i-th smallest suffix (i = 0, 1, ..., n)
     vector<int> rank_sa, tmp_rank_sa;
-    vector<int> rsa;
-    SparseTable<int> st;
     struct CompareSA {
       int n,k;
       const vector<int> &rank;
@@ -173,9 +131,9 @@ struct suffix_array {
         }
       }
     };  
-    void build() {
+    void buildSA() {
       int n = (int)str.size();
-      sa.resize(n+1), lcp.resize(n+1), rank_sa.resize(n+1), tmp_rank_sa.resize(n+1);
+      sa.resize(n+1), rank_sa.resize(n+1), tmp_rank_sa.resize(n+1);
       for (int i = 0; i < n; ++i) sa[i] = i, rank_sa[i] = (int)str[i];
       sa[n] = n, rank_sa[n] = -1;
       for (int k = 1; k <= n; k *= 2) {
@@ -190,30 +148,9 @@ struct suffix_array {
       }
     }
   public:
-    suffix_array(const string& str_) : str(str_) { build(); calcLCP(); }
-    void init(const string& str_) { str = str_; build(); calcLCP(); }
+    suffix_array(const string& str_):str(str_) { buildSA();}
+    void init(const string& str_) { str = str_; buildSA();}
 
-    void calcLCP() {
-      int n = (int)str.size();
-      rsa.resize(n+1);
-      for (int i = 0; i <= n; ++i) rsa[sa[i]] = i;
-      lcp.assign(n+1,0);
-      int cur = 0;
-      for (int i = 0; i < n; ++i) {
-        int pi = sa[rsa[i] - 1];
-        if (cur > 0) --cur;
-        for (; pi + cur < n && i + cur < n; ++cur) {
-            if (str[pi + cur] != str[i + cur]) break;
-        }
-        lcp[rsa[i] - 1] = cur;
-      }
-      st = SparseTable<int>(lcp);
-    }
-    int getLCP(int a, int b) {          // lcp of str.sutstr(a) and str.substr(b)
-      assert(a < (int)rsa.size());
-      assert(b < (int)rsa.size());
-      return st.query(min(rsa[a], rsa[b]), max(rsa[a], rsa[b]));
-    }
     inline int& operator [] (int i) { //sa[0]は空文字のsuffix
       assert(i < (int)sa.size()-1);
       return sa[i+1];
@@ -237,8 +174,9 @@ int main() {
   int n = str.length();
   suffix_array SA(str);
   rep(i,n) {
-    cout << SA[i] << "\n";
+    cout << SA[i] << " ";
   }
+  cout << endl;
   return 0;
 }
 

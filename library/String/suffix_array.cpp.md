@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: String/sufix_array.cpp
+# :heavy_check_mark: String/suffix_array.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
-* <a href="{{ site.github.repository_url }}/blob/master/String/sufix_array.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-13 13:09:01+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/String/suffix_array.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-13 13:23:32+09:00
 
 
 
@@ -140,7 +140,7 @@ struct suffix_array {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "String/sufix_array.cpp"
+#line 1 "String/suffix_array.cpp"
 
 
 
@@ -184,7 +184,7 @@ struct SparseTable {
 };
 
 
-#line 8 "String/sufix_array.cpp"
+#line 8 "String/suffix_array.cpp"
 
 struct suffix_array {
   private:

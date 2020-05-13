@@ -38,7 +38,7 @@ layout: default
 
 ## Required by
 
-* :heavy_check_mark: <a href="../String/sufix_array.cpp.html">String/sufix_array.cpp</a>
+* :heavy_check_mark: <a href="../String/suffix_array.cpp.html">String/suffix_array.cpp</a>
 
 
 ## Verified with

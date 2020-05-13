@@ -70,7 +70,7 @@ layout: default
 ### String
 
 * :warning: <a href="library/String/smallest_index_of_char.cpp.html">String/smallest_index_of_char.cpp</a>
-* :heavy_check_mark: <a href="library/String/sufix_array.cpp.html">String/sufix_array.cpp</a>
+* :heavy_check_mark: <a href="library/String/suffix_array.cpp.html">String/suffix_array.cpp</a>
 * :heavy_check_mark: <a href="library/String/z_algorithm.cpp.html">String/z_algorithm.cpp</a>
 
 

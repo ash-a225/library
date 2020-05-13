@@ -30,7 +30,8 @@ int main() {
   ll ans = 1; //SA[0]の1文字
   for (int i = 1; i < n; ++i) {
     //(i番目の接尾辞の長さ)-(i-1番目の接尾辞とi番目の設備辞のLCP)
-    ans += (n-SA[i]) - SA.getLCP(SA[i-1], SA[i]); 
+    ll temp = (n-SA[i]) - SA.getLCP(SA[i-1], SA[i]);
+    ans += temp; 
   }
   cout << ans << endl;
   return 0;

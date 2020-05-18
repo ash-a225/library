@@ -41,6 +41,7 @@ struct frac {
   bool operator>=(const frac &a) const{ return frac(*this) <= a;};
   long double to_d() const {long double d = nu/de; return d;}
 };
+istream& operator>>(istream& is, frac& a) {return is >> a.nu >> a.de;}
 ostream& operator<<(ostream& os, const frac& a) { return os << a.nu << "/" << a.de;}
 
 #endif

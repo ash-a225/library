@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree_lazy.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-06 01:38:53+09:00
+    - Last commit date: 2020-05-18 17:08:13+09:00
 
 
 
@@ -62,25 +62,11 @@ struct SegmentTree {
     const H h;
     const P p;
     const T DD; // e
-    const E DE;
+    const E DE; // e
     int n;
     vector<T> dat;
     vector<E> laz;
-  public:
-    SegmentTree(int n_,F f,G g,H h,T dd,E de,P p=[](E a,int b){return a;}):
-    f(f),g(g),h(h),p(p),DD(dd),DE(de){ init(n_);}
-    void init(int n_) {
-      n = 1; while(n < n_) n *= 2;
-      dat.clear();
-      dat.resize(2*n-1, DD);
-      laz.clear();
-      laz.resize(2*n-1, DE);
-    }
-    void build(int n_, vector<T> v) {
-      assert(n_ <= n);
-      for(int i=0;i<n_;++i) dat[i+n-1] = v[i];
-      for(int i=n-2;i>=0;--i) dat[i] = f(dat[2*i+1], dat[2*i+2]);
-    }
+
     inline void eval(int len,int k){
       if(laz[k]==DE) return;
       if(k*2+1<n*2-1){
@@ -100,11 +86,6 @@ struct SegmentTree {
       }
       return dat[k]=f(update(a,b,x,k*2+1,l,(l+r)/2),update(a,b,x,k*2+2,(l+r)/2,r));
     }
-    T update(int a,int b,E x){
-      assert(a < n);
-      assert(b <= n);
-      return update(a,b,x,0,0,n);
-    }
     T query(int a,int b,int k,int l,int r){
       eval(r-l,k);
       if(r<=a||b<=l) return DD;
@@ -113,12 +94,33 @@ struct SegmentTree {
       T vr=query(a,b,k*2+2,(l+r)/2,r);
       return f(vl,vr);
     }
+  public:
+    SegmentTree(int n_,F f,G g,H h,T dd,E de,P p=[](E a,int b){return a;}):
+    f(f),g(g),h(h),p(p),DD(dd),DE(de){ init(n_);}
+    void init(int n_) {
+      n = 1; while(n < n_) n *= 2;
+      dat.clear();
+      dat.resize(2*n-1, DD);
+      laz.clear();
+      laz.resize(2*n-1, DE);
+    }
+    void build(int n_, vector<T> v) {
+      assert(n_ <= n);
+      for(int i=0;i<n_;++i) dat[i+n-1] = v[i];
+      for(int i=n-2;i>=0;--i) dat[i] = f(dat[2*i+1], dat[2*i+2]);
+    }
+    T update(int a,int b,E x){
+      assert(a < n);
+      assert(b <= n);
+      return update(a,b,x,0,0,n);
+    }
     T query(int a,int b){
       assert(a < n);
       assert(b <= n);
       return query(a,b,0,0,n);
     }
-    T operator[](const int &k){
+    T operator[](const int &k) const{
+      assert(k < n);
       return query(k, k+1);
     }
 };
@@ -146,25 +148,11 @@ struct SegmentTree {
     const H h;
     const P p;
     const T DD; // e
-    const E DE;
+    const E DE; // e
     int n;
     vector<T> dat;
     vector<E> laz;
-  public:
-    SegmentTree(int n_,F f,G g,H h,T dd,E de,P p=[](E a,int b){return a;}):
-    f(f),g(g),h(h),p(p),DD(dd),DE(de){ init(n_);}
-    void init(int n_) {
-      n = 1; while(n < n_) n *= 2;
-      dat.clear();
-      dat.resize(2*n-1, DD);
-      laz.clear();
-      laz.resize(2*n-1, DE);
-    }
-    void build(int n_, vector<T> v) {
-      assert(n_ <= n);
-      for(int i=0;i<n_;++i) dat[i+n-1] = v[i];
-      for(int i=n-2;i>=0;--i) dat[i] = f(dat[2*i+1], dat[2*i+2]);
-    }
+
     inline void eval(int len,int k){
       if(laz[k]==DE) return;
       if(k*2+1<n*2-1){
@@ -184,11 +172,6 @@ struct SegmentTree {
       }
       return dat[k]=f(update(a,b,x,k*2+1,l,(l+r)/2),update(a,b,x,k*2+2,(l+r)/2,r));
     }
-    T update(int a,int b,E x){
-      assert(a < n);
-      assert(b <= n);
-      return update(a,b,x,0,0,n);
-    }
     T query(int a,int b,int k,int l,int r){
       eval(r-l,k);
       if(r<=a||b<=l) return DD;
@@ -197,12 +180,33 @@ struct SegmentTree {
       T vr=query(a,b,k*2+2,(l+r)/2,r);
       return f(vl,vr);
     }
+  public:
+    SegmentTree(int n_,F f,G g,H h,T dd,E de,P p=[](E a,int b){return a;}):
+    f(f),g(g),h(h),p(p),DD(dd),DE(de){ init(n_);}
+    void init(int n_) {
+      n = 1; while(n < n_) n *= 2;
+      dat.clear();
+      dat.resize(2*n-1, DD);
+      laz.clear();
+      laz.resize(2*n-1, DE);
+    }
+    void build(int n_, vector<T> v) {
+      assert(n_ <= n);
+      for(int i=0;i<n_;++i) dat[i+n-1] = v[i];
+      for(int i=n-2;i>=0;--i) dat[i] = f(dat[2*i+1], dat[2*i+2]);
+    }
+    T update(int a,int b,E x){
+      assert(a < n);
+      assert(b <= n);
+      return update(a,b,x,0,0,n);
+    }
     T query(int a,int b){
       assert(a < n);
       assert(b <= n);
       return query(a,b,0,0,n);
     }
-    T operator[](const int &k){
+    T operator[](const int &k) const{
+      assert(k < n);
       return query(k, k+1);
     }
 };

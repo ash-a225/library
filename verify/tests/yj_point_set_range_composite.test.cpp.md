@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_point_set_range_composite.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-18 11:13:14+09:00
+    - Last commit date: 2020-05-18 17:08:13+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/point_set_range_composite">https://judge.yosupo.jp/problem/point_set_range_composite</a>
@@ -114,9 +114,11 @@ template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 
 
-//https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
-//https://qiita.com/drken/items/68b8503ad4ffb469624c#3-lis-%E3%81%AE%E8%A7%A3%E6%B3%951-%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2-ver
-//http://tsutaj.hatenablog.com/entry/2017/03/29/204841
+/*
+https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
+https://qiita.com/drken/items/68b8503ad4ffb469624c#3-lis-%E3%81%AE%E8%A7%A3%E6%B3%951-%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2-ver
+http://tsutaj.hatenablog.com/entry/2017/03/29/204841
+*/
 
 template<typename T> 
 struct SegmentTree {
@@ -161,7 +163,8 @@ struct SegmentTree {
       assert(b <= n);
       return query(a,b,0,0,n);
     }
-    T operator[](const int &k){
+    T operator[](const int &k) const{
+      assert(k < n);
       return query(k, k+1);
     }
 };

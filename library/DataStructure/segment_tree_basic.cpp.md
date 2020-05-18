@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree_basic.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-06 01:38:53+09:00
+    - Last commit date: 2020-05-18 17:08:13+09:00
 
 
 
@@ -53,9 +53,11 @@ layout: default
 #ifndef SEG_BASIC_H
 #define SEG_BASIC_H
 
-//https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
-//https://qiita.com/drken/items/68b8503ad4ffb469624c#3-lis-%E3%81%AE%E8%A7%A3%E6%B3%951-%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2-ver
-//http://tsutaj.hatenablog.com/entry/2017/03/29/204841
+/*
+https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
+https://qiita.com/drken/items/68b8503ad4ffb469624c#3-lis-%E3%81%AE%E8%A7%A3%E6%B3%951-%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2-ver
+http://tsutaj.hatenablog.com/entry/2017/03/29/204841
+*/
 
 template<typename T> 
 struct SegmentTree {
@@ -100,7 +102,8 @@ struct SegmentTree {
       assert(b <= n);
       return query(a,b,0,0,n);
     }
-    T operator[](const int &k){
+    T operator[](const int &k) const{
+      assert(k < n);
       return query(k, k+1);
     }
 };
@@ -116,9 +119,11 @@ struct SegmentTree {
 
 
 
-//https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
-//https://qiita.com/drken/items/68b8503ad4ffb469624c#3-lis-%E3%81%AE%E8%A7%A3%E6%B3%951-%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2-ver
-//http://tsutaj.hatenablog.com/entry/2017/03/29/204841
+/*
+https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
+https://qiita.com/drken/items/68b8503ad4ffb469624c#3-lis-%E3%81%AE%E8%A7%A3%E6%B3%951-%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2-ver
+http://tsutaj.hatenablog.com/entry/2017/03/29/204841
+*/
 
 template<typename T> 
 struct SegmentTree {
@@ -163,7 +168,8 @@ struct SegmentTree {
       assert(b <= n);
       return query(a,b,0,0,n);
     }
-    T operator[](const int &k){
+    T operator[](const int &k) const{
+      assert(k < n);
       return query(k, k+1);
     }
 };

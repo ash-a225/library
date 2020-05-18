@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/binary_indexed_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 12:13:07+09:00
+    - Last commit date: 2020-05-18 17:08:13+09:00
 
 
 
@@ -75,6 +75,10 @@ struct BIT {
     assert(r <= n);
     return sum(r-1) - sum(l-1);
   }
+  T operator[](const int &i) const{
+    assert(i < n);
+    return sum(i,i+1);
+  }
 };
 
 #endif
@@ -111,6 +115,10 @@ struct BIT {
     assert(l < n);
     assert(r <= n);
     return sum(r-1) - sum(l-1);
+  }
+  T operator[](const int &i) const{
+    assert(i < n);
+    return sum(i,i+1);
   }
 };
 

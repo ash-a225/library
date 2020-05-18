@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_static_range_sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-04 00:59:00+09:00
+    - Last commit date: 2020-05-18 17:08:13+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/static_range_sum">https://judge.yosupo.jp/problem/static_range_sum</a>
@@ -122,6 +122,10 @@ struct BIT {
     assert(l < n);
     assert(r <= n);
     return sum(r-1) - sum(l-1);
+  }
+  T operator[](const int &i) const{
+    assert(i < n);
+    return sum(i,i+1);
   }
 };
 

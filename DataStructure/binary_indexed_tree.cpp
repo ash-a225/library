@@ -25,6 +25,10 @@ struct BIT {
     assert(r <= n);
     return sum(r-1) - sum(l-1);
   }
+  T operator[](const int &i) const{
+    assert(i < n);
+    return sum(i,i+1);
+  }
 };
 
 #endif

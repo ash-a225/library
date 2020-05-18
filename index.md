@@ -63,6 +63,7 @@ layout: default
 
 * :warning: <a href="library/Math/modint1.cpp.html">Math/modint1.cpp</a>
 * :heavy_check_mark: <a href="library/Math/modint2.cpp.html">Math/modint2.cpp</a>
+* :warning: <a href="library/Math/rational.cpp.html">Math/rational.cpp</a>
 
 
 <div id="27118326006d3829667a400ad23d5d98"></div>

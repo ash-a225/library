@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/modint2.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-04 15:50:21+09:00
+    - Last commit date: 2020-05-18 11:13:14+09:00
 
 
 
@@ -81,6 +81,7 @@ struct mint {
   mint operator/(const mint a) const { return mint(*this) /= a;}
   bool operator==(const mint rhs) const { return x == rhs.x; }
   bool operator!=(const mint rhs) const { return x != rhs.x; }
+  bool operator<(const mint &a) const{ return x<a.x;};
 };
 istream& operator>>(istream& is, mint& a) { return is >> a.x;}
 ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
@@ -127,6 +128,7 @@ struct mint {
   mint operator/(const mint a) const { return mint(*this) /= a;}
   bool operator==(const mint rhs) const { return x == rhs.x; }
   bool operator!=(const mint rhs) const { return x != rhs.x; }
+  bool operator<(const mint &a) const{ return x<a.x;};
 };
 istream& operator>>(istream& is, mint& a) { return is >> a.x;}
 ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}

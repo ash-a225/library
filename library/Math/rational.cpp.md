@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/rational.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-18 11:13:14+09:00
+    - Last commit date: 2020-05-18 12:45:36+09:00
 
 
 
@@ -84,6 +84,7 @@ struct frac {
   bool operator>=(const frac &a) const{ return frac(*this) <= a;};
   long double to_d() const {long double d = nu/de; return d;}
 };
+istream& operator>>(istream& is, frac& a) {return is >> a.nu >> a.de;}
 ostream& operator<<(ostream& os, const frac& a) { return os << a.nu << "/" << a.de;}
 
 #endif
@@ -137,6 +138,7 @@ struct frac {
   bool operator>=(const frac &a) const{ return frac(*this) <= a;};
   long double to_d() const {long double d = nu/de; return d;}
 };
+istream& operator>>(istream& is, frac& a) {return is >> a.nu >> a.de;}
 ostream& operator<<(ostream& os, const frac& a) { return os << a.nu << "/" << a.de;}
 
 

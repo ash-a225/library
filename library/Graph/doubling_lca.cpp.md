@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: Graph/doubling_lca.cpp
+# :heavy_check_mark: Graph/doubling_lca.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/doubling_lca.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-22 11:27:22+09:00
+    - Last commit date: 2020-05-22 11:31:56+09:00
 
 
 
 
 ## Verified with
 
-* :x: <a href="../../verify/tests/AOJ_GRL_5_C.test.cpp.html">tests/AOJ_GRL_5_C.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/AOJ_GRL_5_C.test.cpp.html">tests/AOJ_GRL_5_C.test.cpp</a>
 
 
 ## Code
@@ -64,7 +64,7 @@ struct LowestCommonAncestor {
     void dfs_(int v, int p, int d) {
       par[0][v] = p;
       dist[v] = d;
-      for (const auto&& to : G[v]) {
+      for (auto to : G[v]) {
         if (to != p) dfs_(to, v, d+1);
       }
     }
@@ -130,7 +130,7 @@ struct LowestCommonAncestor {
     void dfs_(int v, int p, int d) {
       par[0][v] = p;
       dist[v] = d;
-      for (const auto&& to : G[v]) {
+      for (auto to : G[v]) {
         if (to != p) dfs_(to, v, d+1);
       }
     }

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: tests/AOJ_GRL_5_C.test.cpp
+# :heavy_check_mark: tests/AOJ_GRL_5_C.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_GRL_5_C.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-22 11:27:22+09:00
+    - Last commit date: 2020-05-22 11:31:56+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :x: <a href="../../library/Graph/doubling_lca.cpp.html">Graph/doubling_lca.cpp</a>
+* :heavy_check_mark: <a href="../../library/Graph/doubling_lca.cpp.html">Graph/doubling_lca.cpp</a>
 
 
 ## Code
@@ -122,7 +122,7 @@ struct LowestCommonAncestor {
     void dfs_(int v, int p, int d) {
       par[0][v] = p;
       dist[v] = d;
-      for (const auto&& to : G[v]) {
+      for (auto to : G[v]) {
         if (to != p) dfs_(to, v, d+1);
       }
     }

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: tests/yj_shortest_path.test.cpp
+# :heavy_check_mark: tests/yj_shortest_path.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_shortest_path.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-22 11:27:22+09:00
+    - Last commit date: 2020-05-22 11:31:56+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/shortest_path">https://judge.yosupo.jp/problem/shortest_path</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :x: <a href="../../library/Graph/dijkstra.cpp.html">Graph/dijkstra.cpp</a>
+* :heavy_check_mark: <a href="../../library/Graph/dijkstra.cpp.html">Graph/dijkstra.cpp</a>
 
 
 ## Code
@@ -135,7 +135,7 @@ struct Dijkstra {
         auto p = que.top(); que.pop();
         int v = p.to;
         if (dist[v] < p.cost) continue;
-        for (const auto&& e:G[v]) {
+        for (auto e:G[v]) {
           if (dist[e.to] > dist[v]+e.cost) {
             dist[e.to] = p.cost+e.cost;
             preV[e.to] = v;

@@ -31,7 +31,7 @@ struct Dijkstra {
         auto p = que.top(); que.pop();
         int v = p.to;
         if (dist[v] < p.cost) continue;
-        for (const auto&& e:G[v]) {
+        for (auto e:G[v]) {
           if (dist[e.to] > dist[v]+e.cost) {
             dist[e.to] = p.cost+e.cost;
             preV[e.to] = v;

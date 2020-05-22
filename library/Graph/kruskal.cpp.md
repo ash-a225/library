@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/kruskal.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-22 11:31:56+09:00
+    - Last commit date: 2020-05-22 23:14:48+09:00
 
 
 
@@ -49,38 +49,36 @@ layout: default
 #ifndef KRUSKAL_H
 #define KRUSKAL_H
 
+template<typename T>
 struct Edge { 
   int u, v, id;
-  ll cost; 
+  T cost; 
   Edge():id(0){}
-	Edge(int u,int v,ll cost,int id):u(u),v(v),id(id),cost(cost){}
+	Edge(int u,int v,T cost,int id=0):u(u),v(v),id(id),cost(cost){}
   bool operator<(const Edge &e) const{ return cost<e.cost;};
 };
 
+template<typename T>
 struct Kruskal {
   private:
-    ll sum;
-    vector<Edge> edges;
+    T sum;
+    vector<Edge<T> > edges;
     UnionFind uf;
     vector<bool> used;
   public:
-    Kruskal(int n, const vector<Edge> &edges_):
-    edges(edges_),uf(n){ init();}
-    void init() {
+    Kruskal(int n, const vector<Edge<T> > &edges_):edges(edges_),uf(n){
       sum = 0;
       used.assign((int)edges.size(),false);
-    }
-    void build() {
       sort(edges.begin(),edges.end());
-      for (auto e : edges) {
-        if (!uf.same(e.u, e.v)) { //閉路にならない
-          uf.merge(e.u, e.v);
+      for (auto &e : edges) {
+        if (!uf.same(e.u,e.v)) { //circleなし
+          uf.merge(e.u,e.v);
           sum += e.cost;
           used[e.id] = true;
         }
       }
     }
-    ll get_sum(){ return sum;}
+    T get_sum(){ return sum;}
     bool is_used(int id){ 
       assert(id < (int)edges.size());
       return used[id];
@@ -98,38 +96,36 @@ struct Kruskal {
 
 
 
+template<typename T>
 struct Edge { 
   int u, v, id;
-  ll cost; 
+  T cost; 
   Edge():id(0){}
-	Edge(int u,int v,ll cost,int id):u(u),v(v),id(id),cost(cost){}
+	Edge(int u,int v,T cost,int id=0):u(u),v(v),id(id),cost(cost){}
   bool operator<(const Edge &e) const{ return cost<e.cost;};
 };
 
+template<typename T>
 struct Kruskal {
   private:
-    ll sum;
-    vector<Edge> edges;
+    T sum;
+    vector<Edge<T> > edges;
     UnionFind uf;
     vector<bool> used;
   public:
-    Kruskal(int n, const vector<Edge> &edges_):
-    edges(edges_),uf(n){ init();}
-    void init() {
+    Kruskal(int n, const vector<Edge<T> > &edges_):edges(edges_),uf(n){
       sum = 0;
       used.assign((int)edges.size(),false);
-    }
-    void build() {
       sort(edges.begin(),edges.end());
-      for (auto e : edges) {
-        if (!uf.same(e.u, e.v)) { //閉路にならない
-          uf.merge(e.u, e.v);
+      for (auto &e : edges) {
+        if (!uf.same(e.u,e.v)) { //circleなし
+          uf.merge(e.u,e.v);
           sum += e.cost;
           used[e.id] = true;
         }
       }
     }
-    ll get_sum(){ return sum;}
+    T get_sum(){ return sum;}
     bool is_used(int id){ 
       assert(id < (int)edges.size());
       return used[id];

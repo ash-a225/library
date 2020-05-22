@@ -16,7 +16,7 @@ struct LowestCommonAncestor {
     void dfs_(int v, int p, int d) {
       par[0][v] = p;
       dist[v] = d;
-      for (auto to : G[v]) {
+      for (const auto&& to : G[v]) {
         if (to != p) dfs_(to, v, d+1);
       }
     }

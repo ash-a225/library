@@ -24,7 +24,7 @@ struct Kruskal {
     }
     void build() {
       sort(edges.begin(),edges.end());
-      for (auto e : edges) {
+      for (const auto&& e : edges) {
         if (!uf.same(e.u, e.v)) { //閉路にならない
           uf.merge(e.u, e.v);
           sum += e.cost;

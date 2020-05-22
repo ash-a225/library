@@ -20,7 +20,7 @@ struct LowestCommonAncestor {
     void dfs_(int v, int p, int d) {
       par[0][v] = p;
       dist[v] = d;
-      for (auto to : G[v]) {
+      for (const auto&& to : G[v]) {
         if (to.first == p) continue; 
         dfs_(to.first, v, d+1);
         max_w[0][to.first] = to.second;

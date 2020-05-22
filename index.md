@@ -42,7 +42,7 @@ layout: default
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree_lazy.cpp.html">DataStructure/segment_tree_lazy.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/sparce_table.cpp.html">DataStructure/sparce_table.cpp</a>
-* :heavy_check_mark: <a href="library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
+* :question: <a href="library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
 
 
 <div id="d9c6333623e6357515fcbf17be806273"></div>
@@ -59,12 +59,12 @@ layout: default
 ### Graph
 
 * :heavy_check_mark: <a href="library/Graph/bellman_ford.cpp.html">Graph/bellman_ford.cpp</a>
-* :heavy_check_mark: <a href="library/Graph/dijkstra.cpp.html">Graph/dijkstra.cpp</a>
+* :x: <a href="library/Graph/dijkstra.cpp.html">Graph/dijkstra.cpp</a>
 * :heavy_check_mark: <a href="library/Graph/dinic.cpp.html">Graph/dinic.cpp</a>
 * :warning: <a href="library/Graph/doubling.cpp.html">Graph/doubling.cpp</a>
-* :heavy_check_mark: <a href="library/Graph/doubling_lca.cpp.html">Graph/doubling_lca.cpp</a>
+* :x: <a href="library/Graph/doubling_lca.cpp.html">Graph/doubling_lca.cpp</a>
 * :warning: <a href="library/Graph/doubling_lca_weight.cpp.html">Graph/doubling_lca_weight.cpp</a>
-* :heavy_check_mark: <a href="library/Graph/kruskal.cpp.html">Graph/kruskal.cpp</a>
+* :x: <a href="library/Graph/kruskal.cpp.html">Graph/kruskal.cpp</a>
 
 
 <div id="a49950aa047c2292e989e368a97a3aae"></div>
@@ -95,14 +95,14 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/AOJ_DSL_2_B.test.cpp.html">tests/AOJ_DSL_2_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DSL_2_G.test.cpp.html">tests/AOJ_DSL_2_G.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_1_B.test.cpp.html">tests/AOJ_GRL_1_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/tests/AOJ_GRL_2_A.test.cpp.html">tests/AOJ_GRL_2_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/tests/AOJ_GRL_5_C.test.cpp.html">tests/AOJ_GRL_5_C.test.cpp</a>
+* :x: <a href="verify/tests/AOJ_GRL_2_A.test.cpp.html">tests/AOJ_GRL_2_A.test.cpp</a>
+* :x: <a href="verify/tests/AOJ_GRL_5_C.test.cpp.html">tests/AOJ_GRL_5_C.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_6_A.test.cpp.html">tests/AOJ_GRL_6_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_number_of_substrings.test.cpp.html">tests/yj_number_of_substrings.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_add_range_sum.test.cpp.html">tests/yj_point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_range_affine_range_sum.test.cpp.html">tests/yj_range_affine_range_sum.test.cpp</a>
-* :heavy_check_mark: <a href="verify/tests/yj_shortest_path.test.cpp.html">tests/yj_shortest_path.test.cpp</a>
+* :x: <a href="verify/tests/yj_shortest_path.test.cpp.html">tests/yj_shortest_path.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_static_range_sum.test.cpp.html">tests/yj_static_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_static_range_sum2.test.cpp.html">tests/yj_static_range_sum2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_static_rmq.test.cpp.html">tests/yj_static_rmq.test.cpp</a>

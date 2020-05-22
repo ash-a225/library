@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/doubling_lca_weight.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-12 02:07:17+09:00
+    - Last commit date: 2020-05-22 11:27:22+09:00
 
 
 
@@ -63,7 +63,7 @@ struct LowestCommonAncestor {
     void dfs_(int v, int p, int d) {
       par[0][v] = p;
       dist[v] = d;
-      for (auto to : G[v]) {
+      for (const auto&& to : G[v]) {
         if (to.first == p) continue; 
         dfs_(to.first, v, d+1);
         max_w[0][to.first] = to.second;
@@ -156,7 +156,7 @@ struct LowestCommonAncestor {
     void dfs_(int v, int p, int d) {
       par[0][v] = p;
       dist[v] = d;
-      for (auto to : G[v]) {
+      for (const auto&& to : G[v]) {
         if (to.first == p) continue; 
         dfs_(to.first, v, d+1);
         max_w[0][to.first] = to.second;

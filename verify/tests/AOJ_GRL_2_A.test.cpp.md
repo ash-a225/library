@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: tests/AOJ_GRL_2_A.test.cpp
+# :x: tests/AOJ_GRL_2_A.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_GRL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-08 02:22:58+09:00
+    - Last commit date: 2020-05-22 11:27:22+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
-* :heavy_check_mark: <a href="../../library/Graph/kruskal.cpp.html">Graph/kruskal.cpp</a>
+* :question: <a href="../../library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
+* :x: <a href="../../library/Graph/kruskal.cpp.html">Graph/kruskal.cpp</a>
 
 
 ## Code
@@ -155,7 +155,7 @@ struct Kruskal {
     }
     void build() {
       sort(edges.begin(),edges.end());
-      for (auto e : edges) {
+      for (const auto&& e : edges) {
         if (!uf.same(e.u, e.v)) { //閉路にならない
           uf.merge(e.u, e.v);
           sum += e.cost;

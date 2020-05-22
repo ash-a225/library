@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Graph/kruskal.cpp
+# :x: Graph/kruskal.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/kruskal.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-08 02:22:58+09:00
+    - Last commit date: 2020-05-22 11:27:22+09:00
 
 
 
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/tests/AOJ_GRL_2_A.test.cpp.html">tests/AOJ_GRL_2_A.test.cpp</a>
+* :x: <a href="../../verify/tests/AOJ_GRL_2_A.test.cpp.html">tests/AOJ_GRL_2_A.test.cpp</a>
 
 
 ## Code
@@ -72,7 +72,7 @@ struct Kruskal {
     }
     void build() {
       sort(edges.begin(),edges.end());
-      for (auto e : edges) {
+      for (const auto&& e : edges) {
         if (!uf.same(e.u, e.v)) { //閉路にならない
           uf.merge(e.u, e.v);
           sum += e.cost;
@@ -121,7 +121,7 @@ struct Kruskal {
     }
     void build() {
       sort(edges.begin(),edges.end());
-      for (auto e : edges) {
+      for (const auto&& e : edges) {
         if (!uf.same(e.u, e.v)) { //閉路にならない
           uf.merge(e.u, e.v);
           sum += e.cost;

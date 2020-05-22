@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Graph/dijkstra.cpp
+# :x: Graph/dijkstra.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/dijkstra.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-06 03:39:58+09:00
+    - Last commit date: 2020-05-22 11:27:22+09:00
 
 
 
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/tests/yj_shortest_path.test.cpp.html">tests/yj_shortest_path.test.cpp</a>
+* :x: <a href="../../verify/tests/yj_shortest_path.test.cpp.html">tests/yj_shortest_path.test.cpp</a>
 
 
 ## Code
@@ -79,7 +79,7 @@ struct Dijkstra {
         auto p = que.top(); que.pop();
         int v = p.to;
         if (dist[v] < p.cost) continue;
-        for (auto e:G[v]) {
+        for (const auto&& e:G[v]) {
           if (dist[e.to] > dist[v]+e.cost) {
             dist[e.to] = p.cost+e.cost;
             preV[e.to] = v;
@@ -143,7 +143,7 @@ struct Dijkstra {
         auto p = que.top(); que.pop();
         int v = p.to;
         if (dist[v] < p.cost) continue;
-        for (auto e:G[v]) {
+        for (const auto&& e:G[v]) {
           if (dist[e.to] > dist[v]+e.cost) {
             dist[e.to] = p.cost+e.cost;
             preV[e.to] = v;

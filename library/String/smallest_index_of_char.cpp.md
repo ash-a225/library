@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/smallest_index_of_char.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-13 13:09:01+09:00
+    - Last commit date: 2020-05-23 21:50:57+09:00
 
 
 
@@ -43,13 +43,10 @@ layout: default
 ```cpp
 #ifndef SIOC_H
 #define SIOC_H
-
-//sのi番目以降でcが最初に登場するインデックスを返す
-//名前は適当
-
+//sのi番目以降でcが最初に登場するインデックスを返す。名前は適当。
 struct SmallestIndex {
   vector<vector<int> > index;
-  void build(const string &s) {
+  SmallestIndex(const string &s) {
     index.assign(s.size(),vector<int>('z'-'a'+1,-1));
     string words = s; //sの文字
     sort(all(words));
@@ -80,13 +77,10 @@ struct SmallestIndex {
 #line 1 "String/smallest_index_of_char.cpp"
 
 
-
-//sのi番目以降でcが最初に登場するインデックスを返す
-//名前は適当
-
+//sのi番目以降でcが最初に登場するインデックスを返す。名前は適当。
 struct SmallestIndex {
   vector<vector<int> > index;
-  void build(const string &s) {
+  SmallestIndex(const string &s) {
     index.assign(s.size(),vector<int>('z'-'a'+1,-1));
     string words = s; //sの文字
     sort(all(words));

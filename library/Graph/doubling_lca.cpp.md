@@ -21,19 +21,24 @@ layout: default
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../../../assets/js/copy-button.js"></script>
-<link rel="stylesheet" href="../../../assets/css/copy-button.css" />
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+<link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Graph/doubling/doubling_lca.cpp
+# :heavy_check_mark: Graph/doubling_lca.cpp
 
-<a href="../../../index.html">Back to top page</a>
+<a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0cbea2cc80c9b4f2b5eca7444eaf8a7f">Graph/doubling</a>
-* <a href="{{ site.github.repository_url }}/blob/master/Graph/doubling/doubling_lca.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-24 18:53:15+09:00
+* category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
+* <a href="{{ site.github.repository_url }}/blob/master/Graph/doubling_lca.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-24 19:01:29+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/tests/AOJ_GRL_5_C.test.cpp.html">tests/AOJ_GRL_5_C.test.cpp</a>
 
 
 ## Code
@@ -101,7 +106,7 @@ struct LowestCommonAncestor {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "Graph/doubling/doubling_lca.cpp"
+#line 1 "Graph/doubling_lca.cpp"
 /*
 https://ei1333.github.io/luzhiled/snippets/tree/doubling-lowest-common-ancestor.html
 https://algo-logic.info/lca/
@@ -160,5 +165,5 @@ struct LowestCommonAncestor {
 ```
 {% endraw %}
 
-<a href="../../../index.html">Back to top page</a>
+<a href="../../index.html">Back to top page</a>
 

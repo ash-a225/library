@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#4c37ee828d0c7225ca158fdf0685029a">Graph/bfs</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/bfs/bfs.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-24 11:45:07+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -51,8 +51,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef BFS_H
-#define BFS_H
 /*
   delta(V v, update(V t))
   index(V v) -> int
@@ -75,7 +73,6 @@ vector<ll> bfs(int n, V s, Delta delta, Index index) {
   }
   return dist;
 }
-#endif
 ```
 {% endraw %}
 
@@ -83,8 +80,6 @@ vector<ll> bfs(int n, V s, Delta delta, Index index) {
 {% raw %}
 ```cpp
 #line 1 "Graph/bfs/bfs.cpp"
-
-
 /*
   delta(V v, update(V t))
   index(V v) -> int
@@ -107,7 +102,6 @@ vector<ll> bfs(int n, V s, Delta delta, Index index) {
   }
   return dist;
 }
-
 
 ```
 {% endraw %}

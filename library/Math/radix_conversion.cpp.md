@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/radix_conversion.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-21 15:19:45+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -46,9 +46,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef CONVERTBASE_H
-#define CONVERTBASE_H
-
+//10進数xをb進数
 template<typename T>
 vector<T> radix_conversion(T x, T b) {
   vector<T> res;
@@ -64,8 +62,6 @@ vector<T> radix_conversion(T x, T b) {
   reverse(res.begin(),res.end());
   return res;
 }
-
-#endif
 ```
 {% endraw %}
 
@@ -73,9 +69,7 @@ vector<T> radix_conversion(T x, T b) {
 {% raw %}
 ```cpp
 #line 1 "Math/radix_conversion.cpp"
-
-
-
+//10進数xをb進数
 template<typename T>
 vector<T> radix_conversion(T x, T b) {
   vector<T> res;
@@ -91,8 +85,6 @@ vector<T> radix_conversion(T x, T b) {
   reverse(res.begin(),res.end());
   return res;
 }
-
-
 
 ```
 {% endraw %}

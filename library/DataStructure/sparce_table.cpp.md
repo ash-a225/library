@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/sparce_table.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-13 13:09:01+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -52,11 +52,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef D_LCA_H
-#define D_LCA_H
-
 //https://ei1333.github.io/luzhiled/snippets/structure/sparse-table.html
-
 template<typename T>
 struct SparseTable {
   private:
@@ -86,8 +82,6 @@ struct SparseTable {
       return min(st[b][l], st[b][r-(1<<b)]);
     }
 };
-
-#endif
 ```
 {% endraw %}
 
@@ -95,11 +89,7 @@ struct SparseTable {
 {% raw %}
 ```cpp
 #line 1 "DataStructure/sparce_table.cpp"
-
-
-
 //https://ei1333.github.io/luzhiled/snippets/structure/sparse-table.html
-
 template<typename T>
 struct SparseTable {
   private:
@@ -129,8 +119,6 @@ struct SparseTable {
       return min(st[b][l], st[b][r-(1<<b)]);
     }
 };
-
-
 
 ```
 {% endraw %}

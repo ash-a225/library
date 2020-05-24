@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/bellman_ford.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-05 17:58:09+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -46,9 +46,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef BELLMANFORD_H
-#define BELLMANFORD_H
-
 template <typename T>
 bool bellman_ford(int n, int s, vector<T> &dist, const vector<vector<pair<int,T> > > &G) {
   const T INF = numeric_limits<T>::max();
@@ -68,8 +65,6 @@ bool bellman_ford(int n, int s, vector<T> &dist, const vector<vector<pair<int,T>
   }
   return true;
 }
-
-#endif
 ```
 {% endraw %}
 
@@ -77,9 +72,6 @@ bool bellman_ford(int n, int s, vector<T> &dist, const vector<vector<pair<int,T>
 {% raw %}
 ```cpp
 #line 1 "Graph/bellman_ford.cpp"
-
-
-
 template <typename T>
 bool bellman_ford(int n, int s, vector<T> &dist, const vector<vector<pair<int,T> > > &G) {
   const T INF = numeric_limits<T>::max();
@@ -99,8 +91,6 @@ bool bellman_ford(int n, int s, vector<T> &dist, const vector<vector<pair<int,T>
   }
   return true;
 }
-
-
 
 ```
 {% endraw %}

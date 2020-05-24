@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree_basic.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-18 17:08:13+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -50,15 +50,11 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef SEG_BASIC_H
-#define SEG_BASIC_H
-
 /*
 https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
 https://qiita.com/drken/items/68b8503ad4ffb469624c#3-lis-%E3%81%AE%E8%A7%A3%E6%B3%951-%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2-ver
 http://tsutaj.hatenablog.com/entry/2017/03/29/204841
 */
-
 template<typename T> 
 struct SegmentTree {
   private:
@@ -107,8 +103,6 @@ struct SegmentTree {
       return query(k, k+1);
     }
 };
-
-#endif
 ```
 {% endraw %}
 
@@ -116,15 +110,11 @@ struct SegmentTree {
 {% raw %}
 ```cpp
 #line 1 "DataStructure/segment_tree_basic.cpp"
-
-
-
 /*
 https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
 https://qiita.com/drken/items/68b8503ad4ffb469624c#3-lis-%E3%81%AE%E8%A7%A3%E6%B3%951-%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2-ver
 http://tsutaj.hatenablog.com/entry/2017/03/29/204841
 */
-
 template<typename T> 
 struct SegmentTree {
   private:
@@ -173,8 +163,6 @@ struct SegmentTree {
       return query(k, k+1);
     }
 };
-
-
 
 ```
 {% endraw %}

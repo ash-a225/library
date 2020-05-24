@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_shortest_path.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-22 11:31:56+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/shortest_path">https://judge.yosupo.jp/problem/shortest_path</a>
@@ -102,9 +102,6 @@ template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 #line 1 "Graph/dijkstra.cpp"
-
-
-
 template <typename T>
 struct Dijkstra {
   private:
@@ -157,8 +154,6 @@ struct Dijkstra {
       return dist[k];
     }
 };
-
-
 #line 12 "tests/yj_shortest_path.test.cpp"
 
 int main() {

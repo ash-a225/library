@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/suffix_array_lcp.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-13 17:20:35+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -51,13 +51,9 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef SA_LCP_H
-#define SA_LCP_H
-
 //https://drken1215.hatenablog.com/entry/2019/09/16/014600
 // Suffix Array ( Manber&Myers: O(n (logn)^2) )
-//sparce tableを用いてLCPも求める
-
+// sparce tableを用いてLCPも求める
 #include "DataStructure/sparce_table.cpp"
 
 struct suffix_array {
@@ -132,8 +128,6 @@ struct suffix_array {
       }
     }
 };
-
-#endif
 ```
 {% endraw %}
 
@@ -141,19 +135,11 @@ struct suffix_array {
 {% raw %}
 ```cpp
 #line 1 "String/suffix_array_lcp.cpp"
-
-
-
 //https://drken1215.hatenablog.com/entry/2019/09/16/014600
 // Suffix Array ( Manber&Myers: O(n (logn)^2) )
-//sparce tableを用いてLCPも求める
-
+// sparce tableを用いてLCPも求める
 #line 1 "DataStructure/sparce_table.cpp"
-
-
-
 //https://ei1333.github.io/luzhiled/snippets/structure/sparse-table.html
-
 template<typename T>
 struct SparseTable {
   private:
@@ -183,9 +169,7 @@ struct SparseTable {
       return min(st[b][l], st[b][r-(1<<b)]);
     }
 };
-
-
-#line 9 "String/suffix_array_lcp.cpp"
+#line 5 "String/suffix_array_lcp.cpp"
 
 struct suffix_array {
   private:
@@ -259,8 +243,6 @@ struct suffix_array {
       }
     }
 };
-
-
 
 ```
 {% endraw %}

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/dinic.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-18 20:04:58+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -46,12 +46,9 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef DINIC_H
-#define DINIC_H
 /*
 https://ei1333.github.io/luzhiled/snippets/graph/dinic.html
 */
-
 template<typename T>
 struct Dinic {
   private:
@@ -125,8 +122,6 @@ struct Dinic {
       }
     }
 };
-
-#endif
 ```
 {% endraw %}
 
@@ -134,12 +129,9 @@ struct Dinic {
 {% raw %}
 ```cpp
 #line 1 "Graph/dinic.cpp"
-
-
 /*
 https://ei1333.github.io/luzhiled/snippets/graph/dinic.html
 */
-
 template<typename T>
 struct Dinic {
   private:
@@ -213,8 +205,6 @@ struct Dinic {
       }
     }
 };
-
-
 
 ```
 {% endraw %}

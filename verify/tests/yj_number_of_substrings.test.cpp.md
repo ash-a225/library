@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_number_of_substrings.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-13 17:20:35+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/number_of_substrings">https://judge.yosupo.jp/problem/number_of_substrings</a>
@@ -110,19 +110,11 @@ void debug_out(const T &x, const Args &... args) { cout << x << " "; debug_out(a
 #endif
 
 #line 1 "String/suffix_array_lcp.cpp"
-
-
-
 //https://drken1215.hatenablog.com/entry/2019/09/16/014600
 // Suffix Array ( Manber&Myers: O(n (logn)^2) )
-//sparce tableを用いてLCPも求める
-
+// sparce tableを用いてLCPも求める
 #line 1 "DataStructure/sparce_table.cpp"
-
-
-
 //https://ei1333.github.io/luzhiled/snippets/structure/sparse-table.html
-
 template<typename T>
 struct SparseTable {
   private:
@@ -152,9 +144,7 @@ struct SparseTable {
       return min(st[b][l], st[b][r-(1<<b)]);
     }
 };
-
-
-#line 9 "String/suffix_array_lcp.cpp"
+#line 5 "String/suffix_array_lcp.cpp"
 
 struct suffix_array {
   private:
@@ -228,8 +218,6 @@ struct suffix_array {
       }
     }
 };
-
-
 #line 20 "tests/yj_number_of_substrings.test.cpp"
 
 int main() {

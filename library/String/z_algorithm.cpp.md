@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/z_algorithm.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-10 18:41:23+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -46,9 +46,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef Z_ALGO_H
-#define Z_ALGO_H
-
 struct z_array {
   vector<int> prefix;
   void build(const string &s) {
@@ -72,8 +69,6 @@ struct z_array {
   }
   int size(){ return prefix.size();}
 };
-
-#endif
 ```
 {% endraw %}
 
@@ -81,9 +76,6 @@ struct z_array {
 {% raw %}
 ```cpp
 #line 1 "String/z_algorithm.cpp"
-
-
-
 struct z_array {
   vector<int> prefix;
   void build(const string &s) {
@@ -107,8 +99,6 @@ struct z_array {
   }
   int size(){ return prefix.size();}
 };
-
-
 
 ```
 {% endraw %}

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_GRL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-22 23:14:48+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
@@ -91,9 +91,6 @@ using ll = long long;
 using P = pair<int,int>;
 
 #line 1 "DataStructure/unionfind.cpp"
-
-
-
 struct UnionFind {
   vector<ll> par, siz;
   UnionFind(ll n):par(n),siz(n,1) {
@@ -125,12 +122,7 @@ struct UnionFind {
     return siz[root(x)];
   }
 };
-
-
 #line 1 "Graph/kruskal.cpp"
-
-
-
 template<typename T>
 struct Edge { 
   int u, v, id;
@@ -166,8 +158,6 @@ struct Kruskal {
       return used[id];
     }
 };
-
-
 #line 11 "tests/AOJ_GRL_2_A.test.cpp"
 
 int main() {

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/suffix_array.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-13 17:20:35+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -46,12 +46,8 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef SA_H
-#define SA_H
-
 //https://drken1215.hatenablog.com/entry/2019/09/16/014600
 // Suffix Array ( Manber&Myers: O(n (logn)^2) )
-
 struct suffix_array {
   private:
     string str;
@@ -100,8 +96,6 @@ struct suffix_array {
       }
     }
 };
-
-#endif
 ```
 {% endraw %}
 
@@ -109,12 +103,8 @@ struct suffix_array {
 {% raw %}
 ```cpp
 #line 1 "String/suffix_array.cpp"
-
-
-
 //https://drken1215.hatenablog.com/entry/2019/09/16/014600
 // Suffix Array ( Manber&Myers: O(n (logn)^2) )
-
 struct suffix_array {
   private:
     string str;
@@ -163,8 +153,6 @@ struct suffix_array {
       }
     }
 };
-
-
 
 ```
 {% endraw %}

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_GRL_6_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-18 20:04:58+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A</a>
@@ -110,12 +110,9 @@ void debug_out(const T &x, const Args &... args) { cout << x << " "; debug_out(a
 #endif
 
 #line 1 "Graph/dinic.cpp"
-
-
 /*
 https://ei1333.github.io/luzhiled/snippets/graph/dinic.html
 */
-
 template<typename T>
 struct Dinic {
   private:
@@ -189,8 +186,6 @@ struct Dinic {
       }
     }
 };
-
-
 #line 20 "tests/AOJ_GRL_6_A.test.cpp"
 
 int main() {

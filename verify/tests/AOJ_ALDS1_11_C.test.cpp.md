@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_ALDS1_11_C.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-24 11:45:07+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_C&lang=ja">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_C&lang=ja</a>
@@ -104,8 +104,6 @@ using ll = long long;
 using P = pair<int,int>;
 
 #line 1 "Graph/bfs/bfs.cpp"
-
-
 /*
   delta(V v, update(V t))
   index(V v) -> int
@@ -128,7 +126,6 @@ vector<ll> bfs(int n, V s, Delta delta, Index index) {
   }
   return dist;
 }
-
 #line 10 "tests/AOJ_ALDS1_11_C.test.cpp"
 
 int main() {

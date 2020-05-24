@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/unionfind.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 03:23:39+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -47,9 +47,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef UNIONFIND_H
-#define UNIONFIND_H
-
 struct UnionFind {
   vector<ll> par, siz;
   UnionFind(ll n):par(n),siz(n,1) {
@@ -81,8 +78,6 @@ struct UnionFind {
     return siz[root(x)];
   }
 };
-
-#endif
 ```
 {% endraw %}
 
@@ -90,9 +85,6 @@ struct UnionFind {
 {% raw %}
 ```cpp
 #line 1 "DataStructure/unionfind.cpp"
-
-
-
 struct UnionFind {
   vector<ll> par, siz;
   UnionFind(ll n):par(n),siz(n,1) {
@@ -124,8 +116,6 @@ struct UnionFind {
     return siz[root(x)];
   }
 };
-
-
 
 ```
 {% endraw %}

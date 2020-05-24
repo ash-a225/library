@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#4c37ee828d0c7225ca158fdf0685029a">Graph/bfs</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/bfs/sample_grid_bfs.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-24 11:45:07+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -54,6 +54,16 @@ layout: default
 using namespace std;
 using ll = long long;
 using P = pair<int,int>;
+template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
+template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
+void debug_out() { cout << "\n"; }
+template <class T, class... Args>
+void debug_out(const T &x, const Args &... args) { cout << x << " "; debug_out(args...);}
+#ifdef _DEBUG
+  #define debug(...) debug_out(__VA_ARGS__)
+#else
+  #define debug(...) 
+#endif
 
 #include "Graph/bfs/bfs.cpp"
 #include "Graph/bfs/grid_delta.cpp"
@@ -91,10 +101,18 @@ int main() {
 using namespace std;
 using ll = long long;
 using P = pair<int,int>;
+template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
+template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
+void debug_out() { cout << "\n"; }
+template <class T, class... Args>
+void debug_out(const T &x, const Args &... args) { cout << x << " "; debug_out(args...);}
+#ifdef _DEBUG
+  #define debug(...) debug_out(__VA_ARGS__)
+#else
+  #define debug(...) 
+#endif
 
 #line 1 "Graph/bfs/bfs.cpp"
-
-
 /*
   delta(V v, update(V t))
   index(V v) -> int
@@ -117,10 +135,7 @@ vector<ll> bfs(int n, V s, Delta delta, Index index) {
   }
   return dist;
 }
-
 #line 1 "Graph/bfs/grid_delta.cpp"
-
-
 template<class F>
 struct grid_delta {
   int h,w;
@@ -148,8 +163,7 @@ struct grid_index {
   int operator()(P v){ return v.first*w+v.second;}
   P inv(int ind){ return P((ind-(ind%w))/w ,ind%w);}
 };
-
-#line 11 "Graph/bfs/sample_grid_bfs.cpp"
+#line 21 "Graph/bfs/sample_grid_bfs.cpp"
 
 int main() {
   std::cin.tie(nullptr);

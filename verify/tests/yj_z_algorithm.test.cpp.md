@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_z_algorithm.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-10 18:41:23+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/zalgorithm">https://judge.yosupo.jp/problem/zalgorithm</a>
@@ -91,9 +91,6 @@ template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 #line 1 "String/z_algorithm.cpp"
-
-
-
 struct z_array {
   vector<int> prefix;
   void build(const string &s) {
@@ -117,8 +114,6 @@ struct z_array {
   }
   int size(){ return prefix.size();}
 };
-
-
 #line 12 "tests/yj_z_algorithm.test.cpp"
 
 int main() {

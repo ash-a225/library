@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree_lazy.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-18 17:08:13+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -47,9 +47,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef SEG_BASIC_H
-#define SEG_BASIC_H
-
 template<typename T,typename E>
 struct SegmentTree {
   private:
@@ -124,8 +121,6 @@ struct SegmentTree {
       return query(k, k+1);
     }
 };
-
-#endif
 ```
 {% endraw %}
 
@@ -133,9 +128,6 @@ struct SegmentTree {
 {% raw %}
 ```cpp
 #line 1 "DataStructure/segment_tree_lazy.cpp"
-
-
-
 template<typename T,typename E>
 struct SegmentTree {
   private:
@@ -210,8 +202,6 @@ struct SegmentTree {
       return query(k, k+1);
     }
 };
-
-
 
 ```
 {% endraw %}

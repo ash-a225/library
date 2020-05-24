@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/modint1.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-18 11:13:14+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -41,9 +41,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef MODINT_H
-#define MODINT_H
-
 const int mod = 1000000007;
 // const int mod = 998244353;
 struct mint {
@@ -79,8 +76,6 @@ struct mint {
 };
 istream& operator>>(istream& is, mint& a) { return is >> a.x;}
 ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
-
-#endif
 ```
 {% endraw %}
 
@@ -88,9 +83,6 @@ ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
 {% raw %}
 ```cpp
 #line 1 "Math/modint1.cpp"
-
-
-
 const int mod = 1000000007;
 // const int mod = 998244353;
 struct mint {
@@ -126,8 +118,6 @@ struct mint {
 };
 istream& operator>>(istream& is, mint& a) { return is >> a.x;}
 ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
-
-
 
 ```
 {% endraw %}

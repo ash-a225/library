@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#4c37ee828d0c7225ca158fdf0685029a">Graph/bfs</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/bfs/grid_delta.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-24 11:45:07+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -46,8 +46,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef GRIDDELTA_H
-#define GRIDDELTA_H
 template<class F>
 struct grid_delta {
   int h,w;
@@ -75,7 +73,6 @@ struct grid_index {
   int operator()(P v){ return v.first*w+v.second;}
   P inv(int ind){ return P((ind-(ind%w))/w ,ind%w);}
 };
-#endif
 ```
 {% endraw %}
 
@@ -83,8 +80,6 @@ struct grid_index {
 {% raw %}
 ```cpp
 #line 1 "Graph/bfs/grid_delta.cpp"
-
-
 template<class F>
 struct grid_delta {
   int h,w;
@@ -112,7 +107,6 @@ struct grid_index {
   int operator()(P v){ return v.first*w+v.second;}
   P inv(int ind){ return P((ind-(ind%w))/w ,ind%w);}
 };
-
 
 ```
 {% endraw %}

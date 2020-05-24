@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_unionfind.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-03 18:07:53+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/unionfind">https://judge.yosupo.jp/problem/unionfind</a>
@@ -91,9 +91,6 @@ using ll = long long;
 using P = pair<int,int>;
 
 #line 1 "DataStructure/unionfind.cpp"
-
-
-
 struct UnionFind {
   vector<ll> par, siz;
   UnionFind(ll n):par(n),siz(n,1) {
@@ -125,8 +122,6 @@ struct UnionFind {
     return siz[root(x)];
   }
 };
-
-
 #line 10 "tests/yj_unionfind.test.cpp"
 
 int main() {

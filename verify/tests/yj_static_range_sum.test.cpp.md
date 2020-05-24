@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_static_range_sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-18 17:08:13+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/static_range_sum">https://judge.yosupo.jp/problem/static_range_sum</a>
@@ -96,9 +96,6 @@ template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 #line 1 "DataStructure/binary_indexed_tree.cpp"
-
-
-
 template<typename T>
 struct BIT {
   int n;
@@ -128,8 +125,6 @@ struct BIT {
     return sum(i,i+1);
   }
 };
-
-
 #line 12 "tests/yj_static_range_sum.test.cpp"
 
 int main() {

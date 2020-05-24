@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/dijkstra.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-22 11:31:56+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 
@@ -46,9 +46,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef DIJKSTRA_H
-#define DIJKSTRA_H
-
 template <typename T>
 struct Dijkstra {
   private:
@@ -101,8 +98,6 @@ struct Dijkstra {
       return dist[k];
     }
 };
-
-#endif
 ```
 {% endraw %}
 
@@ -110,9 +105,6 @@ struct Dijkstra {
 {% raw %}
 ```cpp
 #line 1 "Graph/dijkstra.cpp"
-
-
-
 template <typename T>
 struct Dijkstra {
   private:
@@ -165,8 +157,6 @@ struct Dijkstra {
       return dist[k];
     }
 };
-
-
 
 ```
 {% endraw %}

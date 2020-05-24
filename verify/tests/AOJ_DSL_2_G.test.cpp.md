@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_DSL_2_G.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-18 17:08:13+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G</a>
@@ -101,9 +101,6 @@ template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 #line 1 "DataStructure/segment_tree_lazy.cpp"
-
-
-
 template<typename T,typename E>
 struct SegmentTree {
   private:
@@ -178,8 +175,6 @@ struct SegmentTree {
       return query(k, k+1);
     }
 };
-
-
 #line 11 "tests/AOJ_DSL_2_G.test.cpp"
 
 int main() {

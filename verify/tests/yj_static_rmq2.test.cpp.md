@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_static_rmq2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-13 13:09:01+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/staticrmq">https://judge.yosupo.jp/problem/staticrmq</a>
@@ -93,11 +93,7 @@ template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 #line 1 "DataStructure/sparce_table.cpp"
-
-
-
 //https://ei1333.github.io/luzhiled/snippets/structure/sparse-table.html
-
 template<typename T>
 struct SparseTable {
   private:
@@ -127,8 +123,6 @@ struct SparseTable {
       return min(st[b][l], st[b][r-(1<<b)]);
     }
 };
-
-
 #line 12 "tests/yj_static_rmq2.test.cpp"
 
 int main() {

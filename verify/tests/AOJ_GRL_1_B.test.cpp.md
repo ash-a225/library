@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_GRL_1_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-05 17:58:09+09:00
+    - Last commit date: 2020-05-24 18:53:15+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B</a>
@@ -102,9 +102,6 @@ template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 #line 1 "Graph/bellman_ford.cpp"
-
-
-
 template <typename T>
 bool bellman_ford(int n, int s, vector<T> &dist, const vector<vector<pair<int,T> > > &G) {
   const T INF = numeric_limits<T>::max();
@@ -124,8 +121,6 @@ bool bellman_ford(int n, int s, vector<T> &dist, const vector<vector<pair<int,T>
   }
   return true;
 }
-
-
 #line 11 "tests/AOJ_GRL_1_B.test.cpp"
 
 int main() {

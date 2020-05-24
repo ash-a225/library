@@ -1,8 +1,4 @@
-#ifndef D_LCA_H
-#define D_LCA_H
-
 //https://ei1333.github.io/luzhiled/snippets/structure/sparse-table.html
-
 template<typename T>
 struct SparseTable {
   private:
@@ -32,5 +28,3 @@ struct SparseTable {
       return min(st[b][l], st[b][r-(1<<b)]);
     }
 };
-
-#endif

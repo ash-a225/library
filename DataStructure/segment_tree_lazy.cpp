@@ -1,6 +1,3 @@
-#ifndef SEG_BASIC_H
-#define SEG_BASIC_H
-
 template<typename T,typename E>
 struct SegmentTree {
   private:
@@ -75,5 +72,3 @@ struct SegmentTree {
       return query(k, k+1);
     }
 };
-
-#endif

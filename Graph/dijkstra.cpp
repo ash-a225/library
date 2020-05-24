@@ -1,6 +1,3 @@
-#ifndef DIJKSTRA_H
-#define DIJKSTRA_H
-
 template <typename T>
 struct Dijkstra {
   private:
@@ -53,5 +50,3 @@ struct Dijkstra {
       return dist[k];
     }
 };
-
-#endif

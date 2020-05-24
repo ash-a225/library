@@ -1,10 +1,6 @@
-#ifndef SA_LCP_H
-#define SA_LCP_H
-
 //https://drken1215.hatenablog.com/entry/2019/09/16/014600
 // Suffix Array ( Manber&Myers: O(n (logn)^2) )
-//sparce tableを用いてLCPも求める
-
+// sparce tableを用いてLCPも求める
 #include "DataStructure/sparce_table.cpp"
 
 struct suffix_array {
@@ -79,5 +75,3 @@ struct suffix_array {
       }
     }
 };
-
-#endif

@@ -1,6 +1,3 @@
-#ifndef BIT_H
-#define BIT_H
-
 template<typename T>
 struct BIT {
   int n;
@@ -30,5 +27,3 @@ struct BIT {
     return sum(i,i+1);
   }
 };
-
-#endif

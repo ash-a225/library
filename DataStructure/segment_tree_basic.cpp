@@ -1,12 +1,8 @@
-#ifndef SEG_BASIC_H
-#define SEG_BASIC_H
-
 /*
 https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
 https://qiita.com/drken/items/68b8503ad4ffb469624c#3-lis-%E3%81%AE%E8%A7%A3%E6%B3%951-%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2-ver
 http://tsutaj.hatenablog.com/entry/2017/03/29/204841
 */
-
 template<typename T> 
 struct SegmentTree {
   private:
@@ -55,5 +51,3 @@ struct SegmentTree {
       return query(k, k+1);
     }
 };
-
-#endif

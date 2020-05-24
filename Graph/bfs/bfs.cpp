@@ -1,5 +1,3 @@
-#ifndef BFS_H
-#define BFS_H
 /*
   delta(V v, update(V t))
   index(V v) -> int
@@ -22,4 +20,3 @@ vector<ll> bfs(int n, V s, Delta delta, Index index) {
   }
   return dist;
 }
-#endif

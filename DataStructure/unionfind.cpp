@@ -1,6 +1,3 @@
-#ifndef UNIONFIND_H
-#define UNIONFIND_H
-
 struct UnionFind {
   vector<ll> par, siz;
   UnionFind(ll n):par(n),siz(n,1) {
@@ -32,5 +29,3 @@ struct UnionFind {
     return siz[root(x)];
   }
 };
-
-#endif

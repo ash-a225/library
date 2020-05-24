@@ -1,10 +1,8 @@
-#ifndef SIOC_H
-#define SIOC_H
 //sのi番目以降でcが最初に登場するインデックスを返す。名前は適当。
 struct SmallestIndex {
   vector<vector<int> > index;
   SmallestIndex(const string &s) {
-    index.assign(s.size(),vector<int>('z'-'a'+1,-1));
+    index.assign(s.length(),vector<int>('z'-'a'+1,-1));
     string words = s; //sの文字
     sort(all(words));
     words.erase(unique(all(words)),words.end());
@@ -23,5 +21,3 @@ struct SmallestIndex {
     return index[i][c - 'a'];
   }
 };
-
-#endif

@@ -1,12 +1,9 @@
-#ifndef RATIONAL_H
-#define RATIONAL_H
-
-ll gcd (ll x, ll y) { return y ? gcd(y,x%y) : x; }
+ll gcd_ (ll x, ll y) { return y ? gcd_(y,x%y) : x; }
 struct frac {
   ll nu, de;
   inline void normalize() {
     if (de < 0) { nu *= -1; de *= -1;}
-    ll g = gcd(llabs(nu),llabs(de));
+    ll g = gcd_(llabs(nu),llabs(de));
     if (g == 0) { nu = 0; de = 1;}
     else { nu /= g; de/= g;}
   }
@@ -43,5 +40,3 @@ struct frac {
 };
 istream& operator>>(istream& is, frac& a) {return is >> a.nu >> a.de;}
 ostream& operator<<(ostream& os, const frac& a) { return os << a.nu << "/" << a.de;}
-
-#endif

@@ -1,9 +1,6 @@
-#ifndef DINIC_H
-#define DINIC_H
 /*
 https://ei1333.github.io/luzhiled/snippets/graph/dinic.html
 */
-
 template<typename T>
 struct Dinic {
   private:
@@ -77,5 +74,3 @@ struct Dinic {
       }
     }
 };
-
-#endif

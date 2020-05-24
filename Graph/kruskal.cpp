@@ -1,6 +1,3 @@
-#ifndef KRUSKAL_H
-#define KRUSKAL_H
-
 template<typename T>
 struct Edge { 
   int u, v, id;
@@ -36,5 +33,3 @@ struct Kruskal {
       return used[id];
     }
 };
-
-#endif

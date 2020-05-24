@@ -1,6 +1,3 @@
-#ifndef MODINT_H
-#define MODINT_H
-
 const int mod = 1000000007;
 // const int mod = 998244353;
 struct mint {
@@ -36,5 +33,3 @@ struct mint {
 };
 istream& operator>>(istream& is, mint& a) { return is >> a.x;}
 ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
-
-#endif

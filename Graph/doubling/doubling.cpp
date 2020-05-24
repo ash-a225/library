@@ -1,8 +1,4 @@
-#ifndef DOUBLING_H
-#define DOUBLING_H
-
 //to[i][v] vの2^i個上の頂点
-
 template<typename T>
 struct Doubling {
   private:
@@ -62,5 +58,3 @@ struct Doubling {
       return mini;
     }
 };
-
-#endif

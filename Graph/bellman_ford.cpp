@@ -1,6 +1,3 @@
-#ifndef BELLMANFORD_H
-#define BELLMANFORD_H
-
 template <typename T>
 bool bellman_ford(int n, int s, vector<T> &dist, const vector<vector<pair<int,T> > > &G) {
   const T INF = numeric_limits<T>::max();
@@ -20,5 +17,3 @@ bool bellman_ford(int n, int s, vector<T> &dist, const vector<vector<pair<int,T>
   }
   return true;
 }
-
-#endif

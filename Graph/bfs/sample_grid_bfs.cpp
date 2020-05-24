@@ -5,6 +5,16 @@
 using namespace std;
 using ll = long long;
 using P = pair<int,int>;
+template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
+template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
+void debug_out() { cout << "\n"; }
+template <class T, class... Args>
+void debug_out(const T &x, const Args &... args) { cout << x << " "; debug_out(args...);}
+#ifdef _DEBUG
+  #define debug(...) debug_out(__VA_ARGS__)
+#else
+  #define debug(...) 
+#endif
 
 #include "Graph/bfs/bfs.cpp"
 #include "Graph/bfs/grid_delta.cpp"

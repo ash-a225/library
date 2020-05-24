@@ -1,9 +1,5 @@
-#ifndef SA_H
-#define SA_H
-
 //https://drken1215.hatenablog.com/entry/2019/09/16/014600
 // Suffix Array ( Manber&Myers: O(n (logn)^2) )
-
 struct suffix_array {
   private:
     string str;
@@ -52,5 +48,3 @@ struct suffix_array {
       }
     }
 };
-
-#endif

@@ -1,6 +1,3 @@
-#ifndef Z_ALGO_H
-#define Z_ALGO_H
-
 struct z_array {
   vector<int> prefix;
   void build(const string &s) {
@@ -24,5 +21,3 @@ struct z_array {
   }
   int size(){ return prefix.size();}
 };
-
-#endif

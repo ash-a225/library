@@ -1,6 +1,4 @@
-#ifndef CONVERTBASE_H
-#define CONVERTBASE_H
-
+//10進数xをb進数
 template<typename T>
 vector<T> radix_conversion(T x, T b) {
   vector<T> res;
@@ -16,5 +14,3 @@ vector<T> radix_conversion(T x, T b) {
   reverse(res.begin(),res.end());
   return res;
 }
-
-#endif

@@ -1,5 +1,3 @@
-#ifndef GRIDDELTA_H
-#define GRIDDELTA_H
 template<class F>
 struct grid_delta {
   int h,w;
@@ -27,4 +25,3 @@ struct grid_index {
   int operator()(P v){ return v.first*w+v.second;}
   P inv(int ind){ return P((ind-(ind%w))/w ,ind%w);}
 };
-#endif

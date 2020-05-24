@@ -1,0 +1,204 @@
+---
+layout: default
+---
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+<link rel="stylesheet" href="../../assets/css/copy-button.css" />
+
+
+# :x: tests/AOJ_GRL_5_A.test.cpp
+
+<a href="../../index.html">Back to top page</a>
+
+* category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
+* <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_GRL_5_A.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-25 00:23:51+09:00
+
+
+
+
+## Depends on
+
+* :x: <a href="../../library/DP/rerooting.cpp.html">DP/rerooting.cpp</a>
+
+
+## Code
+
+<a id="unbundled"></a>
+{% raw %}
+```cpp
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+#define all(x) (x).begin(),(x).end()
+using namespace std;
+using ll = long long;
+using P = pair<int,int>;
+template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
+template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
+
+#include "DP/rerooting.cpp"
+
+int main() {
+  std::cin.tie(nullptr);
+  std::ios_base::sync_with_stdio(false);
+  std::cout << std::fixed << std::setprecision(15);
+  int n;
+  cin >> n;
+  vector<vector<int> > G(n);
+  vector<vector<ll> > W(n); //距離
+  rep(i,n-1) {
+    int s,t;
+    ll w;
+    cin >> s >> t >> w;
+    G[s].emplace_back(t);
+    G[t].emplace_back(s);
+    W[s].emplace_back(w);
+    W[t].emplace_back(w);
+  }
+  auto combine = [](ll a, ll b){ return max(a,b);};
+  auto f = [&](ll a, int v, int i){ return a + W[v][i];}; //v -> G[v][i]の遷移時にW[v][i]を足す
+  ReRooting<ll> RR(G, f, combine, 0);
+  RR.build();
+  ll ans = 0;
+  rep(i,n) {
+    chmax(ans, RR[i]);
+  }
+  cout << ans << endl;
+  return 0;
+}
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "tests/AOJ_GRL_5_A.test.cpp"
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+#define all(x) (x).begin(),(x).end()
+using namespace std;
+using ll = long long;
+using P = pair<int,int>;
+template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
+template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
+
+#line 1 "DP/rerooting.cpp"
+template <typename T>
+struct ReRooting {
+  private:
+    using F = function<T(T,int,int)>; //(dp,v,i):dpの更新
+    using F2 = function<T(T,int)>;
+    using H = function<T(T,T)>;
+    int n;
+    const vector<vector<int> > G;
+    vector<vector<T> > dp;
+    vector<T> ans;
+    //dp_v = g(combine(f(dp_u1,u1), f(dp_u2,u2), ..., f(dp_uk,uk)), v)
+    const F f;
+    const H combine;
+    const T NE; //neutral of combine
+    const F2 g;
+
+    T dfs1(int v, int p = -1) {
+      T res = NE;
+      dp[v].assign(G[v].size(), NE);
+      for (int i = 0; i < (int)G[v].size(); ++i) {
+        int to = G[v][i];
+        if (to == p) continue;
+        dp[v][i] = dfs1(to, v);
+        res = combine(res, f(dp[v][i], v, i));
+      }
+      return g(res,v);
+    }
+    void dfs2(int v, const T& pre, int p = -1) {
+      int m = G[v].size();
+      for (int i = 0; i < m; ++i){
+        if (G[v][i] == p) {
+          dp[v][i] = pre; break;
+        } 
+      }
+      vector<T> dp_l(G[v].size()+1,NE), dp_r(G[v].size()+1,NE); //累積combine
+      for (int i = 0; i < m; ++i) {
+        dp_l[i+1] = combine(dp_l[i], f(dp[v][i], v, i));
+      }
+      for (int i = G[v].size(); i > 0; --i) {
+        dp_r[i-1] = combine(dp_r[i], f(dp[v][i-1], v, i-1));
+      }
+      ans[v] = g(dp_l[m], v); //頂点vの答え
+      for (int i = 0; i < m; ++i) {
+        int to = G[v][i];
+        if (to == p) continue;
+        dfs2(to, g(combine(dp_l[i], dp_r[i+1]), v), v);
+      }
+    }
+  public:
+    ReRooting(const vector<vector<int> >& G, const F &f, const H &combine, T ne, 
+    F2 g=[](T a, int b){ return a;}): G(G),f(f),combine(combine),NE(ne),g(g) {
+      n = G.size();
+      dp.resize(n);
+      ans.assign(n,NE);
+    }
+    void build(int root = 0) {
+      dfs1(root);
+      dfs2(root, NE);
+    }
+    T operator[](const int &v) const{
+      assert(v < n);
+      return ans[v];
+    }
+};
+#line 11 "tests/AOJ_GRL_5_A.test.cpp"
+
+int main() {
+  std::cin.tie(nullptr);
+  std::ios_base::sync_with_stdio(false);
+  std::cout << std::fixed << std::setprecision(15);
+  int n;
+  cin >> n;
+  vector<vector<int> > G(n);
+  vector<vector<ll> > W(n); //距離
+  rep(i,n-1) {
+    int s,t;
+    ll w;
+    cin >> s >> t >> w;
+    G[s].emplace_back(t);
+    G[t].emplace_back(s);
+    W[s].emplace_back(w);
+    W[t].emplace_back(w);
+  }
+  auto combine = [](ll a, ll b){ return max(a,b);};
+  auto f = [&](ll a, int v, int i){ return a + W[v][i];}; //v -> G[v][i]の遷移時にW[v][i]を足す
+  ReRooting<ll> RR(G, f, combine, 0);
+  RR.build();
+  ll ans = 0;
+  rep(i,n) {
+    chmax(ans, RR[i]);
+  }
+  cout << ans << endl;
+  return 0;
+}
+
+```
+{% endraw %}
+
+<a href="../../index.html">Back to top page</a>
+

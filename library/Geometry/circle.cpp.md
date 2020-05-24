@@ -77,11 +77,11 @@ struct Circle {
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.8.3/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 349, in write_contents
     bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
-  File "/opt/hostedtoolcache/Python/3.8.3/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 172, in bundle
+  File "/opt/hostedtoolcache/Python/3.8.3/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 185, in bundle
     bundler.update(path)
-  File "/opt/hostedtoolcache/Python/3.8.3/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 293, in update
-    raise BundleError(path, i + 1, "unmatched #if / #ifdef / #ifndef")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: Geometry/circle.cpp: line 27: unmatched #if / #ifdef / #ifndef
+  File "/opt/hostedtoolcache/Python/3.8.3/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 318, in update
+    raise BundleErrorAt(path, i + 1, "unmatched #if / #ifdef / #ifndef")
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: Geometry/circle.cpp: line 27: unmatched #if / #ifdef / #ifndef
 
 ```
 {% endraw %}

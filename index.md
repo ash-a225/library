@@ -89,6 +89,7 @@ layout: default
 
 ### Math
 
+* :heavy_check_mark: <a href="library/Math/matrix.cpp.html">Math/matrix.cpp</a>
 * :warning: <a href="library/Math/modint1.cpp.html">Math/modint1.cpp</a>
 * :heavy_check_mark: <a href="library/Math/modint2.cpp.html">Math/modint2.cpp</a>
 * :heavy_check_mark: <a href="library/Math/radix_conversion.cpp.html">Math/radix_conversion.cpp</a>
@@ -119,6 +120,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_5_A.test.cpp.html">tests/AOJ_GRL_5_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_5_C.test.cpp.html">tests/AOJ_GRL_5_C.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_GRL_6_A.test.cpp.html">tests/AOJ_GRL_6_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yj_determinant_of_matrix.test.cpp.html">tests/yj_determinant_of_matrix.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_number_of_substrings.test.cpp.html">tests/yj_number_of_substrings.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_add_range_sum.test.cpp.html">tests/yj_point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>

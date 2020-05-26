@@ -11,6 +11,7 @@
 "tests/AOJ_GRL_5_A.test.cpp": "2020-05-25 00:30:21 +0900",
 "tests/AOJ_GRL_5_C.test.cpp": "2020-05-24 19:01:29 +0900",
 "tests/AOJ_GRL_6_A.test.cpp": "2020-05-24 18:53:15 +0900",
+"tests/yj_determinant_of_matrix.test.cpp": "2020-05-26 13:18:06 +0900",
 "tests/yj_number_of_substrings.test.cpp": "2020-05-24 18:53:15 +0900",
 "tests/yj_point_add_range_sum.test.cpp": "2020-05-24 18:53:15 +0900",
 "tests/yj_point_set_range_composite.test.cpp": "2020-05-24 18:53:15 +0900",

@@ -36,8 +36,8 @@ struct Matrix {
   }
   Matrix& operator*=(const Matrix B) { 
     int n = height(), r = width(), m = B.width();
-    assert(r == B.height);
-    vector<vector<E> > res(n,m);
+    assert(r == B.height());
+    vector<vector<E> > res(n,vector<E>(m,0));
     for(int i = 0; i < n; ++i){
       for(int k = 0; k < r; ++k){
         for(int j = 0; j < m; ++j){

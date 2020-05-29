@@ -39,7 +39,7 @@ struct ReRooting {
       for (int i = G[v].size(); i > 0; --i) {
         dp_r[i-1] = combine(dp_r[i], f(dp[v][i-1], v, i-1));
       }
-      ans[v] = g(dp_l[m], v); //頂点vの答え
+      ans[v] = g(dp_l[m], v);
       for (int i = 0; i < m; ++i) {
         int to = G[v][i];
         if (to == p) continue;

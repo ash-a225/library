@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/matrix.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-26 13:18:06+09:00
+    - Last commit date: 2020-05-29 13:19:04+09:00
 
 
 
@@ -84,8 +84,8 @@ struct Matrix {
   }
   Matrix& operator*=(const Matrix B) { 
     int n = height(), r = width(), m = B.width();
-    assert(r == B.height);
-    vector<vector<E> > res(n,m);
+    assert(r == B.height());
+    vector<vector<E> > res(n,vector<E>(m,0));
     for(int i = 0; i < n; ++i){
       for(int k = 0; k < r; ++k){
         for(int j = 0; j < m; ++j){
@@ -183,8 +183,8 @@ struct Matrix {
   }
   Matrix& operator*=(const Matrix B) { 
     int n = height(), r = width(), m = B.width();
-    assert(r == B.height);
-    vector<vector<E> > res(n,m);
+    assert(r == B.height());
+    vector<vector<E> > res(n,vector<E>(m,0));
     for(int i = 0; i < n; ++i){
       for(int k = 0; k < r; ++k){
         for(int j = 0; j < m; ++j){

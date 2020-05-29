@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#e2fca8135c2fadca093abd79a6b1c0d2">DP</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DP/rerooting.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-25 00:23:51+09:00
+    - Last commit date: 2020-05-29 13:19:04+09:00
 
 
 
@@ -88,7 +88,7 @@ struct ReRooting {
       for (int i = G[v].size(); i > 0; --i) {
         dp_r[i-1] = combine(dp_r[i], f(dp[v][i-1], v, i-1));
       }
-      ans[v] = g(dp_l[m], v); //頂点vの答え
+      ans[v] = g(dp_l[m], v);
       for (int i = 0; i < m; ++i) {
         int to = G[v][i];
         if (to == p) continue;
@@ -159,7 +159,7 @@ struct ReRooting {
       for (int i = G[v].size(); i > 0; --i) {
         dp_r[i-1] = combine(dp_r[i], f(dp[v][i-1], v, i-1));
       }
-      ans[v] = g(dp_l[m], v); //頂点vの答え
+      ans[v] = g(dp_l[m], v);
       for (int i = 0; i < m; ++i) {
         int to = G[v][i];
         if (to == p) continue;

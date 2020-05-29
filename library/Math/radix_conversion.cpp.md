@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/radix_conversion.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-24 18:53:15+09:00
+    - Last commit date: 2020-05-29 13:19:04+09:00
 
 
 
@@ -46,9 +46,9 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-//10進数xをb進数
+//10進数xをb進数 n桁
 template<typename T>
-vector<T> radix_conversion(T x, T b) {
+vector<T> radix_conversion(T x, T b, int n = -1) {
   vector<T> res;
   T t = 1, k = llabs(b);
   while(x) {
@@ -59,6 +59,7 @@ vector<T> radix_conversion(T x, T b) {
     t *= b/k;
   }
   if(res.empty()) res.emplace_back(0);
+  for (int i = res.size(); i < n; ++i) res.emplace_back(0);
   reverse(res.begin(),res.end());
   return res;
 }
@@ -69,9 +70,9 @@ vector<T> radix_conversion(T x, T b) {
 {% raw %}
 ```cpp
 #line 1 "Math/radix_conversion.cpp"
-//10進数xをb進数
+//10進数xをb進数 n桁
 template<typename T>
-vector<T> radix_conversion(T x, T b) {
+vector<T> radix_conversion(T x, T b, int n = -1) {
   vector<T> res;
   T t = 1, k = llabs(b);
   while(x) {
@@ -82,6 +83,7 @@ vector<T> radix_conversion(T x, T b) {
     t *= b/k;
   }
   if(res.empty()) res.emplace_back(0);
+  for (int i = res.size(); i < n; ++i) res.emplace_back(0);
   reverse(res.begin(),res.end());
   return res;
 }

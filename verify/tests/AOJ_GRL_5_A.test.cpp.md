@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_GRL_5_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-25 00:30:21+09:00
+    - Last commit date: 2020-05-29 13:19:04+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A</a>
@@ -146,7 +146,7 @@ struct ReRooting {
       for (int i = G[v].size(); i > 0; --i) {
         dp_r[i-1] = combine(dp_r[i], f(dp[v][i-1], v, i-1));
       }
-      ans[v] = g(dp_l[m], v); //頂点vの答え
+      ans[v] = g(dp_l[m], v);
       for (int i = 0; i < m; ++i) {
         int to = G[v][i];
         if (to == p) continue;

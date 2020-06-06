@@ -97,6 +97,13 @@ layout: default
 * :warning: <a href="library/Math/rational.cpp.html">Math/rational.cpp</a>
 
 
+<div id="6311ae17c1ee52b36e68aaf4ad066387"></div>
+
+### Other
+
+* :heavy_check_mark: <a href="library/Other/cumulative_sum2d.cpp.html">Other/cumulative_sum2d.cpp</a>
+
+
 <div id="27118326006d3829667a400ad23d5d98"></div>
 
 ### String
@@ -117,6 +124,7 @@ layout: default
 ## Verify Files
 
 * :heavy_check_mark: <a href="verify/tests/AOJ_0233.test.cpp.html">tests/AOJ_0233.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/AOJ_0560.test.cpp.html">tests/AOJ_0560.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_1595.test.cpp.html">tests/AOJ_1595.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_ALDS1_11_C.test.cpp.html">tests/AOJ_ALDS1_11_C.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DPL_1_D.test.cpp.html">tests/AOJ_DPL_1_D.test.cpp</a>

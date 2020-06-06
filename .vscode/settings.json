@@ -1,9 +1,0 @@
-{
-  "files.associations": {
-    "limits": "cpp",
-    "vector": "cpp"
-  },
-  "code-runner.executorMap": {
-    "cpp": "cd $dir && g++ -std=c++14 -Wall -O2 -g -fsanitize=undefined -I /Users/abekawa/git/library/ $fileName"
-  }
-}

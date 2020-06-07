@@ -71,7 +71,7 @@ layout: default
 * :heavy_check_mark: <a href="library/Graph/dinic.cpp.html">Graph/dinic.cpp</a>
 * :warning: <a href="library/Graph/doubling.cpp.html">Graph/doubling.cpp</a>
 * :heavy_check_mark: <a href="library/Graph/doubling_lca.cpp.html">Graph/doubling_lca.cpp</a>
-* :warning: <a href="library/Graph/doubling_lca_weight.cpp.html">Graph/doubling_lca_weight.cpp</a>
+* :heavy_check_mark: <a href="library/Graph/doubling_lca_weight.cpp.html">Graph/doubling_lca_weight.cpp</a>
 * :heavy_check_mark: <a href="library/Graph/kruskal.cpp.html">Graph/kruskal.cpp</a>
 
 
@@ -149,5 +149,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/yj_suffix_array.test.cpp.html">tests/yj_suffix_array.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_unionfind.test.cpp.html">tests/yj_unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_z_algorithm.test.cpp.html">tests/yj_z_algorithm.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yukicoder_898.test.cpp.html">tests/yukicoder_898.test.cpp</a>
 
 

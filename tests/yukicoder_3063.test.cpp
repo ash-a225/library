@@ -1,3 +1,4 @@
+#define PROBLEM "https://yukicoder.me/problems/no/3063"
 //参考 :https://niuez.github.io/2020/04/impl_abstract_dijkstra/
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
@@ -25,6 +26,10 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int h,w;
   cin >> h >> w;
+  P start, goal;
+  cin >> start.first >> start.second >> goal.first >> goal.second;
+  start.first--; start.second--; goal.first--; goal.second--;
+
   vector<string> s(h);
   rep(i,h) cin >> s[i];
   auto index = grid_index(h,w);
@@ -33,7 +38,8 @@ int main() {
   };
   auto delta = make_grid_delta(h,w,caller);
 
-  //auto res = bfs(h*w, P(0,0), delta, index);
+  auto res = bfs(h*w, start, delta, index);
+  cout << res[index(goal)] << endl;
   //caller : updateを呼び出すラムダ式
   //index : グリッド上の座標を1次元で表す
   return 0;

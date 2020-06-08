@@ -1,5 +1,5 @@
 /*
-  delta(V v, update(V t))
+  delta(V v, update(V t, ll w))
   index(V v) -> int
 */
 template<class V, class Delta, class Index>

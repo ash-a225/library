@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: Graph/bfs/grid_delta.cpp
+# :x: Graph/bfs/grid_delta.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -36,9 +36,9 @@ layout: default
 
 
 
-## Required by
+## Verified with
 
-* :warning: <a href="sample_grid_bfs.cpp.html">Graph/bfs/sample_grid_bfs.cpp</a>
+* :x: <a href="../../../verify/tests/yukicoder_3063.test.cpp.html">tests/yukicoder_3063.test.cpp</a>
 
 
 ## Code

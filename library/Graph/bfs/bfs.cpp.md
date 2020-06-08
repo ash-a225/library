@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: Graph/bfs/bfs.cpp
+# :heavy_check_mark: Graph/bfs/bfs.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -39,7 +39,6 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/tests/AOJ_ALDS1_11_C.test.cpp.html">tests/AOJ_ALDS1_11_C.test.cpp</a>
-* :x: <a href="../../../verify/tests/yukicoder_424.test.cpp.html">tests/yukicoder_424.test.cpp</a>
 
 
 ## Code

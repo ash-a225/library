@@ -79,9 +79,9 @@ layout: default
 
 ### Graph/bfs
 
-* :question: <a href="library/Graph/bfs/bfs.cpp.html">Graph/bfs/bfs.cpp</a>
+* :heavy_check_mark: <a href="library/Graph/bfs/bfs.cpp.html">Graph/bfs/bfs.cpp</a>
 * :warning: <a href="library/Graph/bfs/bfs01.cpp.html">Graph/bfs/bfs01.cpp</a>
-* :x: <a href="library/Graph/bfs/grid_delta.cpp.html">Graph/bfs/grid_delta.cpp</a>
+* :warning: <a href="library/Graph/bfs/grid_delta.cpp.html">Graph/bfs/grid_delta.cpp</a>
 
 
 <div id="a49950aa047c2292e989e368a97a3aae"></div>
@@ -148,7 +148,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/yj_suffix_array.test.cpp.html">tests/yj_suffix_array.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_unionfind.test.cpp.html">tests/yj_unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_z_algorithm.test.cpp.html">tests/yj_z_algorithm.test.cpp</a>
-* :x: <a href="verify/tests/yukicoder_424.test.cpp.html">tests/yukicoder_424.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yukicoder_898.test.cpp.html">tests/yukicoder_898.test.cpp</a>
 
 

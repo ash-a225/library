@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#4c37ee828d0c7225ca158fdf0685029a">Graph/bfs</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/bfs/bfs01.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-24 11:45:07+09:00
+    - Last commit date: 2020-06-09 03:10:37+09:00
 
 
 
@@ -42,7 +42,7 @@ layout: default
 {% raw %}
 ```cpp
 /*
-  delta(V v, update(V t))
+  delta(V v, update(V t, ll w))
   index(V v) -> int
 */
 template<class V, class Delta, class Index>
@@ -76,7 +76,7 @@ vector<ll> bfs01(int n, V s, Delta delta, Index index) {
 ```cpp
 #line 1 "Graph/bfs/bfs01.cpp"
 /*
-  delta(V v, update(V t))
+  delta(V v, update(V t, ll w))
   index(V v) -> int
 */
 template<class V, class Delta, class Index>

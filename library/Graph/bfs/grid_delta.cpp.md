@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../../verify/tests/yukicoder_3063.test.cpp.html">tests/yukicoder_3063.test.cpp</a>
+* :x: <a href="../../../verify/tests/yukicoder_424.test.cpp.html">tests/yukicoder_424.test.cpp</a>
 
 
 ## Code

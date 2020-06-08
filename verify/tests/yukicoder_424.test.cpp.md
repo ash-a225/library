@@ -25,16 +25,16 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: tests/yukicoder_3063.test.cpp
+# :x: tests/yukicoder_424.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
-* <a href="{{ site.github.repository_url }}/blob/master/tests/yukicoder_3063.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-08 21:58:06+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/tests/yukicoder_424.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-06-08 22:37:18+09:00
 
 
-* see: <a href="https://yukicoder.me/problems/no/3063">https://yukicoder.me/problems/no/3063</a>
+* see: <a href="https://yukicoder.me/problems/no/424">https://yukicoder.me/problems/no/424</a>
 
 
 ## Depends on
@@ -48,8 +48,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://yukicoder.me/problems/no/3063"
-//参考 :https://niuez.github.io/2020/04/impl_abstract_dijkstra/
+#define PROBLEM "https://yukicoder.me/problems/no/424"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -58,14 +57,8 @@ using ll = long long;
 using P = pair<int,int>;
 template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
-void debug_out() { cout << "\n"; }
-template <class T, class... Args>
-void debug_out(const T &x, const Args &... args) { cout << x << " "; debug_out(args...);}
-#ifdef _DEBUG
-  #define debug(...) debug_out(__VA_ARGS__)
-#else
-  #define debug(...) 
-#endif
+
+//参考 :https://niuez.github.io/2020/04/impl_abstract_dijkstra/
 
 #include "Graph/bfs/bfs.cpp"
 #include "Graph/bfs/grid_delta.cpp"
@@ -76,20 +69,34 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int h,w;
   cin >> h >> w;
-  P start, goal;
-  cin >> start.first >> start.second >> goal.first >> goal.second;
-  start.first--; start.second--; goal.first--; goal.second--;
+  P st, go;
+  cin >> st.first >> st.second >> go.first >> go.second;
+  st.first--; st.second--; go.first--; go.second--;
 
   vector<string> s(h);
   rep(i,h) cin >> s[i];
   auto index = grid_index(h,w);
-  auto caller = [&](P v, P t, auto update) {
-    if (s[t.first][t.second] == '.') update(t);
-  };
-  auto delta = make_grid_delta(h,w,caller);
 
-  auto res = bfs(h*w, start, delta, index);
-  cout << res[index(goal)] << endl;
+  // auto caller = [&](P v, P t, auto update) {
+  //   if (s[t.first][t.second] == '.') update(t);
+  // };
+  auto caller = [&](P v, P t, auto update) {
+    int now = s[v.first][v.second] - '0';
+    if (s[t.first][t.second]-'0' == now) update(t);
+    else if (s[t.first][t.second]-'0' == now+1) update(t);
+    else if (s[t.first][t.second]-'0' == now-1) update(t);
+    else if (s[t.first][t.second]-'0' < now) {
+      int ny = v.first + 2*(t.first-v.first);
+      int nx = v.second + 2*(t.second-v.second);
+      if (nx<0 || ny<0 || nx>=w || ny>=h) return;
+      if (s[ny][nx]-'0' == now) update(P(ny,nx));
+    }
+  };
+  auto delta = make_grid_delta(h, w, caller);
+
+  auto res = bfs(h*w, st, delta, index);
+  if (res[index(go)] == -1) cout << "NO" <<endl;
+  else cout << "YES" << endl;
   //caller : updateを呼び出すラムダ式
   //index : グリッド上の座標を1次元で表す
   return 0;
@@ -100,9 +107,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "tests/yukicoder_3063.test.cpp"
-#define PROBLEM "https://yukicoder.me/problems/no/3063"
-//参考 :https://niuez.github.io/2020/04/impl_abstract_dijkstra/
+#line 1 "tests/yukicoder_424.test.cpp"
+#define PROBLEM "https://yukicoder.me/problems/no/424"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -111,14 +117,8 @@ using ll = long long;
 using P = pair<int,int>;
 template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
-void debug_out() { cout << "\n"; }
-template <class T, class... Args>
-void debug_out(const T &x, const Args &... args) { cout << x << " "; debug_out(args...);}
-#ifdef _DEBUG
-  #define debug(...) debug_out(__VA_ARGS__)
-#else
-  #define debug(...) 
-#endif
+
+//参考 :https://niuez.github.io/2020/04/impl_abstract_dijkstra/
 
 #line 1 "Graph/bfs/bfs.cpp"
 /*
@@ -171,7 +171,7 @@ struct grid_index {
   int operator()(P v){ return v.first*w+v.second;}
   P inv(int ind){ return P((ind-(ind%w))/w ,ind%w);}
 };
-#line 22 "tests/yukicoder_3063.test.cpp"
+#line 15 "tests/yukicoder_424.test.cpp"
 
 int main() {
   std::cin.tie(nullptr);
@@ -179,20 +179,34 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int h,w;
   cin >> h >> w;
-  P start, goal;
-  cin >> start.first >> start.second >> goal.first >> goal.second;
-  start.first--; start.second--; goal.first--; goal.second--;
+  P st, go;
+  cin >> st.first >> st.second >> go.first >> go.second;
+  st.first--; st.second--; go.first--; go.second--;
 
   vector<string> s(h);
   rep(i,h) cin >> s[i];
   auto index = grid_index(h,w);
-  auto caller = [&](P v, P t, auto update) {
-    if (s[t.first][t.second] == '.') update(t);
-  };
-  auto delta = make_grid_delta(h,w,caller);
 
-  auto res = bfs(h*w, start, delta, index);
-  cout << res[index(goal)] << endl;
+  // auto caller = [&](P v, P t, auto update) {
+  //   if (s[t.first][t.second] == '.') update(t);
+  // };
+  auto caller = [&](P v, P t, auto update) {
+    int now = s[v.first][v.second] - '0';
+    if (s[t.first][t.second]-'0' == now) update(t);
+    else if (s[t.first][t.second]-'0' == now+1) update(t);
+    else if (s[t.first][t.second]-'0' == now-1) update(t);
+    else if (s[t.first][t.second]-'0' < now) {
+      int ny = v.first + 2*(t.first-v.first);
+      int nx = v.second + 2*(t.second-v.second);
+      if (nx<0 || ny<0 || nx>=w || ny>=h) return;
+      if (s[ny][nx]-'0' == now) update(P(ny,nx));
+    }
+  };
+  auto delta = make_grid_delta(h, w, caller);
+
+  auto res = bfs(h*w, st, delta, index);
+  if (res[index(go)] == -1) cout << "NO" <<endl;
+  else cout << "YES" << endl;
   //caller : updateを呼び出すラムダ式
   //index : グリッド上の座標を1次元で表す
   return 0;

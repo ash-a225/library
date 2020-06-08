@@ -148,7 +148,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/yj_suffix_array.test.cpp.html">tests/yj_suffix_array.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_unionfind.test.cpp.html">tests/yj_unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_z_algorithm.test.cpp.html">tests/yj_z_algorithm.test.cpp</a>
-* :x: <a href="verify/tests/yukicoder_3063.test.cpp.html">tests/yukicoder_3063.test.cpp</a>
+* :x: <a href="verify/tests/yukicoder_424.test.cpp.html">tests/yukicoder_424.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yukicoder_898.test.cpp.html">tests/yukicoder_898.test.cpp</a>
 
 

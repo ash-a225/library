@@ -31,10 +31,9 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yukicoder_424.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-08 22:37:18+09:00
+    - Last commit date: 2020-06-09 03:04:00+09:00
 
 
-* see: <a href="https://yukicoder.me/problems/no/424">https://yukicoder.me/problems/no/424</a>
 
 
 ## Depends on
@@ -48,7 +47,8 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://yukicoder.me/problems/no/424"
+#define IGNORE
+// #define PROBLEM "https://yukicoder.me/problems/no/424"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -108,7 +108,8 @@ int main() {
 {% raw %}
 ```cpp
 #line 1 "tests/yukicoder_424.test.cpp"
-#define PROBLEM "https://yukicoder.me/problems/no/424"
+#define IGNORE
+// #define PROBLEM "https://yukicoder.me/problems/no/424"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -171,7 +172,7 @@ struct grid_index {
   int operator()(P v){ return v.first*w+v.second;}
   P inv(int ind){ return P((ind-(ind%w))/w ,ind%w);}
 };
-#line 15 "tests/yukicoder_424.test.cpp"
+#line 16 "tests/yukicoder_424.test.cpp"
 
 int main() {
   std::cin.tie(nullptr);

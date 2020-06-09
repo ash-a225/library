@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: Graph/bfs/grid_delta.cpp
+# :x: Graph/bfs/grid_delta.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -34,6 +34,11 @@ layout: default
     - Last commit date: 2020-05-24 18:53:15+09:00
 
 
+
+
+## Verified with
+
+* :x: <a href="../../../verify/tests/gridbfs.test.cpp.html">tests/gridbfs.test.cpp</a>
 
 
 ## Code

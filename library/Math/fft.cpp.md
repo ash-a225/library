@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Math/fft.cpp
+# :heavy_check_mark: Math/fft.cpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -36,9 +36,9 @@ layout: default
 
 
 
-## Required by
+## Verified with
 
-* :warning: <a href="../tests/conv_test.cpp.html">tests/conv_test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yukicoder_206.test.cpp.html">tests/yukicoder_206.test.cpp</a>
 
 
 ## Code

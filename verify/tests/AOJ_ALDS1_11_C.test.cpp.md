@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/Graph/bfs/bfs.cpp.html">Graph/bfs/bfs.cpp</a>
+* :question: <a href="../../library/Graph/bfs/bfs.cpp.html">Graph/bfs/bfs.cpp</a>
 
 
 ## Code

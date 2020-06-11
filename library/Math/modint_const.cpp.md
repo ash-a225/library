@@ -25,15 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Math/modint1.cpp
+# :heavy_check_mark: Math/modint_const.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
-* <a href="{{ site.github.repository_url }}/blob/master/Math/modint1.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-24 18:53:15+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/Math/modint_const.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-06-11 10:17:01+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yj_range_affine_range_sum.test.cpp.html">tests/yj_range_affine_range_sum.test.cpp</a>
 
 
 ## Code
@@ -41,8 +47,8 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-const int mod = 1000000007;
-// const int mod = 998244353;
+// const int mod = 1000000007;
+const int mod = 998244353;
 struct mint {
   ll x;
   mint(ll x=0):x((x%mod+mod)%mod){}
@@ -82,9 +88,9 @@ ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "Math/modint1.cpp"
-const int mod = 1000000007;
-// const int mod = 998244353;
+#line 1 "Math/modint_const.cpp"
+// const int mod = 1000000007;
+const int mod = 998244353;
 struct mint {
   ll x;
   mint(ll x=0):x((x%mod+mod)%mod){}

@@ -90,8 +90,8 @@ layout: default
 
 * :heavy_check_mark: <a href="library/Math/fft.cpp.html">Math/fft.cpp</a>
 * :heavy_check_mark: <a href="library/Math/matrix.cpp.html">Math/matrix.cpp</a>
-* :warning: <a href="library/Math/modint1.cpp.html">Math/modint1.cpp</a>
-* :heavy_check_mark: <a href="library/Math/modint2.cpp.html">Math/modint2.cpp</a>
+* :heavy_check_mark: <a href="library/Math/modint.cpp.html">Math/modint.cpp</a>
+* :heavy_check_mark: <a href="library/Math/modint_const.cpp.html">Math/modint_const.cpp</a>
 * :heavy_check_mark: <a href="library/Math/radix_conversion.cpp.html">Math/radix_conversion.cpp</a>
 * :warning: <a href="library/Math/rational.cpp.html">Math/rational.cpp</a>
 

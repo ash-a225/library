@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_determinant_of_matrix.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-29 13:19:04+09:00
+    - Last commit date: 2020-06-11 10:17:01+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/matrix_det">https://judge.yosupo.jp/problem/matrix_det</a>
@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../library/Math/matrix.cpp.html">Math/matrix.cpp</a>
-* :heavy_check_mark: <a href="../../library/Math/modint2.cpp.html">Math/modint2.cpp</a>
+* :heavy_check_mark: <a href="../../library/Math/modint.cpp.html">Math/modint.cpp</a>
 
 
 ## Code
@@ -58,7 +58,7 @@ using P = pair<int,int>;
 template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
-#include "Math/modint2.cpp"
+#include "Math/modint.cpp"
 #include "Math/matrix.cpp"
 
 int main() {
@@ -67,12 +67,13 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int n;
   cin >> n;
+  using mint = modint<998244353>;
   Matrix<mint> A(n,n);
   rep(i,n) rep(j,n) {
-    cin >> A[i][j];
+    cin >> A[i][j].x;
   }
   mint det = A.determinant();
-  cout << det << endl;
+  cout << det.x << endl;
   return 0;
 }
 ```
@@ -92,42 +93,42 @@ using P = pair<int,int>;
 template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
-#line 1 "Math/modint2.cpp"
-// const int mod = 1000000007;
-const int mod = 998244353;
-struct mint {
+#line 1 "Math/modint.cpp"
+template <intmax_t Modulo>
+struct modint {
+private:
+  static constexpr int mod = Modulo;
+public:
   ll x;
-  mint(ll x=0):x((x%mod+mod)%mod){}
-  mint operator-() const { return mint(-x);}
-  mint& operator+=(const mint a) {
+  modint(ll x=0):x((x%mod+mod)%mod){}
+  modint operator-() const { return modint(-x);}
+  modint& operator+=(const modint a) {
     if ((x += a.x) >= mod) x -= mod;
     return *this;
   }
-  mint& operator-=(const mint a) {
+  modint& operator-=(const modint a) {
     if ((x += mod-a.x) >= mod) x -= mod;
     return *this;
   }
-  mint& operator*=(const mint a) { (x *= a.x) %= mod; return *this;}
-  mint operator+(const mint a) const { return mint(*this) += a;}
-  mint operator-(const mint a) const { return mint(*this) -= a;}
-  mint operator*(const mint a) const { return mint(*this) *= a;}
-  mint pow(ll t) const {
+  modint& operator*=(const modint a) { (x *= a.x) %= mod; return *this;}
+  modint operator+(const modint a) const { return modint(*this) += a;}
+  modint operator-(const modint a) const { return modint(*this) -= a;}
+  modint operator*(const modint a) const { return modint(*this) *= a;}
+  modint pow(ll t) const {
     if (!t) return 1;
-    mint a = pow(t>>1);
+    modint a = pow(t>>1);
     a *= a;
     if (t&1) a *= *this;
     return a;
   }
   // for prime mod
-  mint inv() const { return pow(mod-2);}
-  mint& operator/=(const mint a) { return *this *= a.inv();}
-  mint operator/(const mint a) const { return mint(*this) /= a;}
-  bool operator==(const mint rhs) const { return x == rhs.x; }
-  bool operator!=(const mint rhs) const { return x != rhs.x; }
-  bool operator<(const mint &a) const{ return x<a.x;};
+  modint inv() const { return pow(mod-2);}
+  modint& operator/=(const modint a) { return *this *= a.inv();}
+  modint operator/(const modint a) const { return modint(*this) /= a;}
+  bool operator==(const modint rhs) const { return x == rhs.x; }
+  bool operator!=(const modint rhs) const { return x != rhs.x; }
+  bool operator<(const modint &a) const{ return x<a.x;};
 };
-istream& operator>>(istream& is, mint& a) { return is >> a.x;}
-ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}
 #line 1 "Math/matrix.cpp"
 /*
 https://ei1333.github.io/library/library/math/matrix/matrix.cpp.html
@@ -229,12 +230,13 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int n;
   cin >> n;
+  using mint = modint<998244353>;
   Matrix<mint> A(n,n);
   rep(i,n) rep(j,n) {
-    cin >> A[i][j];
+    cin >> A[i][j].x;
   }
   mint det = A.determinant();
-  cout << det << endl;
+  cout << det.x << endl;
   return 0;
 }
 

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_point_set_range_composite.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-24 18:53:15+09:00
+    - Last commit date: 2020-06-11 10:17:01+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/point_set_range_composite">https://judge.yosupo.jp/problem/point_set_range_composite</a>
@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
-* :heavy_check_mark: <a href="../../library/Math/modint2.cpp.html">Math/modint2.cpp</a>
+* :heavy_check_mark: <a href="../../library/Math/modint_const.cpp.html">Math/modint_const.cpp</a>
 
 
 ## Code
@@ -58,7 +58,7 @@ template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 #include "DataStructure/segment_tree_basic.cpp"
-#include "Math/modint2.cpp"
+#include "Math/modint_const.cpp"
 
 using P = pair<mint,mint>;
 
@@ -164,7 +164,7 @@ struct SegmentTree {
       return query(k, k+1);
     }
 };
-#line 1 "Math/modint2.cpp"
+#line 1 "Math/modint_const.cpp"
 // const int mod = 1000000007;
 const int mod = 998244353;
 struct mint {

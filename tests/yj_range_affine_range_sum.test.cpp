@@ -8,7 +8,7 @@ template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 #include "DataStructure/segment_tree_lazy.cpp"
-#include "Math/modint2.cpp"
+#include "Math/modint_const.cpp"
 
 int main() {
   std::cin.tie(nullptr);

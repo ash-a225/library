@@ -9,7 +9,7 @@ namespace FFT {
     x = (x << 24) | ((x & 0xFF00) << 8) | ((x >> 8) & 0xFF00) | (x >> 24);
     return x;
   }
-  void fft(vector<cmplx> &A, int k){
+  void fft(vector<cmplx> &A, const int k, bool inverse = false){
     if (k == 0) return;
     for (int i = 1; i < (1<<k); ++i) { 
       int ind = bitreverse32(i) >> (32-k);
@@ -20,12 +20,15 @@ namespace FFT {
     for (int i = 1; i <= k; ++i) { //N = (1<<i)
       for (int j = 0; j < (1<<(k-i)); ++j) { 
         for (int l = 0; l < (1<<(i-1)); ++l) { //l = 0,1...N/2-1
-          cmplx temp = A[(1<<i)*j + l];
-          cmplx temp1 = A[(1<<i)*j + l + (1<<(i-1))];
-          A[(1<<i)*j + l] = temp + temp1 * polar(1.0, -2.0*PI*l/(1<<i));
-          A[(1<<i)*j + l + (1<<(i-1))] = temp - temp1 * polar(1.0, -2.0*PI*l/(1<<i));
+          cmplx s = A[(1<<i)*j + l];
+          cmplx t = A[(1<<i)*j + l + (1<<(i-1))] * polar(1.0, (inverse ? -1 : 1)*2.0*PI*l/(1<<i));
+          A[(1<<i)*j + l] = s + t;
+          A[(1<<i)*j + l + (1<<(i-1))] = s - t;
         }
       }
+    }
+    if (inverse) {
+      for (int i = 0; i < (1<<k); ++i) A[i] /= (1<<k);
     }
   }
   vector<ll> convolve(const vector<int>& A, const vector<int>& B){
@@ -35,16 +38,16 @@ namespace FFT {
     vector<cmplx> CA(1<<k,0), CB(1<<k,0);
     for (int i = 0; i < (int)A.size(); ++i) CA[i] = A[i];
     for (int i = 0; i < (int)B.size(); ++i) CB[i] = B[i];
-    fft(CA, k);
-    fft(CB, k);
+    fft(CA, k, false);
+    fft(CB, k, false);
     vector<cmplx> CC(1<<k);
-    for (int i = 0; i < (1<<k); ++i) { //逆変換
-      CC[i] = conj(CA[i] * CB[i]);
+    for (int i = 0; i < (1<<k); ++i) {
+      CC[i] = CA[i] * CB[i];
     }
-    fft(CC, k);
+    fft(CC, k, true);
     vector<ll> C(siz);
     for (int i = 0; i < siz; ++i) {
-      C[i] = (ll)((real(conj(CC[i])) / (1<<k)) + 0.5);
+      C[i] = (ll)(real(CC[i]) + 0.5);
     }
     return C;
   }

@@ -1,7 +1,7 @@
-template <intmax_t Modulo>
+template <ll Modulo>
 struct modint {
 private:
-  static constexpr int mod = Modulo;
+  static constexpr ll mod = Modulo;
 public:
   ll x;
   modint(ll x=0):x((x%mod+mod)%mod){}

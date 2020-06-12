@@ -31,13 +31,20 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/modint.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-11 10:29:01+09:00
+    - Last commit date: 2020-06-12 15:08:02+09:00
 
 
+
+
+## Required by
+
+* :heavy_check_mark: <a href="ntt.cpp.html">Math/ntt.cpp</a>
 
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../verify/tests/yj_convolution.test.cpp.html">tests/yj_convolution.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yj_convolution1000000007.test.cpp.html">tests/yj_convolution1000000007.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/tests/yj_determinant_of_matrix.test.cpp.html">tests/yj_determinant_of_matrix.test.cpp</a>
 
 
@@ -80,6 +87,7 @@ public:
   bool operator==(const modint rhs) const { return x == rhs.x; }
   bool operator!=(const modint rhs) const { return x != rhs.x; }
   bool operator<(const modint &a) const{ return x<a.x;};
+  static ll get_mod() { return mod; }
 };
 ```
 {% endraw %}
@@ -122,6 +130,7 @@ public:
   bool operator==(const modint rhs) const { return x == rhs.x; }
   bool operator!=(const modint rhs) const { return x != rhs.x; }
   bool operator<(const modint &a) const{ return x<a.x;};
+  static ll get_mod() { return mod; }
 };
 
 ```

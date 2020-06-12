@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yukicoder_206.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-11 09:43:21+09:00
+    - Last commit date: 2020-06-12 17:35:07+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/206">https://yukicoder.me/problems/no/206</a>
@@ -122,12 +122,15 @@ namespace FFT {
       }  
     }
     for (int i = 1; i <= k; ++i) { //N = (1<<i)
+      cmplx w = polar(1.0, (inverse ? -1 : 1)*2.0*PI/(1<<i));
       for (int j = 0; j < (1<<(k-i)); ++j) { 
+        cmplx base = 1;
         for (int l = 0; l < (1<<(i-1)); ++l) { //l = 0,1...N/2-1
           cmplx s = A[(1<<i)*j + l];
-          cmplx t = A[(1<<i)*j + l + (1<<(i-1))] * polar(1.0, (inverse ? -1 : 1)*2.0*PI*l/(1<<i));
+          cmplx t = A[(1<<i)*j + l + (1<<(i-1))] * base;
           A[(1<<i)*j + l] = s + t;
           A[(1<<i)*j + l + (1<<(i-1))] = s - t;
+          base *= w;
         }
       }
     }

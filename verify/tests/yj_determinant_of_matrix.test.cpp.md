@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_determinant_of_matrix.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-11 10:29:01+09:00
+    - Last commit date: 2020-06-12 15:08:02+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/matrix_det">https://judge.yosupo.jp/problem/matrix_det</a>
@@ -128,6 +128,7 @@ public:
   bool operator==(const modint rhs) const { return x == rhs.x; }
   bool operator!=(const modint rhs) const { return x != rhs.x; }
   bool operator<(const modint &a) const{ return x<a.x;};
+  static ll get_mod() { return mod; }
 };
 #line 1 "Math/matrix.cpp"
 /*

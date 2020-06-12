@@ -45,6 +45,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../verify/tests/yj_convolution.test.cpp.html">tests/yj_convolution.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/tests/yj_convolution1000000007.test.cpp.html">tests/yj_convolution1000000007.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yukicoder_1073.test.cpp.html">tests/yukicoder_1073.test.cpp</a>
 
 
 ## Code

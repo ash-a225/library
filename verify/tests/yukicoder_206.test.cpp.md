@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yukicoder_206.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-12 17:35:07+09:00
+    - Last commit date: 2020-06-12 23:06:01+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/206">https://yukicoder.me/problems/no/206</a>
@@ -65,7 +65,7 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int l,m,n;
   cin >> l >> m >> n;
-  vector<int> a(n,0), b(n,0);
+  vector<ll> a(n,0), b(n,0);
   rep(i,l) {
     int x;
     cin >> x; x--;
@@ -138,7 +138,7 @@ namespace FFT {
       for (int i = 0; i < (1<<k); ++i) A[i] /= (1<<k);
     }
   }
-  vector<ll> convolve(const vector<int>& A, const vector<int>& B){
+  vector<ll> convolve(const vector<ll>& A, const vector<ll>& B){
     int siz = A.size() + B.size() - 1;
     int k = 0;
     while (siz >= (1<<k)) k++;
@@ -167,7 +167,7 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int l,m,n;
   cin >> l >> m >> n;
-  vector<int> a(n,0), b(n,0);
+  vector<ll> a(n,0), b(n,0);
   rep(i,l) {
     int x;
     cin >> x; x--;

@@ -25,20 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: tests/yj_convolution.test.cpp
+# :heavy_check_mark: tests/yukicoder_1073.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
-* <a href="{{ site.github.repository_url }}/blob/master/tests/yj_convolution.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-12 23:06:01+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/tests/yukicoder_1073.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-06-12 23:06:18+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/convolution_mod">https://judge.yosupo.jp/problem/convolution_mod</a>
+* see: <a href="https://yukicoder.me/problems/no/1073">https://yukicoder.me/problems/no/1073</a>
 
 
 ## Depends on
 
+* :heavy_check_mark: <a href="../../library/Math/coefficient_of_generating_function.cpp.html">Math/coefficient_of_generating_function.cpp</a>
 * :heavy_check_mark: <a href="../../library/Math/garner.cpp.html">Math/garner.cpp</a>
 * :heavy_check_mark: <a href="../../library/Math/modint.cpp.html">Math/modint.cpp</a>
 * :heavy_check_mark: <a href="../../library/Math/ntt.cpp.html">Math/ntt.cpp</a>
@@ -49,32 +50,29 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
+#define PROBLEM "https://yukicoder.me/problems/no/1073"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
 using namespace std;
 using ll = long long;
-using P = pair<int,int>;
 template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
 #include "Math/ntt.cpp"
+#include "Math/coefficient_of_generating_function.cpp"
 
 int main() {
   std::cin.tie(nullptr);
   std::ios_base::sync_with_stdio(false);
   std::cout << std::fixed << std::setprecision(15);
-  int n, m;
-  cin >> n >> m;
-  vector<ll> a(n), b(m);
-  rep(i,n) cin >> a[i];
-  rep(i,m) cin >> b[i];
-
-  auto ans = ntt_convolve(a, b, 998244353);
-  rep(i,n+m-1) {
-    cout << ans[i] << "\n";
-  }
+  ll n;
+  cin >> n;
+  using mint = modint<1000000007>;
+  mint prob = mint(-1)/6;
+  vector<ll> P = {1, 0, 0, 0, 0, 0};
+  vector<ll> Q = {1, prob.x, prob.x, prob.x, prob.x, prob.x, prob.x};
+  cout << CGF(P, Q, n, 1000000007) << endl;
   return 0;
 }
 ```
@@ -83,14 +81,13 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "tests/yj_convolution.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
+#line 1 "tests/yukicoder_1073.test.cpp"
+#define PROBLEM "https://yukicoder.me/problems/no/1073"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
 using namespace std;
 using ll = long long;
-using P = pair<int,int>;
 template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
@@ -263,22 +260,44 @@ vector<ll> ntt_convolve(const vector<ll> &A, const vector<ll> &B, const ll mod =
 }
 
 //https://naoyat.hatenablog.jp/entry/DFT-and-NTT#f-8ef02af0
-#line 12 "tests/yj_convolution.test.cpp"
+#line 1 "Math/coefficient_of_generating_function.cpp"
+//[z^n]P(z)/Q(z)
+//coefficient_of_generating_function
+ll CGF(vector<ll> P, vector<ll> Q, ll n, const ll mod = 1000000007) {
+  assert(P.size() + 1 == Q.size());
+  while (n > 0) {
+    vector<ll> NQ = Q;
+    for (int i=1; i<(int)Q.size(); i+=2) { //Q(-z)
+      NQ[i] *= -1;
+      NQ[i] %= mod;
+      if (NQ[i] < 0) NQ[i] += mod;
+    }
+    auto PNQ = ntt_convolve(P, NQ, mod); //P(z)Q(-z)
+    if (n&1) {
+      for (int i=0; i<(int)P.size(); ++i) P[i] = PNQ[2*i+1];
+    }
+    else {
+      for (int i=0; i<(int)P.size(); ++i) P[i] = PNQ[2*i];
+    }
+    auto QNQ = ntt_convolve(Q, NQ, mod); //Q(z)Q(-z)
+    for (int i=0; i<(int)Q.size(); ++i) Q[i] = QNQ[2*i];
+    n /= 2;
+  }
+  return P[0];
+}
+#line 12 "tests/yukicoder_1073.test.cpp"
 
 int main() {
   std::cin.tie(nullptr);
   std::ios_base::sync_with_stdio(false);
   std::cout << std::fixed << std::setprecision(15);
-  int n, m;
-  cin >> n >> m;
-  vector<ll> a(n), b(m);
-  rep(i,n) cin >> a[i];
-  rep(i,m) cin >> b[i];
-
-  auto ans = ntt_convolve(a, b, 998244353);
-  rep(i,n+m-1) {
-    cout << ans[i] << "\n";
-  }
+  ll n;
+  cin >> n;
+  using mint = modint<1000000007>;
+  mint prob = mint(-1)/6;
+  vector<ll> P = {1, 0, 0, 0, 0, 0};
+  vector<ll> Q = {1, prob.x, prob.x, prob.x, prob.x, prob.x, prob.x};
+  cout << CGF(P, Q, n, 1000000007) << endl;
   return 0;
 }
 

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/fft.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-12 17:35:07+09:00
+    - Last commit date: 2020-06-12 23:06:01+09:00
 
 
 
@@ -82,7 +82,7 @@ namespace FFT {
       for (int i = 0; i < (1<<k); ++i) A[i] /= (1<<k);
     }
   }
-  vector<ll> convolve(const vector<int>& A, const vector<int>& B){
+  vector<ll> convolve(const vector<ll>& A, const vector<ll>& B){
     int siz = A.size() + B.size() - 1;
     int k = 0;
     while (siz >= (1<<k)) k++;
@@ -146,7 +146,7 @@ namespace FFT {
       for (int i = 0; i < (1<<k); ++i) A[i] /= (1<<k);
     }
   }
-  vector<ll> convolve(const vector<int>& A, const vector<int>& B){
+  vector<ll> convolve(const vector<ll>& A, const vector<ll>& B){
     int siz = A.size() + B.size() - 1;
     int k = 0;
     while (siz >= (1<<k)) k++;

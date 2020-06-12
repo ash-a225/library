@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/modint.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-12 15:08:02+09:00
+    - Last commit date: 2020-06-12 23:06:01+09:00
 
 
 
@@ -46,6 +46,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/tests/yj_convolution.test.cpp.html">tests/yj_convolution.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/tests/yj_convolution1000000007.test.cpp.html">tests/yj_convolution1000000007.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/tests/yj_determinant_of_matrix.test.cpp.html">tests/yj_determinant_of_matrix.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yukicoder_1073.test.cpp.html">tests/yukicoder_1073.test.cpp</a>
 
 
 ## Code
@@ -53,8 +54,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template <ll Modulo>
-struct modint {
+template <ll Modulo> struct modint {
 private:
   static constexpr ll mod = Modulo;
 public:
@@ -96,8 +96,7 @@ public:
 {% raw %}
 ```cpp
 #line 1 "Math/modint.cpp"
-template <ll Modulo>
-struct modint {
+template <ll Modulo> struct modint {
 private:
   static constexpr ll mod = Modulo;
 public:

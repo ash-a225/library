@@ -88,6 +88,7 @@ layout: default
 
 ### Math
 
+* :heavy_check_mark: <a href="library/Math/coefficient_of_generating_function.cpp.html">Math/coefficient_of_generating_function.cpp</a>
 * :heavy_check_mark: <a href="library/Math/fft.cpp.html">Math/fft.cpp</a>
 * :heavy_check_mark: <a href="library/Math/garner.cpp.html">Math/garner.cpp</a>
 * :heavy_check_mark: <a href="library/Math/matrix.cpp.html">Math/matrix.cpp</a>
@@ -146,6 +147,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/yj_suffix_array.test.cpp.html">tests/yj_suffix_array.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_unionfind.test.cpp.html">tests/yj_unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_z_algorithm.test.cpp.html">tests/yj_z_algorithm.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yukicoder_1073.test.cpp.html">tests/yukicoder_1073.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yukicoder_206.test.cpp.html">tests/yukicoder_206.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yukicoder_898.test.cpp.html">tests/yukicoder_898.test.cpp</a>
 

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/ntt.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-12 17:35:15+09:00
+    - Last commit date: 2020-06-12 23:06:01+09:00
 
 
 
@@ -46,6 +46,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../verify/tests/yj_convolution.test.cpp.html">tests/yj_convolution.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/tests/yj_convolution1000000007.test.cpp.html">tests/yj_convolution1000000007.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/yukicoder_1073.test.cpp.html">tests/yukicoder_1073.test.cpp</a>
 
 
 ## Code
@@ -124,7 +125,7 @@ public:
   }
 };
 
-vector<ll> ntt_convolve(vector<ll> &A, vector<ll> &B, ll mod = 1224736769) {
+vector<ll> ntt_convolve(const vector<ll> &A, const vector<ll> &B, const ll mod = 1224736769) {
   if (mod == 998244353) {
     NTT<modint<998244353> > ntt;
     return ntt.convolve(A,B);
@@ -154,8 +155,7 @@ vector<ll> ntt_convolve(vector<ll> &A, vector<ll> &B, ll mod = 1224736769) {
 {% raw %}
 ```cpp
 #line 1 "Math/modint.cpp"
-template <ll Modulo>
-struct modint {
+template <ll Modulo> struct modint {
 private:
   static constexpr ll mod = Modulo;
 public:
@@ -300,7 +300,7 @@ public:
   }
 };
 
-vector<ll> ntt_convolve(vector<ll> &A, vector<ll> &B, ll mod = 1224736769) {
+vector<ll> ntt_convolve(const vector<ll> &A, const vector<ll> &B, const ll mod = 1224736769) {
   if (mod == 998244353) {
     NTT<modint<998244353> > ntt;
     return ntt.convolve(A,B);

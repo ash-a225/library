@@ -90,3 +90,5 @@ vector<ll> ntt_convolve(vector<ll> &A, vector<ll> &B, ll mod = 1224736769) {
   }
   return res;
 }
+
+//https://naoyat.hatenablog.jp/entry/DFT-and-NTT#f-8ef02af0

@@ -69,7 +69,7 @@ public:
   }
 };
 
-vector<ll> ntt_convolve(vector<ll> &A, vector<ll> &B, ll mod = 1224736769) {
+vector<ll> ntt_convolve(const vector<ll> &A, const vector<ll> &B, const ll mod = 1224736769) {
   if (mod == 998244353) {
     NTT<modint<998244353> > ntt;
     return ntt.convolve(A,B);

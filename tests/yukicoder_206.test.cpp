@@ -16,7 +16,7 @@ int main() {
   std::cout << std::fixed << std::setprecision(15);
   int l,m,n;
   cin >> l >> m >> n;
-  vector<int> a(n,0), b(n,0);
+  vector<ll> a(n,0), b(n,0);
   rep(i,l) {
     int x;
     cin >> x; x--;

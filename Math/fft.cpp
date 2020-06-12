@@ -18,12 +18,15 @@ namespace FFT {
       }  
     }
     for (int i = 1; i <= k; ++i) { //N = (1<<i)
+      cmplx w = polar(1.0, (inverse ? -1 : 1)*2.0*PI/(1<<i));
       for (int j = 0; j < (1<<(k-i)); ++j) { 
+        cmplx base = 1;
         for (int l = 0; l < (1<<(i-1)); ++l) { //l = 0,1...N/2-1
           cmplx s = A[(1<<i)*j + l];
-          cmplx t = A[(1<<i)*j + l + (1<<(i-1))] * polar(1.0, (inverse ? -1 : 1)*2.0*PI*l/(1<<i));
+          cmplx t = A[(1<<i)*j + l + (1<<(i-1))] * base;
           A[(1<<i)*j + l] = s + t;
           A[(1<<i)*j + l + (1<<(i-1))] = s - t;
+          base *= w;
         }
       }
     }

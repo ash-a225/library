@@ -32,4 +32,5 @@ public:
   bool operator==(const modint rhs) const { return x == rhs.x; }
   bool operator!=(const modint rhs) const { return x != rhs.x; }
   bool operator<(const modint &a) const{ return x<a.x;};
+  static ll get_mod() { return mod; }
 };

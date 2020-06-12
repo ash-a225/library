@@ -1,4 +1,5 @@
 #include "Math/modint.cpp"
+#include "Math/garner.cpp"
 
 template<typename ModInt> struct NTT {
 private:
@@ -9,6 +10,7 @@ private:
     if (p == 167772161) return 3;
     else if (p == 469762049) return 3;
     else if (p == 1224736769) return 3;
+    else if (p == 998244353) return 3;
     return 0;
   }
   unsigned bitreverse32(unsigned x) {
@@ -46,7 +48,8 @@ public:
       for (int i = 0; i < (1<<k); ++i) A[i] /= (1<<k);
     }
   }
-  vector<mi> convolve(const vector<mi>& A, const vector<mi>& B){
+
+  vector<ll> convolve(const vector<ll>& A, const vector<ll>& B){
     int siz = A.size() + B.size() - 1;
     int k = 0;
     while (siz >= (1<<k)) k++;
@@ -60,7 +63,30 @@ public:
       CC[i] = CA[i] * CB[i];
     }
     ntt(CC, k, true);
-    CC.resize(siz);
-    return CC;
+    vector<ll> C(siz);
+    for (int i = 0; i < siz; ++i) C[i] = CC[i].x;
+    return C;
   }
 };
+
+vector<ll> ntt_convolve(vector<ll> &A, vector<ll> &B, ll mod = 1224736769) {
+  if (mod == 998244353) {
+    NTT<modint<998244353> > ntt;
+    return ntt.convolve(A,B);
+  }
+  NTT<modint<167772161> > ntt1;
+  NTT<modint<469762049> > ntt2;
+  NTT<modint<1224736769> > ntt3;
+  vector<ll> C1 = ntt1.convolve(A,B);
+  vector<ll> C2 = ntt2.convolve(A,B);
+  vector<ll> C3 = ntt3.convolve(A,B);
+  vector<ll> res(C1.size());
+  for (int i = 0; i < (int)C1.size(); ++i) {
+    Garner garner;
+    garner.push(C1[i], 167772161);
+    garner.push(C2[i], 469762049);
+    garner.push(C3[i], 1224736769);
+    res[i] = garner.get(mod);
+  }
+  return res;
+}

@@ -1,5 +1,4 @@
-template <ll Modulo>
-struct modint {
+template <ll Modulo> struct modint {
 private:
   static constexpr ll mod = Modulo;
 public:

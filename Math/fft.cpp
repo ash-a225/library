@@ -34,7 +34,7 @@ namespace FFT {
       for (int i = 0; i < (1<<k); ++i) A[i] /= (1<<k);
     }
   }
-  vector<ll> convolve(const vector<int>& A, const vector<int>& B){
+  vector<ll> convolve(const vector<ll>& A, const vector<ll>& B){
     int siz = A.size() + B.size() - 1;
     int k = 0;
     while (siz >= (1<<k)) k++;

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_determinant_of_matrix.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-12 23:06:01+09:00
+    - Last commit date: 2020-06-13 12:50:58+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/matrix_det">https://judge.yosupo.jp/problem/matrix_det</a>

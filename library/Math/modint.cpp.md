@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/modint.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-12 23:06:01+09:00
+    - Last commit date: 2020-06-13 12:50:58+09:00
 
 
 

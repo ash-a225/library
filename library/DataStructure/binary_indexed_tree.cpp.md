@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/binary_indexed_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-24 18:53:15+09:00
+    - Last commit date: 2020-06-13 16:11:24+09:00
 
 
 
@@ -48,8 +48,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template<typename T>
-struct BIT {
+template<typename T> struct BIT {
   int n;
   vector<T> d;
   BIT(int n=0):n(n),d(n+1) {}
@@ -84,8 +83,7 @@ struct BIT {
 {% raw %}
 ```cpp
 #line 1 "DataStructure/binary_indexed_tree.cpp"
-template<typename T>
-struct BIT {
+template<typename T> struct BIT {
   int n;
   vector<T> d;
   BIT(int n=0):n(n),d(n+1) {}

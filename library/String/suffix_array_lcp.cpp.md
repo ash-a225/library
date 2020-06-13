@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/suffix_array_lcp.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-24 18:53:15+09:00
+    - Last commit date: 2020-06-13 16:11:24+09:00
 
 
 
@@ -139,36 +139,35 @@ struct suffix_array {
 // Suffix Array ( Manber&Myers: O(n (logn)^2) )
 // sparce tableを用いてLCPも求める
 #line 1 "DataStructure/sparce_table.cpp"
-//https://ei1333.github.io/luzhiled/snippets/structure/sparse-table.html
-template<typename T>
-struct SparseTable {
-  private:
-    vector<vector<T> > st;
-    vector<int> lookup;
-  public:
-    SparseTable(){}
-    SparseTable(const vector<T> &v) {
-      int b = 0;
-      while((1<<b) <= (int)v.size()) ++b;
-      st.assign(b, vector<T>(1<<b));
-      for(int i = 0; i < (int)v.size(); i++) {
-        st[0][i] = v[i];
-      }
-      for(int i = 1; i < b; i++) {
-        for(int j = 0; j+(1<<i) <= (1<<b); j++) {
-          st[i][j] = min(st[i-1][j], st[i-1][j + (1<<(i-1))]);
-        }
-      }
-      lookup.resize(v.size()+1);
-      for(int i = 2; i < (int)lookup.size(); i++) {
-        lookup[i] = lookup[i>>1] + 1;
+template<typename T> struct SparseTable {
+private:
+  vector<vector<T> > st;
+  vector<int> lookup;
+public:
+  SparseTable(){}
+  SparseTable(const vector<T> &v) {
+    int b = 0;
+    while((1<<b) <= (int)v.size()) ++b;
+    st.assign(b, vector<T>(1<<b));
+    for(int i = 0; i < (int)v.size(); i++) {
+      st[0][i] = v[i];
+    }
+    for(int i = 1; i < b; i++) {
+      for(int j = 0; j+(1<<i) <= (1<<b); j++) {
+        st[i][j] = min(st[i-1][j], st[i-1][j + (1<<(i-1))]);
       }
     }
-    inline T query(int l, int r) { //[l,r)
-      int b = lookup[r-l];
-      return min(st[b][l], st[b][r-(1<<b)]);
+    lookup.resize(v.size()+1);
+    for(int i = 2; i < (int)lookup.size(); i++) {
+      lookup[i] = lookup[i>>1] + 1;
     }
+  }
+  inline T query(int l, int r) { //[l,r)
+    int b = lookup[r-l];
+    return min(st[b][l], st[b][r-(1<<b)]);
+  }
 };
+//https://ei1333.github.io/luzhiled/snippets/structure/sparse-table.html
 #line 5 "String/suffix_array_lcp.cpp"
 
 struct suffix_array {

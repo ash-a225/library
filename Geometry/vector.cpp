@@ -1,6 +1,3 @@
-#ifndef VECTOR_H
-#define VECTOR_H
-
 #include "geom.cpp"
 
 struct V {
@@ -33,5 +30,3 @@ struct V {
 };
 istream& operator>>(istream& is, V& v) {return is >> v.x >> v.y;}
 ostream& operator<<(ostream& os, const V& v) { return os<<"("<<v.x<<","<<v.y<<")";}
-
-#endif

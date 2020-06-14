@@ -1,6 +1,3 @@
-#ifndef CIRCLE_H
-#define CIRCLE_H
-
 #include "geom.cpp"
 #include "vector.cpp"
 

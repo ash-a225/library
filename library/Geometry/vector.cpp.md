@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#d9c6333623e6357515fcbf17be806273">Geometry</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Geometry/vector.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-18 12:17:49+09:00
+    - Last commit date: 2020-06-14 17:27:20+09:00
 
 
 
@@ -41,14 +41,16 @@ layout: default
 * :warning: <a href="geom.cpp.html">Geometry/geom.cpp</a>
 
 
+## Required by
+
+* :warning: <a href="circle.cpp.html">Geometry/circle.cpp</a>
+
+
 ## Code
 
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef VECTOR_H
-#define VECTOR_H
-
 #include "geom.cpp"
 
 struct V {
@@ -81,27 +83,16 @@ struct V {
 };
 istream& operator>>(istream& is, V& v) {return is >> v.x >> v.y;}
 ostream& operator<<(ostream& os, const V& v) { return os<<"("<<v.x<<","<<v.y<<")";}
-
-#endif
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "Geometry/vector.cpp"
-
-
-
 #line 1 "Geometry/geom.cpp"
-
-
-
 const double eps = 1e-9;
 bool equal(double a, double b) { return abs(a-b) < eps;}
-
-
-#line 5 "Geometry/vector.cpp"
+#line 2 "Geometry/vector.cpp"
 
 struct V {
   double x, y;
@@ -133,8 +124,6 @@ struct V {
 };
 istream& operator>>(istream& is, V& v) {return is >> v.x >> v.y;}
 ostream& operator<<(ostream& os, const V& v) { return os<<"("<<v.x<<","<<v.y<<")";}
-
-
 
 ```
 {% endraw %}

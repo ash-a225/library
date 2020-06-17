@@ -25,20 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: tests/AOJ_DPL_4_B.test.cpp
+# :heavy_check_mark: tests/AOJ_DPL_4_B.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_DPL_4_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-17 15:20:52+09:00
+    - Last commit date: 2020-06-17 15:23:41+09:00
 
 
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_4_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_4_B</a>
 
 
 ## Depends on
 
-* :x: <a href="../../library/Other/rekkyo.cpp.html">Other/rekkyo.cpp</a>
+* :heavy_check_mark: <a href="../../library/Other/rekkyo.cpp.html">Other/rekkyo.cpp</a>
 
 
 ## Code
@@ -46,6 +47,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_4_B"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -106,6 +108,7 @@ int main() {
 {% raw %}
 ```cpp
 #line 1 "tests/AOJ_DPL_4_B.test.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_4_B"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
@@ -129,7 +132,7 @@ vector<T> rekkyo(vector<T> item) {
   }
   return a;
 }
-#line 11 "tests/AOJ_DPL_4_B.test.cpp"
+#line 12 "tests/AOJ_DPL_4_B.test.cpp"
 
 struct item_t {
   ll w, v;

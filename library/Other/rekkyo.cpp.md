@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: Other/rekkyo.cpp
+# :heavy_check_mark: Other/rekkyo.cpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../verify/tests/AOJ_DPL_4_B.test.cpp.html">tests/AOJ_DPL_4_B.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/tests/AOJ_DPL_4_B.test.cpp.html">tests/AOJ_DPL_4_B.test.cpp</a>
 
 
 ## Code

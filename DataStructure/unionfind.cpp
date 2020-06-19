@@ -1,31 +1,37 @@
 struct UnionFind {
-  vector<ll> par, siz;
-  UnionFind(ll n):par(n),siz(n,1) {
-    for (ll i = 0; i < n; ++i) par[i] = i;
+private:
+  vector<int> par, siz;
+
+public:
+  UnionFind(int n):par(n),siz(n,1) {
+    for (int i = 0; i < n; ++i) par[i] = i;
   }
-  ll size() { return par.size(); };
-  ll root(ll x) {
+  int size() {return par.size(); };
+  int size(int x) {
+    assert(x < size());
+    return siz[find(x)];
+  }
+
+  int find(int x) { //return root
     assert(x < size());
     if (par[x] == x) return x;
-    else return par[x] = root(par[x]);
+    else return par[x] = find(par[x]);
   }
-  void merge(ll x, ll y) {
+
+  void unite(int x, int y) {
     assert(x < size());
     assert(y < size());
-    ll rx = root(x);
-    ll ry = root(y);
-    if (rx == ry) return;
-    if (siz[rx] < siz[y]) std::swap(rx, ry);
-    par[rx] = ry;
-    siz[ry] += siz[rx];
+    x = find(x);
+    y = find(y);
+    if (x == y) return;
+    if (siz[x] < siz[y]) std::swap(x, y);
+    siz[x] += siz[y];
+    par[y] = x;
   }
-  bool same(ll x, ll y) { 
+  
+  bool same(int x, int y) { 
     assert(x < size());
     assert(y < size());
-    return root(x) == root(y);
-  }
-  ll size(ll x) {
-    assert(x < size());
-    return siz[root(x)];
+    return find(x) == find(y);
   }
 };

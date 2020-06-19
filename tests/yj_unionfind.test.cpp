@@ -18,7 +18,7 @@ int main() {
   rep(i,q) {
     int t, u, v;
     cin >> t >> u >> v;
-    if (t == 0) tree.merge(u, v);
+    if (t == 0) tree.unite(u, v);
     else {
       if (tree.same(u,v)) cout << 1 << "\n";
       else cout << 0 << "\n";

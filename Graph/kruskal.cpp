@@ -1,3 +1,5 @@
+#include "DataStructure/unionfind.cpp"
+
 template<typename T>
 struct Edge { 
   int u, v, id;
@@ -21,7 +23,7 @@ struct Kruskal {
       sort(edges.begin(),edges.end());
       for (auto &e : edges) {
         if (!uf.same(e.u,e.v)) { //circleなし
-          uf.merge(e.u,e.v);
+          uf.unite(e.u,e.v);
           sum += e.cost;
           used[e.id] = true;
         }

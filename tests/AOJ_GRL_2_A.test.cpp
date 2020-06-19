@@ -6,7 +6,6 @@ using namespace std;
 using ll = long long;
 using P = pair<int,int>;
 
-#include "DataStructure/unionfind.cpp"
 #include "Graph/kruskal.cpp"
 
 int main() {

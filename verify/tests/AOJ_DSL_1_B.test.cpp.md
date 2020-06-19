@@ -25,22 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: tests/AOJ_GRL_2_A.test.cpp
+# :heavy_check_mark: tests/AOJ_DSL_1_B.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
-* <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_GRL_2_A.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_DSL_1_B.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-06-19 17:45:01+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B&lang=ja">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B&lang=ja</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
-* :heavy_check_mark: <a href="../../library/Graph/kruskal.cpp.html">Graph/kruskal.cpp</a>
+* :heavy_check_mark: <a href="../../library/DataStructure/potentialized_unionfind.cpp.html">DataStructure/potentialized_unionfind.cpp</a>
 
 
 ## Code
@@ -48,30 +47,38 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B&lang=ja"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
 using namespace std;
 using ll = long long;
-using P = pair<int,int>;
+template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
+template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
-#include "Graph/kruskal.cpp"
+#include "DataStructure/potentialized_unionfind.cpp"
 
 int main() {
   std::cin.tie(nullptr);
   std::ios_base::sync_with_stdio(false);
   std::cout << std::fixed << std::setprecision(15);
-  int n, m;
-  cin >> n >> m;
-  vector<Edge<ll> > G(m);
-  rep(i,m) {
-    Edge<ll> e;
-    cin >> e.u >> e.v >> e.cost;
-    G[i] = e;
+  int n, q;
+  cin >> n >> q;
+  UnionFind<ll> uf(n, 0);
+  while(q--) {
+    int com; cin >> com;
+    if (com == 0) {
+      int x, y, z;
+      cin >> x >> y >> z;
+      uf.unite(x, y, z);
+    }
+    else {
+      int x, y;
+      cin >> x >> y;
+      if (uf.same(x, y)) cout << uf.diff(x, y) << "\n";
+      else cout << "?\n";
+    }
   }
-  Kruskal<ll> krs(n, G);
-  cout << krs.get_sum() << endl;
   return 0;
 }
 ```
@@ -80,25 +87,31 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "tests/AOJ_GRL_2_A.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A"
+#line 1 "tests/AOJ_DSL_1_B.test.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B&lang=ja"
 #include <bits/stdc++.h>
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 #define all(x) (x).begin(),(x).end()
 using namespace std;
 using ll = long long;
-using P = pair<int,int>;
+template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
+template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
-#line 1 "DataStructure/unionfind.cpp"
-struct UnionFind {
+#line 1 "DataStructure/potentialized_unionfind.cpp"
+template<typename Abel> struct UnionFind {
 private:
   vector<int> par, siz;
-
+  vector<Abel> value; //NE: neutral of abelian group
+  Abel potential(int x) {
+    find(x);
+    return value[x];
+  }
+  
 public:
-  UnionFind(int n):par(n),siz(n,1) {
+  UnionFind(int n, Abel NE = 0):par(n),siz(n,1),value(n,NE) {
     for (int i = 0; i < n; ++i) par[i] = i;
   }
-  int size() {return par.size(); };
+  int size() { return par.size();};
   int size(int x) {
     assert(x < size());
     return siz[find(x)];
@@ -107,79 +120,62 @@ public:
   int find(int x) { //return root
     assert(x < size());
     if (par[x] == x) return x;
-    else return par[x] = find(par[x]);
+    else {
+      int r = find(par[x]);
+      value[x] += value[par[x]];
+      return par[x] = r;
+    }
   }
 
-  void unite(int x, int y) {
+  //where potential(y) - potential(x) = v
+  void unite(int x, int y, Abel v) {
     assert(x < size());
     assert(y < size());
+    v += potential(x); v -= potential(y);
     x = find(x);
     y = find(y);
     if (x == y) return;
-    if (siz[x] < siz[y]) std::swap(x, y);
+    if (siz[x] < siz[y]) std::swap(x, y), v = -v;
     siz[x] += siz[y];
     par[y] = x;
+    value[y] = v;
   }
-  
+
   bool same(int x, int y) { 
     assert(x < size());
     assert(y < size());
     return find(x) == find(y);
   }
-};
-#line 2 "Graph/kruskal.cpp"
 
-template<typename T>
-struct Edge { 
-  int u, v, id;
-  T cost; 
-  Edge():id(0){}
-	Edge(int u,int v,T cost,int id=0):u(u),v(v),id(id),cost(cost){}
-  bool operator<(const Edge &e) const{ return cost<e.cost;};
+  Abel diff(int x, int y) {
+    assert(x < size());
+    assert(y < size());
+    return potential(y) - potential(x);
+  }
 };
-
-template<typename T>
-struct Kruskal {
-  private:
-    T sum;
-    vector<Edge<T> > edges;
-    UnionFind uf;
-    vector<bool> used;
-  public:
-    Kruskal(int n, const vector<Edge<T> > &edges_):edges(edges_),uf(n){
-      sum = 0;
-      used.assign((int)edges.size(),false);
-      sort(edges.begin(),edges.end());
-      for (auto &e : edges) {
-        if (!uf.same(e.u,e.v)) { //circleなし
-          uf.unite(e.u,e.v);
-          sum += e.cost;
-          used[e.id] = true;
-        }
-      }
-    }
-    T get_sum(){ return sum;}
-    bool is_used(int id){ 
-      assert(id < (int)edges.size());
-      return used[id];
-    }
-};
-#line 10 "tests/AOJ_GRL_2_A.test.cpp"
+#line 11 "tests/AOJ_DSL_1_B.test.cpp"
 
 int main() {
   std::cin.tie(nullptr);
   std::ios_base::sync_with_stdio(false);
   std::cout << std::fixed << std::setprecision(15);
-  int n, m;
-  cin >> n >> m;
-  vector<Edge<ll> > G(m);
-  rep(i,m) {
-    Edge<ll> e;
-    cin >> e.u >> e.v >> e.cost;
-    G[i] = e;
+  int n, q;
+  cin >> n >> q;
+  UnionFind<ll> uf(n, 0);
+  while(q--) {
+    int com; cin >> com;
+    if (com == 0) {
+      int x, y, z;
+      cin >> x >> y >> z;
+      uf.unite(x, y, z);
+    }
+    else {
+      int x, y;
+      cin >> x >> y;
+      if (uf.same(x, y)) cout << uf.diff(x, y) << "\n";
+      else cout << "?\n";
+    }
   }
-  Kruskal<ll> krs(n, G);
-  cout << krs.get_sum() << endl;
   return 0;
 }
 

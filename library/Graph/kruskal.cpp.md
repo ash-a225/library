@@ -31,9 +31,14 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/kruskal.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-24 18:53:15+09:00
+    - Last commit date: 2020-06-19 17:45:01+09:00
 
 
+
+
+## Depends on
+
+* :heavy_check_mark: <a href="../DataStructure/unionfind.cpp.html">DataStructure/unionfind.cpp</a>
 
 
 ## Verified with
@@ -46,6 +51,8 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#include "DataStructure/unionfind.cpp"
+
 template<typename T>
 struct Edge { 
   int u, v, id;
@@ -69,7 +76,7 @@ struct Kruskal {
       sort(edges.begin(),edges.end());
       for (auto &e : edges) {
         if (!uf.same(e.u,e.v)) { //circleなし
-          uf.merge(e.u,e.v);
+          uf.unite(e.u,e.v);
           sum += e.cost;
           used[e.id] = true;
         }
@@ -87,7 +94,46 @@ struct Kruskal {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "Graph/kruskal.cpp"
+#line 1 "DataStructure/unionfind.cpp"
+struct UnionFind {
+private:
+  vector<int> par, siz;
+
+public:
+  UnionFind(int n):par(n),siz(n,1) {
+    for (int i = 0; i < n; ++i) par[i] = i;
+  }
+  int size() {return par.size(); };
+  int size(int x) {
+    assert(x < size());
+    return siz[find(x)];
+  }
+
+  int find(int x) { //return root
+    assert(x < size());
+    if (par[x] == x) return x;
+    else return par[x] = find(par[x]);
+  }
+
+  void unite(int x, int y) {
+    assert(x < size());
+    assert(y < size());
+    x = find(x);
+    y = find(y);
+    if (x == y) return;
+    if (siz[x] < siz[y]) std::swap(x, y);
+    siz[x] += siz[y];
+    par[y] = x;
+  }
+  
+  bool same(int x, int y) { 
+    assert(x < size());
+    assert(y < size());
+    return find(x) == find(y);
+  }
+};
+#line 2 "Graph/kruskal.cpp"
+
 template<typename T>
 struct Edge { 
   int u, v, id;
@@ -111,7 +157,7 @@ struct Kruskal {
       sort(edges.begin(),edges.end());
       for (auto &e : edges) {
         if (!uf.same(e.u,e.v)) { //circleなし
-          uf.merge(e.u,e.v);
+          uf.unite(e.u,e.v);
           sum += e.cost;
           used[e.id] = true;
         }

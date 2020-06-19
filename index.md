@@ -47,6 +47,7 @@ layout: default
 ### DataStructure
 
 * :heavy_check_mark: <a href="library/DataStructure/binary_indexed_tree.cpp.html">DataStructure/binary_indexed_tree.cpp</a>
+* :heavy_check_mark: <a href="library/DataStructure/potentialized_unionfind.cpp.html">DataStructure/potentialized_unionfind.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/queue_aggression.cpp.html">DataStructure/queue_aggression.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree_lazy.cpp.html">DataStructure/segment_tree_lazy.cpp</a>
@@ -128,6 +129,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/AOJ_ALDS1_11_C.test.cpp.html">tests/AOJ_ALDS1_11_C.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DPL_1_D.test.cpp.html">tests/AOJ_DPL_1_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DPL_4_B.test.cpp.html">tests/AOJ_DPL_4_B.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/AOJ_DSL_1_B.test.cpp.html">tests/AOJ_DSL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DSL_2_A.test.cpp.html">tests/AOJ_DSL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DSL_2_B.test.cpp.html">tests/AOJ_DSL_2_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DSL_2_G.test.cpp.html">tests/AOJ_DSL_2_G.test.cpp</a>

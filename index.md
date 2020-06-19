@@ -47,6 +47,7 @@ layout: default
 ### DataStructure
 
 * :heavy_check_mark: <a href="library/DataStructure/binary_indexed_tree.cpp.html">DataStructure/binary_indexed_tree.cpp</a>
+* :heavy_check_mark: <a href="library/DataStructure/queue_aggression.cpp.html">DataStructure/queue_aggression.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree_basic.cpp.html">DataStructure/segment_tree_basic.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree_lazy.cpp.html">DataStructure/segment_tree_lazy.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/sparce_table.cpp.html">DataStructure/sparce_table.cpp</a>
@@ -142,6 +143,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/yj_number_of_substrings.test.cpp.html">tests/yj_number_of_substrings.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_add_range_sum.test.cpp.html">tests/yj_point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_point_set_range_composite.test.cpp.html">tests/yj_point_set_range_composite.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/yj_queue_operate_all_composite.test.cpp.html">tests/yj_queue_operate_all_composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_range_affine_range_sum.test.cpp.html">tests/yj_range_affine_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_shortest_path.test.cpp.html">tests/yj_shortest_path.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/yj_static_range_sum.test.cpp.html">tests/yj_static_range_sum.test.cpp</a>

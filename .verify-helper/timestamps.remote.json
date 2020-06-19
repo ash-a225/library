@@ -19,6 +19,7 @@
 "tests/yj_number_of_substrings.test.cpp": "2020-06-13 16:11:24 +0900",
 "tests/yj_point_add_range_sum.test.cpp": "2020-06-13 16:11:24 +0900",
 "tests/yj_point_set_range_composite.test.cpp": "2020-06-13 16:11:24 +0900",
+"tests/yj_queue_operate_all_composite.test.cpp": "2020-06-19 12:15:37 +0900",
 "tests/yj_range_affine_range_sum.test.cpp": "2020-06-13 16:11:24 +0900",
 "tests/yj_shortest_path.test.cpp": "2020-05-24 18:53:15 +0900",
 "tests/yj_static_range_sum.test.cpp": "2020-06-13 16:11:24 +0900",

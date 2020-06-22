@@ -115,7 +115,7 @@ layout: default
 
 ### String
 
-* :warning: <a href="library/String/smallest_index_of_char.cpp.html">String/smallest_index_of_char.cpp</a>
+* :heavy_check_mark: <a href="library/String/smallest_index_of_char.cpp.html">String/smallest_index_of_char.cpp</a>
 * :heavy_check_mark: <a href="library/String/suffix_array.cpp.html">String/suffix_array.cpp</a>
 * :heavy_check_mark: <a href="library/String/suffix_array_lcp.cpp.html">String/suffix_array_lcp.cpp</a>
 * :heavy_check_mark: <a href="library/String/z_algorithm.cpp.html">String/z_algorithm.cpp</a>
@@ -126,6 +126,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/AOJ_0233.test.cpp.html">tests/AOJ_0233.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_0560.test.cpp.html">tests/AOJ_0560.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_1595.test.cpp.html">tests/AOJ_1595.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/AOJ_2895.test.cpp.html">tests/AOJ_2895.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_ALDS1_11_C.test.cpp.html">tests/AOJ_ALDS1_11_C.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DPL_1_D.test.cpp.html">tests/AOJ_DPL_1_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DPL_4_B.test.cpp.html">tests/AOJ_DPL_4_B.test.cpp</a>

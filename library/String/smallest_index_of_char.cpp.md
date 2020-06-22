@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: String/smallest_index_of_char.cpp
+# :heavy_check_mark: String/smallest_index_of_char.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/smallest_index_of_char.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-24 18:53:15+09:00
+    - Last commit date: 2020-06-22 18:03:00+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/tests/AOJ_2895.test.cpp.html">tests/AOJ_2895.test.cpp</a>
 
 
 ## Code
@@ -41,19 +46,20 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-//sのi番目以降でcが最初に登場するインデックスを返す。名前は適当。
+//sのi番目以降でcが最初に登場するindex
 struct SmallestIndex {
   vector<vector<int> > index;
   SmallestIndex(const string &s) {
-    index.assign(s.length(),vector<int>('z'-'a'+1,-1));
+    int n = s.length();
+    index.assign(n, vector<int>('z'-'a'+1, n));
     string words = s; //sの文字
     sort(all(words));
     words.erase(unique(all(words)),words.end());
-    for (int i = (int)s.size()-1; i >= 0; --i) {
+    for (int i = n-1; i >= 0; --i) {
       for (auto x : words) {
         int ind = x - 'a';
         if (s[i] == x) index[i][ind] = i; //update
-        else if (i < (int)s.size()-1) {
+        else if (i < n-1) {
           index[i][ind] = index[i+1][ind];
         }
       }
@@ -71,19 +77,20 @@ struct SmallestIndex {
 {% raw %}
 ```cpp
 #line 1 "String/smallest_index_of_char.cpp"
-//sのi番目以降でcが最初に登場するインデックスを返す。名前は適当。
+//sのi番目以降でcが最初に登場するindex
 struct SmallestIndex {
   vector<vector<int> > index;
   SmallestIndex(const string &s) {
-    index.assign(s.length(),vector<int>('z'-'a'+1,-1));
+    int n = s.length();
+    index.assign(n, vector<int>('z'-'a'+1, n));
     string words = s; //sの文字
     sort(all(words));
     words.erase(unique(all(words)),words.end());
-    for (int i = (int)s.size()-1; i >= 0; --i) {
+    for (int i = n-1; i >= 0; --i) {
       for (auto x : words) {
         int ind = x - 'a';
         if (s[i] == x) index[i][ind] = i; //update
-        else if (i < (int)s.size()-1) {
+        else if (i < n-1) {
           index[i][ind] = index[i+1][ind];
         }
       }

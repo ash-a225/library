@@ -1,16 +1,17 @@
-//sのi番目以降でcが最初に登場するインデックスを返す。名前は適当。
+//sのi番目以降でcが最初に登場するindex
 struct SmallestIndex {
   vector<vector<int> > index;
   SmallestIndex(const string &s) {
-    index.assign(s.length(),vector<int>('z'-'a'+1,-1));
+    int n = s.length();
+    index.assign(n, vector<int>('z'-'a'+1, n));
     string words = s; //sの文字
     sort(all(words));
     words.erase(unique(all(words)),words.end());
-    for (int i = (int)s.size()-1; i >= 0; --i) {
+    for (int i = n-1; i >= 0; --i) {
       for (auto x : words) {
         int ind = x - 'a';
         if (s[i] == x) index[i][ind] = i; //update
-        else if (i < (int)s.size()-1) {
+        else if (i < n-1) {
           index[i][ind] = index[i+1][ind];
         }
       }

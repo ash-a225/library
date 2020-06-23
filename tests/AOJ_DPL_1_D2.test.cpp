@@ -1,3 +1,4 @@
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D&lang=ja"
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;

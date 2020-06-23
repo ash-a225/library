@@ -25,20 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: tests/AOJ_DPL_1_D2.test.cpp
+# :heavy_check_mark: tests/AOJ_DPL_1_D2.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_DPL_1_D2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-23 21:51:46+09:00
+    - Last commit date: 2020-06-23 22:04:00+09:00
 
 
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D&lang=ja">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D&lang=ja</a>
 
 
 ## Depends on
 
-* :x: <a href="../../library/DP/lis.cpp.html">DP/lis.cpp</a>
+* :heavy_check_mark: <a href="../../library/DP/lis.cpp.html">DP/lis.cpp</a>
 
 
 ## Code
@@ -46,6 +47,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D&lang=ja"
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
@@ -72,6 +74,7 @@ int main() {
 {% raw %}
 ```cpp
 #line 1 "tests/AOJ_DPL_1_D2.test.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D&lang=ja"
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
@@ -92,7 +95,7 @@ int LIS(const vector<T> &a, bool strict = true) {
   int len = lower_bound(dp.begin(), dp.end(), numeric_limits<T>::max()/2) - dp.begin();
   return len;
 }
-#line 11 "tests/AOJ_DPL_1_D2.test.cpp"
+#line 12 "tests/AOJ_DPL_1_D2.test.cpp"
 
 int main() {
   int n;

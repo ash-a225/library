@@ -11,3 +11,4 @@ vector<T> rekkyo(vector<T> item) {
   }
   return a;
 }
+// O(2^n)で全列挙

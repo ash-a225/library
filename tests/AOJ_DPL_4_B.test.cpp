@@ -8,18 +8,8 @@ using P = pair<int,int>;
 template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
+#include "Other/item_t.cpp"
 #include "Other/rekkyo.cpp"
-
-struct item_t {
-  ll w, v;
-  item_t(ll w, ll v):w(w),v(v){}
-  item_t():w(0),v(0){}
-  void operator+=(const item_t &r) {
-    w += r.w;
-    v += r.v;
-  }
-  bool operator<(const item_t &r) const { return w < r.w; }
-};
 
 int main() {
   std::cin.tie(nullptr);

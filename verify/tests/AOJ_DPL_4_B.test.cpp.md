@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/AOJ_DPL_4_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-17 15:23:41+09:00
+    - Last commit date: 2020-06-24 13:32:51+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_4_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_4_B</a>
@@ -39,6 +39,7 @@ layout: default
 
 ## Depends on
 
+* :heavy_check_mark: <a href="../../library/Other/item_t.cpp.html">Other/item_t.cpp</a>
 * :heavy_check_mark: <a href="../../library/Other/rekkyo.cpp.html">Other/rekkyo.cpp</a>
 
 
@@ -57,18 +58,8 @@ using P = pair<int,int>;
 template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
+#include "Other/item_t.cpp"
 #include "Other/rekkyo.cpp"
-
-struct item_t {
-  ll w, v;
-  item_t(ll w, ll v):w(w),v(v){}
-  item_t():w(0),v(0){}
-  void operator+=(const item_t &r) {
-    w += r.w;
-    v += r.v;
-  }
-  bool operator<(const item_t &r) const { return w < r.w; }
-};
 
 int main() {
   std::cin.tie(nullptr);
@@ -118,6 +109,17 @@ using P = pair<int,int>;
 template <class T> void chmin(T &a, const T &b) noexcept { if (b < a) a = b; }
 template <class T> void chmax(T &a, const T &b) noexcept { if (a < b) a = b; }
 
+#line 1 "Other/item_t.cpp"
+struct item_t {
+  ll w, v;
+  item_t(ll w, ll v):w(w),v(v){}
+  item_t():w(0),v(0){}
+  void operator+=(const item_t &r) {
+    w += r.w;
+    v += r.v;
+  }
+  bool operator<(const item_t &r) const { return w < r.w; }
+};
 #line 1 "Other/rekkyo.cpp"
 template<class T>
 vector<T> rekkyo(vector<T> item) {
@@ -132,18 +134,8 @@ vector<T> rekkyo(vector<T> item) {
   }
   return a;
 }
-#line 12 "tests/AOJ_DPL_4_B.test.cpp"
-
-struct item_t {
-  ll w, v;
-  item_t(ll w, ll v):w(w),v(v){}
-  item_t():w(0),v(0){}
-  void operator+=(const item_t &r) {
-    w += r.w;
-    v += r.v;
-  }
-  bool operator<(const item_t &r) const { return w < r.w; }
-};
+// O(2^n)で全列挙
+#line 13 "tests/AOJ_DPL_4_B.test.cpp"
 
 int main() {
   std::cin.tie(nullptr);

@@ -109,6 +109,7 @@ layout: default
 ### Other
 
 * :heavy_check_mark: <a href="library/Other/cumulative_sum2d.cpp.html">Other/cumulative_sum2d.cpp</a>
+* :heavy_check_mark: <a href="library/Other/item_t.cpp.html">Other/item_t.cpp</a>
 * :heavy_check_mark: <a href="library/Other/rekkyo.cpp.html">Other/rekkyo.cpp</a>
 
 
@@ -131,6 +132,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/tests/AOJ_ALDS1_11_C.test.cpp.html">tests/AOJ_ALDS1_11_C.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DPL_1_D.test.cpp.html">tests/AOJ_DPL_1_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DPL_1_D2.test.cpp.html">tests/AOJ_DPL_1_D2.test.cpp</a>
+* :heavy_check_mark: <a href="verify/tests/AOJ_DPL_1_H.test.cpp.html">tests/AOJ_DPL_1_H.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DPL_4_B.test.cpp.html">tests/AOJ_DPL_4_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DSL_1_B.test.cpp.html">tests/AOJ_DSL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/tests/AOJ_DSL_2_A.test.cpp.html">tests/AOJ_DSL_2_A.test.cpp</a>

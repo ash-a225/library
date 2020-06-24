@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Other/rekkyo.cpp
+# :heavy_check_mark: Other/item_t.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#6311ae17c1ee52b36e68aaf4ad066387">Other</a>
-* <a href="{{ site.github.repository_url }}/blob/master/Other/rekkyo.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/Other/item_t.cpp">View this file on GitHub</a>
     - Last commit date: 2020-06-24 13:32:51+09:00
 
 
@@ -47,41 +47,33 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template<class T>
-vector<T> rekkyo(vector<T> item) {
-  vector<T> a(1);
-  for (auto i : item) {
-    vector<T> b = a, c;
-    for (auto &e : b) {
-      e += i;
-    }
-    std::merge(a.begin(), a.end(), b.begin(), b.end(), std::back_inserter(c));
-    std::swap(a,c);
+struct item_t {
+  ll w, v;
+  item_t(ll w, ll v):w(w),v(v){}
+  item_t():w(0),v(0){}
+  void operator+=(const item_t &r) {
+    w += r.w;
+    v += r.v;
   }
-  return a;
-}
-// O(2^n)で全列挙
+  bool operator<(const item_t &r) const { return w < r.w; }
+};
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "Other/rekkyo.cpp"
-template<class T>
-vector<T> rekkyo(vector<T> item) {
-  vector<T> a(1);
-  for (auto i : item) {
-    vector<T> b = a, c;
-    for (auto &e : b) {
-      e += i;
-    }
-    std::merge(a.begin(), a.end(), b.begin(), b.end(), std::back_inserter(c));
-    std::swap(a,c);
+#line 1 "Other/item_t.cpp"
+struct item_t {
+  ll w, v;
+  item_t(ll w, ll v):w(w),v(v){}
+  item_t():w(0),v(0){}
+  void operator+=(const item_t &r) {
+    w += r.w;
+    v += r.v;
   }
-  return a;
-}
-// O(2^n)で全列挙
+  bool operator<(const item_t &r) const { return w < r.w; }
+};
 
 ```
 {% endraw %}

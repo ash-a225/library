@@ -1,17 +1,15 @@
-/*
-https://ei1333.github.io/library/library/math/matrix/matrix.cpp.html
-*/
-template<typename E>
-struct Matrix {
+template<typename E> struct Matrix {
   vector<vector<E> > A;
   Matrix() {}
   Matrix(int n, int m):A(n,vector<E>(m,0)) {}
   Matrix(int n):A(n,vector<E>(n,0)) {}
+
   int height() const { return A.size();}
   int width() const { return A[0].size();}
   vector<E>& operator[](int k){ return A.at(k);}
   const vector<E>& operator[](int k) const { return A.at(k);}
-  Matrix I(int n) {
+
+  static Matrix I(int n) {
     Matrix mat(n);
     for (int i = 0; i < n; ++i) mat[i][i] = 1;
     return mat;
@@ -19,9 +17,12 @@ struct Matrix {
   Matrix T() {
     int n = height(), m = width();
     vector<vector<E> > B = A;
-    for (int i = 0; i < n; ++i) for (int j = 0; j < m; ++j) swap(B[i][j],B[j][i]);
+    for (int i = 0; i < n; ++i) 
+      for (int j = 0; j < m; ++j) 
+        std::swap(B[i][j],B[j][i]);
     return B;
   }
+
   Matrix& operator+=(const Matrix B) {
     int n = height(), m = width();
     assert(n == B.height() && m == B.width());
@@ -45,19 +46,23 @@ struct Matrix {
         }
       }
     }
-    swap(A,res);
+    std::swap(A, res);
     return *this;
   }
   Matrix operator+(const Matrix B) const { return Matrix(*this) += B;}
   Matrix operator-(const Matrix B) const { return Matrix(*this) -= B;}
   Matrix operator*(const Matrix B) const { return Matrix(*this) *= B;}
+  bool operator==(const Matrix rhs) const { return A == rhs.A; }
+  bool operator!=(const Matrix rhs) const { return A != rhs.A; }
+
   Matrix pow(ll t) const {
-    if (!t) return 1;
+    if (!t) return Matrix::I(height());
     Matrix a = pow(t>>1);
     a *= a;
     if (t&1) a *= *this;
     return a;
   }
+
   E determinant() {
     assert(width() == height());
     Matrix B(*this);
@@ -70,7 +75,7 @@ struct Matrix {
       }
       if(idx == -1) return 0;
       if(i != idx) {
-        swap(B[i], B[idx]);
+        std::swap(B[i], B[idx]);
         res *= -1;
       }
       res *= B[i][i];
@@ -87,6 +92,16 @@ struct Matrix {
     }
     return res;
   }
-  bool operator==(const Matrix rhs) const { return A == rhs.A; }
-  bool operator!=(const Matrix rhs) const { return A != rhs.A; }
+
+  void print() {
+    #ifdef _DEBUG
+      for (int i = 0; i < height(); ++i) {
+        for (int j = 0; j < width(); ++j) {
+          if (j) std::cout << " ";
+          std::cout << A[i][j];
+        }
+        std::cout << endl;
+      }
+    #endif
+  }
 };

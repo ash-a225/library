@@ -9,29 +9,29 @@ struct Edge {
   bool operator<(const Edge &e) const{ return cost<e.cost;};
 };
 
-template<typename T>
-struct Kruskal {
-  private:
-    T sum;
-    vector<Edge<T> > edges;
-    UnionFind uf;
-    vector<bool> used;
-  public:
-    Kruskal(int n, const vector<Edge<T> > &edges_):edges(edges_),uf(n){
-      sum = 0;
-      used.assign((int)edges.size(),false);
-      sort(edges.begin(),edges.end());
-      for (auto &e : edges) {
-        if (!uf.same(e.u,e.v)) { //circleなし
-          uf.unite(e.u,e.v);
-          sum += e.cost;
-          used[e.id] = true;
-        }
+template<typename T> struct Kruskal {
+private:
+  T sum;
+  vector<Edge<T> > edges;
+  UnionFind uf;
+  vector<bool> used;
+  
+public:
+  Kruskal(int n, const vector<Edge<T> > &edges_):edges(edges_),uf(n){
+    sum = 0;
+    used.assign((int)edges.size(),false);
+    sort(edges.begin(),edges.end());
+    for (auto &e : edges) {
+      if (!uf.same(e.u,e.v)) { //circleなし
+        uf.unite(e.u,e.v);
+        sum += e.cost;
+        used[e.id] = true;
       }
     }
-    T get_sum(){ return sum;}
-    bool is_used(int id){ 
-      assert(id < (int)edges.size());
-      return used[id];
-    }
+  }
+  T get_sum(){ return sum;}
+  bool is_used(int id){ 
+    assert(id < (int)edges.size());
+    return used[id];
+  }
 };

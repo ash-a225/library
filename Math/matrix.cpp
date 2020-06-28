@@ -93,7 +93,7 @@ template<typename E> struct Matrix {
     return res;
   }
 
-  void print() {
+  inline void print() {
     #ifdef _DEBUG
       for (int i = 0; i < height(); ++i) {
         for (int j = 0; j < width(); ++j) {

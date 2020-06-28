@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/matrix.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-25 12:38:37+09:00
+    - Last commit date: 2020-06-28 15:37:03+09:00
 
 
 
@@ -141,7 +141,7 @@ template<typename E> struct Matrix {
     return res;
   }
 
-  void print() {
+  inline void print() {
     #ifdef _DEBUG
       for (int i = 0; i < height(); ++i) {
         for (int j = 0; j < width(); ++j) {
@@ -255,7 +255,7 @@ template<typename E> struct Matrix {
     return res;
   }
 
-  void print() {
+  inline void print() {
     #ifdef _DEBUG
       for (int i = 0; i < height(); ++i) {
         for (int j = 0; j < width(); ++j) {

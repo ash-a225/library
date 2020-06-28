@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/combination.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-13 12:50:58+09:00
+    - Last commit date: 2020-06-28 15:37:03+09:00
 
 
 
@@ -46,18 +46,27 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template<typename ModInt> struct combination {
+template<typename ModInt> struct Combination {
   vector<ModInt> fact, ifact;
-  combination(int n):fact(n+1),ifact(n+1) {
+  Combination(int n):fact(n+1),ifact(n+1) {
     fact[0] = 1;
     for (int i = 1; i <= n; ++i) fact[i] = fact[i-1]*i;
     ifact[n] = fact[n].inv();
     for (int i = n; i >= 1; --i) ifact[i-1] = ifact[i]*i;
   }
-  ModInt operator()(int n, int k) {
-    if (k < 0 || k > n) return 0;
+  ModInt C(int n, int k) {
+    if (k < 0 || n < k) return 0;
     return fact[n]*ifact[k]*ifact[n-k];
   }
+  ModInt P(int n, int r) {
+    if (r < 0 || n < r) return 0;
+    return fact[n]*ifact[n-k];
+  }
+  ModInt H(int n, int r) {
+    if (r < 0 || n < 0) return 0;
+    return r == 0 ? 1 : C(n+r-1, r);
+  }
+  ModInt operator()(int n, int k) { return C(n, k);}
 };
 ```
 {% endraw %}
@@ -66,18 +75,27 @@ template<typename ModInt> struct combination {
 {% raw %}
 ```cpp
 #line 1 "Math/combination.cpp"
-template<typename ModInt> struct combination {
+template<typename ModInt> struct Combination {
   vector<ModInt> fact, ifact;
-  combination(int n):fact(n+1),ifact(n+1) {
+  Combination(int n):fact(n+1),ifact(n+1) {
     fact[0] = 1;
     for (int i = 1; i <= n; ++i) fact[i] = fact[i-1]*i;
     ifact[n] = fact[n].inv();
     for (int i = n; i >= 1; --i) ifact[i-1] = ifact[i]*i;
   }
-  ModInt operator()(int n, int k) {
-    if (k < 0 || k > n) return 0;
+  ModInt C(int n, int k) {
+    if (k < 0 || n < k) return 0;
     return fact[n]*ifact[k]*ifact[n-k];
   }
+  ModInt P(int n, int r) {
+    if (r < 0 || n < r) return 0;
+    return fact[n]*ifact[n-k];
+  }
+  ModInt H(int n, int r) {
+    if (r < 0 || n < 0) return 0;
+    return r == 0 ? 1 : C(n+r-1, r);
+  }
+  ModInt operator()(int n, int k) { return C(n, k);}
 };
 
 ```

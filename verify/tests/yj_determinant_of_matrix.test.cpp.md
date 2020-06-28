@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b61a6d542f9036550ba9c401c80f00ef">tests</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tests/yj_determinant_of_matrix.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-25 12:38:37+09:00
+    - Last commit date: 2020-06-28 15:37:03+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/matrix_det">https://judge.yosupo.jp/problem/matrix_det</a>
@@ -225,7 +225,7 @@ template<typename E> struct Matrix {
     return res;
   }
 
-  void print() {
+  inline void print() {
     #ifdef _DEBUG
       for (int i = 0; i < height(); ++i) {
         for (int j = 0; j < width(); ++j) {

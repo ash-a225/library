@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/interpolation.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-28 15:37:03+09:00
+    - Last commit date: 2020-06-28 18:17:14+09:00
 
 
 
@@ -85,7 +85,7 @@ template<typename ModInt> struct Combination {
   }
   ModInt P(int n, int r) {
     if (r < 0 || n < r) return 0;
-    return fact[n]*ifact[n-k];
+    return fact[n]*ifact[n-r];
   }
   ModInt H(int n, int r) {
     if (r < 0 || n < 0) return 0;

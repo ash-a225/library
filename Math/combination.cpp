@@ -12,7 +12,7 @@ template<typename ModInt> struct Combination {
   }
   ModInt P(int n, int r) {
     if (r < 0 || n < r) return 0;
-    return fact[n]*ifact[n-k];
+    return fact[n]*ifact[n-r];
   }
   ModInt H(int n, int r) {
     if (r < 0 || n < 0) return 0;

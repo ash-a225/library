@@ -7,16 +7,16 @@ template<typename ModInt> struct Combination {
     for (int i = n; i >= 1; --i) ifact[i-1] = ifact[i]*i;
   }
   ModInt C(int n, int k) {
-    if (k < 0 || n < k) return 0;
+    if (k < 0 || n < k) return Modint(0);
     return fact[n]*ifact[k]*ifact[n-k];
   }
   ModInt P(int n, int r) {
-    if (r < 0 || n < r) return 0;
+    if (r < 0 || n < r) return Modint(0);
     return fact[n]*ifact[n-r];
   }
   ModInt H(int n, int r) {
-    if (r < 0 || n < 0) return 0;
-    return r == 0 ? 1 : C(n+r-1, r);
+    if (r < 0 || n < 0) return Modint(0);
+    return r == 0 ? Modint(1) : C(n+r-1, r);
   }
   ModInt operator()(int n, int k) { return C(n, k);}
 };
